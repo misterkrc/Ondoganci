@@ -1,2 +1,0 @@
-# opensrp-android
-
