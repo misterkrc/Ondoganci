@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.smartregister.path">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name=".application.VaccinatorApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher">
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/PathAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ChildSmartRegisterActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBarAndTitle" />
+        <activity
+            android:name=".activity.ChildDetailTabbedActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBarAndTitleWithEditButton" />
+        <activity
+            android:name="com.vijay.jsonwizard.activities.JsonFormActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".activity.PathJsonFormActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+
+        <receiver android:name=".receiver.Hia2ServiceBroadcastReceiver" />
+        <receiver android:name=".receiver.VaccinatorAlarmReceiver" />
+        <receiver android:name=".receiver.CoverageDropoutBroadcastReceiver" />
+        <receiver android:name=".receiver.OnBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ChildImmunizationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar" />
+        <activity
+            android:name=".activity.HIA2ReportsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar" />
+        <activity
+            android:name=".activity.ReportSummaryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar" />
+        <activity
+            android:name=".activity.PathStockActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="3f94f9c3caeff331b3a2bd8c2182b663ad6a955a" />
+
+        <service android:name=".service.intent.SyncIntentService" />
+        <service android:name=".service.intent.ExtendedSyncIntentService" />
+        <service android:name=".service.intent.path.PathStockSyncIntentService" />
+        <service android:name=".service.intent.ValidateIntentService" />
+        <service android:name=".service.intent.path.PathZScoreRefreshIntentService" />
+
+        <service android:name=".service.intent.HIA2IntentService" />
+        <service android:name=".service.intent.path.PathImageUploadSyncService" />
+        <service android:name=".service.intent.path.PathWeightIntentService" />
+        <service android:name=".service.intent.path.PathVaccineIntentService" />
+        <service android:name=".service.intent.path.PathRecurringIntentService" />
+        <service android:name=".service.intent.PullUniqueIdsIntentService" />
+        <service android:name=".service.intent.CoverageDropoutIntentService" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/captured_images_path" />
+        </provider>
+
+        <activity
+            android:name="org.smartregister.stock.activity.StockControlActivity"
+            android:label="@string/title_activity_stock_control"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar" />
+        <activity
+            android:name="org.smartregister.stock.activity.StockJsonFormActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+
+        <activity
+            android:name=".activity.CoverageReportsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar" />
+        <activity
+            android:name=".activity.DropoutReportsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar" />
+        <activity
+            android:name=".activity.CohortCoverageReportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar" />
+        <activity
+            android:name=".activity.AnnualCoverageReportCsoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".activity.AnnualCoverageReportZeirActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar" />
+        <activity
+            android:name=".activity.FacilityCumulativeCoverageReportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar" />
+        <activity
+            android:name=".activity.BcgMeaslesCumulativeDropoutReportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar" />
+        <activity
+            android:name=".activity.PentaCumulativeDropoutReportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar" />
+        <activity
+            android:name=".activity.MeaslesCumulativeDropoutReportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar" />
+        <activity
+            android:name=".activity.BcgMeaslesCohortDropoutReportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar" />
+        <activity
+            android:name=".activity.PentaCohortDropoutReportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTitle.NoActionBar" />
+
+    </application>
+
+</manifest>
