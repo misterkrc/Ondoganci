@@ -29,7 +29,7 @@ import util.Utils;
 /**
  * Created by keyman on 21/12/17.
  */
-public class AnnualCoverageReportZeirActivity extends BaseReportActivity {
+public class AnnualCoverageReportOndoganciActivity extends BaseReportActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class AnnualCoverageReportZeirActivity extends BaseReportActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AnnualCoverageReportZeirActivity.this, CoverageReportsActivity.class);
+                Intent intent = new Intent(AnnualCoverageReportOndoganciActivity.this, CoverageReportsActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();

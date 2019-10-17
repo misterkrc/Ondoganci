@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".activity.AnnualCoverageReportZeirActivity">
+    tools:context=".activity.AnnualCoverageReportOndoganciActivity">
 
     <include layout="@layout/toolbar_annual_coverage_report_zeir" />
 
