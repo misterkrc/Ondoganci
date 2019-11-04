@@ -64,7 +64,7 @@ public class CoverageReportsActivity extends BaseActivity {
                         startActivity(intent);
                         break;
                     case 2:
-                        intent = new Intent(CoverageReportsActivity.this, AnnualCoverageReportOndoganciActivity.class);
+                        intent = new Intent(CoverageReportsActivity.this, AnnualCoverageReportOndoGanciActivity.class);
                         startActivity(intent);
                         break;
                     default:
