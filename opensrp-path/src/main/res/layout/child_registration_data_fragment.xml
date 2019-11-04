@@ -64,7 +64,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             style="@style/CustomFontTextViewStyle.ClientList.Light"
                             android:textColor="@color/dark_grey"
-                            android:text="Child's ZEIR ID"
+                            android:text="Child's ONDOGANCI ID"
                             android:layout_weight="1"/>
 
                         <org.smartregister.view.customcontrols.CustomFontTextView
@@ -73,7 +73,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             style="@style/CustomFontTextViewStyle.ClientList"
                             android:text=""
-                            android:id="@+id/value_childs_zeir_id"
+                            android:id="@+id/value_childs_ondoganci_id"
                             android:layout_weight="1"
                             android:textColor="@color/text_black" />
                     </TableRow>
