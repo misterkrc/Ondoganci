@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     tools:context=".activity.AnnualCoverageReportOndoGanciActivity">
 
-    <include layout="@layout/toolbar_annual_coverage_report_zeir" />
+    <include layout="@layout/toolbar_annual_coverage_report_ondo" />
 
     <FrameLayout
         android:id="@+id/frameLayout"

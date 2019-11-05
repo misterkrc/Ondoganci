@@ -20,6 +20,7 @@ import java.util.List;
 
 /**
  * Created by keyman on 18/12/17.
+ * Edited by Emmanuel Success on 05/11/19
  */
 public class CoverageReportsActivity extends BaseActivity {
 
@@ -33,7 +34,7 @@ public class CoverageReportsActivity extends BaseActivity {
         LocationSwitcherToolbar toolbar = (LocationSwitcherToolbar) getToolbar();
         toolbar.setTitle(getString(R.string.side_nav_coverage));
 
-        TextView initialsTV = (TextView) findViewById(R.id.name_inits);
+        TextView initialsTV = findViewById(R.id.name_inits);
         initialsTV.setText(getLoggedInUserInitials());
         initialsTV.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,12 +43,12 @@ public class CoverageReportsActivity extends BaseActivity {
             }
         });
 
-        ListView listView = (ListView) findViewById(R.id.list_view);
+        ListView listView = findViewById(R.id.list_view);
 
         List<String> list = new ArrayList<>();
         list.add(getString(R.string.cohort_coverage_report));
         list.add(getString(R.string.annual_coverage_report_cso));
-        list.add(getString(R.string.annual_coverage_report_zeir));
+        list.add(getString(R.string.annual_coverage_report_ondo));
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(CoverageReportsActivity.this, R.layout.coverage_reports_item, R.id.tv, list);
         listView.setAdapter(arrayAdapter);
@@ -83,8 +84,8 @@ public class CoverageReportsActivity extends BaseActivity {
     @Override
     public void onResume() {
         super.onResume();
-        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        LinearLayout hia2 = (LinearLayout) drawer.findViewById(R.id.coverage_reports);
+        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        LinearLayout hia2 = drawer.findViewById(R.id.coverage_reports);
         hia2.setBackgroundColor(getResources().getColor(R.color.tintcolor));
     }
 
