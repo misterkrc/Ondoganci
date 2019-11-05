@@ -66,6 +66,7 @@ public class LocationHelper {
         if (Utils.isEmptyCollection(locationNames)) {
             locationNames = locationsFromHierarchy(false, defaultLocation);
         }
+       // Log.d(TAG, "locationNamesFromHierarchy: " + locationNames.toString());
         return locationNames;
     }
 
@@ -84,6 +85,7 @@ public class LocationHelper {
         } catch (Exception e) {
             Log.e(Utils.class.getCanonicalName(), Log.getStackTraceString(e));
         }
+      //  locations.add("8d6c993e-c2cc-11de-8d13-0010c6dffd0f");
         return locations;
     }
 
@@ -96,6 +98,7 @@ public class LocationHelper {
             }
 
         }
+//        Log.d(TAG, "getDefaultLocation: " + defaultLocation.toString());
         return defaultLocation;
     }
 
@@ -147,6 +150,7 @@ public class LocationHelper {
             Log.e(TAG, Log.getStackTraceString(e));
         }
 
+        Log.d(TAG, "getOpenMrsLocationName: " +response.toString());
         return response;
     }
 
