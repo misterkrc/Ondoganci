@@ -225,14 +225,14 @@
 
     <string name="cohort_coverage_report">Cohort Coverage Report</string>
     <string name="annual_coverage_report_cso">Annual Coverage Report - CSO</string>
-    <string name="annual_coverage_report_zeir">Annual Coverage Report - ZEIR</string>
+    <string name="annual_coverage_report_zeir">Annual Coverage Report - ONDOGANSI</string>
     <string name="facility_cumulative_coverage_report">Facility Cumulative Coverage Report</string>
 
     <string name="filter_cohort">Cohort: </string>
     <string name="filter_cohort_size">Cohort Size: </string>
     <string name="filter_year">Year: </string>
     <string name="filter_cso_target">CSO Target: </string>
-    <string name="filter_zeir_target">ZEIR Target: </string>
+    <string name="filter_zeir_target">ONDOGANSI Target: </string>
 
     <string name="coverage_vaccine_header">Vaccine</string>
     <string name="coverage_vaccinated_header">Vaccinated</string>
