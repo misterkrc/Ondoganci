@@ -298,12 +298,25 @@
         }
       },
       {
-        "key": "Guardian_Number",
+        "key": "CHW_Name",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "159635AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "CHW_Name",
         "type": "edit_text",
-        "hint": "guardian phone number",
+        "hint": "Caregiver Name",
+        "edit_type": "name",
+        "v_regex": {
+          "value": "[A-Za-z\\s\.\-]*",
+          "err": "Please enter a valid name"
+        }
+      },
+      {
+        "key": "CHW_Phone_Number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "CHW_Phone_Number",
+        "type": "edit_text",
+        "hint": "Caregiver phone number",
         "v_numeric": {
           "value": "true",
           "err": "Number must begin with 070, 080, or 081 and must be a total of 11 digits in length"
