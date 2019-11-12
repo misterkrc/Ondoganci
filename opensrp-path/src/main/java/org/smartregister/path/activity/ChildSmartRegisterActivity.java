@@ -19,6 +19,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.adapter.SmartRegisterPaginatedAdapter;
 import org.smartregister.domain.FetchStatus;
@@ -46,6 +48,7 @@ import util.barcode.BarcodeIntentIntegrator;
 import util.barcode.BarcodeIntentResult;
 
 import static android.view.inputmethod.InputMethodManager.HIDE_NOT_ALWAYS;
+import static org.smartregister.util.Utils.getValue;
 
 /**
  * Created by Ahmed on 13-Oct-15.
@@ -85,6 +88,12 @@ public class ChildSmartRegisterActivity extends BaseRegisterActivity {
                 currentPage = position;
             }
         });
+
+
+
+
+        
+
 
         initializeProgressDialog();
     }
