@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: org.smartregister:opensrp-client-immunization:1.4.2-SNAPSHOT@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d9f2b0717f48469d60dcda0102fc32a2/opensrp-client-immunization-1.4.2-SNAPSHOT/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d9f2b0717f48469d60dcda0102fc32a2/opensrp-client-immunization-1.4.2-SNAPSHOT/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/182fc55e06890efc01c05e4354f59bc5/opensrp-client-immunization-1.4.2-SNAPSHOT/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/182fc55e06890efc01c05e4354f59bc5/opensrp-client-immunization-1.4.2-SNAPSHOT/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.smartregister/opensrp-client-immunization/1.4.2-SNAPSHOT/c1225eb1ca6d61a94172a30b9e16ea5bff21686b/opensrp-client-immunization-1.4.2-SNAPSHOT-javadoc.jar!/" />
