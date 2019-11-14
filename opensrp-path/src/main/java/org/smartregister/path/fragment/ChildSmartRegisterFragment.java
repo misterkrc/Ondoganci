@@ -1,5 +1,6 @@
 package org.smartregister.path.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.os.AsyncTask;
@@ -378,10 +379,10 @@ public class ChildSmartRegisterFragment extends BaseSmartRegisterFragment implem
     }
 
     private void populateClientListHeaderView(View view) {
-        LinearLayout clientsHeaderLayout = view.findViewById(org.smartregister.R.id.clients_header_layout);
+        LinearLayout clientsHeaderLayout = view.findViewById(R.id.clients_header_layout);
         clientsHeaderLayout.setVisibility(View.GONE);
 
-        LinearLayout headerLayout = (LinearLayout) getLayoutInflater(null).inflate(R.layout.smart_register_child_header, null);
+        @SuppressLint("RestrictedApi") LinearLayout headerLayout = (LinearLayout) getLayoutInflater(null).inflate(R.layout.smart_register_child_header, null);
         clientsView.addHeaderView(headerLayout);
         clientsView.setEmptyView(getActivity().findViewById(R.id.empty_view));
 

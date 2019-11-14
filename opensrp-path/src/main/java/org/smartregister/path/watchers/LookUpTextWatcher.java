@@ -4,13 +4,13 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 
-import com.vijay.jsonwizard.R;
 import com.vijay.jsonwizard.fragments.JsonFormFragment;
 
 import org.apache.commons.lang3.StringUtils;
 import org.smartregister.Context;
 import org.smartregister.commonregistry.CommonPersonObject;
 import org.smartregister.event.Listener;
+import org.smartregister.path.R;
 import org.smartregister.path.domain.EntityLookUp;
 import org.smartregister.path.fragment.PathJsonFormFragment;
 

@@ -84,6 +84,8 @@ public class ChildRegistrationDataFragment extends Fragment {
             CustomFontTextView tvMotherDOB = fragmentView.findViewById(R.id.value_mother_guardian_dob);
             CustomFontTextView tvMotherNRCNo = fragmentView.findViewById(R.id.value_mother_guardian_nrc_number);
             CustomFontTextView tvMotherPhoneNumber = fragmentView.findViewById(R.id.value_mother_guardian_phone_number);
+            CustomFontTextView tvCaregiverName = fragmentView.findViewById(R.id.value_chw_name);
+            CustomFontTextView tvCaregiverNumber = fragmentView.findViewById(R.id.value_chw_phone_number);
             CustomFontTextView tvFatherFullName = fragmentView.findViewById(R.id.value_father_guardian_full_name);
             CustomFontTextView tvFatherNRCNo = fragmentView.findViewById(R.id.value_father_guardian_nrc_number);
             CustomFontTextView tvChildsPlaceOfBirth = fragmentView.findViewById(R.id.value_place_of_birth);
@@ -93,8 +95,7 @@ public class ChildRegistrationDataFragment extends Fragment {
             CustomFontTextView tvChildsOtherResidentialArea = fragmentView.findViewById(R.id.value_other_childs_residential_area);
             CustomFontTextView tvChildsHomeAddress = fragmentView.findViewById(R.id.value_home_address);
             CustomFontTextView tvLandmark = fragmentView.findViewById(R.id.value_landmark);
-//            CustomFontTextView tvChwName = fragmentView.findViewById(R.id.value_chw_name);
-//            CustomFontTextView tvChwPhoneNumber = fragmentView.findViewById(R.id.value_chw_phone_number);
+
 //            CustomFontTextView tvHivExposure = fragmentView.findViewById(R.id.value_hiv_exposure);
 
             TableRow tableRowChildsOtherBirthFacility = fragmentView.findViewById(R.id.tableRow_childRegDataFragment_childsOtherBirthFacility);
@@ -153,6 +154,8 @@ public class ChildRegistrationDataFragment extends Fragment {
             tvMotherDOB.setText(motherDobString);
             tvMotherNRCNo.setText(Utils.getValue(childDetails, "mother_nrc_number", true));
             tvMotherPhoneNumber.setText(Utils.getValue(detailsMap, "Mother_Guardian_Number", true));
+            tvCaregiverName.setText(Utils.getValue(detailsMap, "CHW_Name", true));
+            tvCaregiverNumber.setText(Utils.getValue(detailsMap, "CHW_Phone_Number", true));
             tvFatherFullName.setText(Utils.getValue(detailsMap, "Father_Guardian_Name", true));
             tvFatherNRCNo.setText(Utils.getValue(detailsMap, "Father_NRC_Number", true));
 
@@ -183,8 +186,6 @@ public class ChildRegistrationDataFragment extends Fragment {
 
             tvChildsHomeAddress.setText(Utils.getValue(detailsMap, "address2", true));
             tvLandmark.setText(Utils.getValue(detailsMap, "address1", true));
-            //tvChwName.setText(Utils.getValue(detailsMap, "CHW_Name", true));
-            //tvChwPhoneNumber.setText(Utils.getValue(detailsMap, "CHW_Phone_Number", true));
             //tvHivExposure.setText(Utils.getValue(childDetailsColumnMaps, "pmtct_status", true));
         }
     }
