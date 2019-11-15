@@ -107,7 +107,9 @@ public class DailyTalliesRepository extends BaseRepository {
                     cv.put(DailyTalliesRepository.COLUMN_DAY, StringUtils.isNotBlank(day) ? DAY_FORMAT.parse(day).getTime() : null);
                     cv.put(DailyTalliesRepository.COLUMN_UPDATED_AT, Calendar.getInstance().getTimeInMillis());
 
-                    database.insertWithOnConflict(TABLE_NAME, null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+                   // database.insert(TABLE_NAME,null,cv);
+
+                   database.insertWithOnConflict(TABLE_NAME, null, cv, SQLiteDatabase.CONFLICT_REPLACE);
                 }
             }
             database.setTransactionSuccessful();

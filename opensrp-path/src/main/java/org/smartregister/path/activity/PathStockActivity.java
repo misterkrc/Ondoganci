@@ -29,13 +29,13 @@ public class PathStockActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Toolbar toolbar = (Toolbar) findViewById(getToolbarId());
+        Toolbar toolbar = findViewById(getToolbarId());
         toolbar.setTitle(R.string.stock_title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
-        final DrawerLayout drawerLayout = (DrawerLayout) findViewById(getDrawerLayoutId());
-        TextView nameInitials = (TextView) findViewById(R.id.name_inits);
+        final DrawerLayout drawerLayout = findViewById(getDrawerLayoutId());
+        TextView nameInitials = findViewById(R.id.name_inits);
         nameInitials.setText(getLoggedInUserInitials());
         nameInitials.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +45,7 @@ public class PathStockActivity extends BaseActivity {
                 }
             }
         });
-        stockGrid = (GridView) findViewById(R.id.stockgrid);
+        stockGrid = findViewById(R.id.stockgrid);
     }
 
     private void refreshAdapter() {
