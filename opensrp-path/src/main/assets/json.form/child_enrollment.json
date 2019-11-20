@@ -200,7 +200,7 @@
         "openmrs_entity_id": "5916AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_data_type": "text",
         "type": "edit_text",
-        "hint": "Birth weight (kg) *",
+        "hint": "Birth Weight (kg) *",
         "v_min": {
           "value": "0.1",
           "err": "Weight must be greater than 0"
@@ -215,13 +215,55 @@
         }
       },
       {
+        "key": "Birth_Height",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "5916AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_data_type": "text",
+        "type": "edit_text",
+        "hint": "Birth Height (cm) *",
+        "v_min": {
+          "value": "0.1",
+          "err": "Height must be greater than 0"
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": "Enter a valid height"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Enter the child's birth height"
+        }
+      },
+      {
+        "key": "Birth_Head_Circumference",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "5916AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_data_type": "text",
+        "type": "edit_text",
+        "hint": "Birth Head Circumference *",
+        "v_min": {
+          "value": "0.1",
+          "err": "Weight must be greater than 0"
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": "Enter a head circumference"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Enter the child's head circumference"
+        }
+      },
+      {
         "key": "Mother_Guardian_First_Name",
         "openmrs_entity_parent": "",
         "openmrs_entity": "person",
         "openmrs_entity_id": "first_name",
         "entity_id": "mother",
         "type": "edit_text",
-        "hint": "Mother first name *",
+        "hint": "Mother First Name *",
         "edit_type": "name",
         "look_up": "true",
         "v_required": {
@@ -240,7 +282,7 @@
         "openmrs_entity_id": "last_name",
         "entity_id": "mother",
         "type": "edit_text",
-        "hint": "Mother last name *",
+        "hint": "Mother Last Name *",
         "edit_type": "name",
         "look_up": "true",
         "v_required": {
@@ -275,7 +317,7 @@
         "openmrs_entity_id": "NRC_Number",
         "entity_id": "mother",
         "type": "edit_text",
-        "hint": "Mother/guardian National Identity number",
+        "hint": "Mother/Guardian National Identity Number",
         "v_numeric": {
           "value": "true",
           "err": "Number must be from 0-9"
@@ -287,7 +329,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "159635AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "type": "edit_text",
-        "hint": "Mother/guardian phone number",
+        "hint": "Mother/Guardian Phone Number *",
         "v_numeric": {
           "value": "true",
           "err": "Number must begin with 070, 080, or 081 and must be a total of 11 digits in length"
@@ -295,6 +337,10 @@
         "v_regex": {
           "value": "(0[0-9]{2}[0-9]{8})|\s*",
           "err": "Number must begin with 070, 080, or 081 and must be a total of 11 digits in length"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please enter mother's or guardian phone number"
         }
       },
       {
@@ -316,10 +362,14 @@
         "openmrs_entity": "person_attribute",
         "openmrs_entity_id": "CHW_Phone_Number",
         "type": "edit_text",
-        "hint": "Caregiver phone number",
+        "hint": "Caregiver Phone Number *",
         "v_numeric": {
           "value": "true",
           "err": "Number must begin with 070, 080, or 081 and must be a total of 11 digits in length"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please Enter Caregiver's Phone Number"
         },
         "v_regex": {
           "value": "(0[0-9]{2}[0-9]{8})|\s*",
@@ -333,7 +383,7 @@
         "openmrs_entity_id": "1594AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_data_type": "text",
         "type": "edit_text",
-        "hint": "Father/guardian full name",
+        "hint": "Father/Guardian Full Name",
         "edit_type": "name",
         "v_regex": {
           "value": "[A-Za-z\\s\.\-]*",
@@ -346,7 +396,7 @@
         "openmrs_entity": "person_attribute",
         "openmrs_entity_id": "Father_NRC_Number",
         "type": "edit_text",
-        "hint": "Father/guardian National Identity number",
+        "hint": "Father/Guardian National Identity Number",
         "v_numeric": {
           "value": "true",
           "err": "Number must be from 0-9"
@@ -380,7 +430,7 @@
         "openmrs_entity_id": "163531AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_data_type": "text",
         "type": "tree",
-        "hint": "Which health facility was the child born in? *",
+        "hint": "Which Health Facility Was The Child Born In? *",
         "tree": [],
         "v_required": {
           "value": true,
@@ -399,7 +449,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "160632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "type": "edit_text",
-        "hint": "Other health facility *",
+        "hint": "Other Health Facility *",
         "edit_type": "name",
         "v_required": {
           "value": true,
@@ -419,7 +469,7 @@
         "openmrs_entity_id": "address3",
         "openmrs_data_type": "text",
         "type": "tree",
-        "hint": "Child's residential area *",
+        "hint": "Child's Residential Area *",
         "tree": [],
         "v_required": {
           "value": true,
@@ -432,7 +482,7 @@
         "openmrs_entity": "person_address",
         "openmrs_entity_id": "address5",
         "type": "edit_text",
-        "hint": "Other residential area *",
+        "hint": "Other Residential Area *",
         "edit_type": "name",
         "v_required": {
           "value": true,
@@ -451,7 +501,7 @@
         "openmrs_entity": "person_address",
         "openmrs_entity_id": "address2",
         "type": "edit_text",
-        "hint": "Home address *",
+        "hint": "Home Address *",
         "edit_type": "name",
         "v_required": {
           "value": true,
@@ -459,13 +509,24 @@
         }
       },
       {
-        "key": "Physical_Landmark",
-        "openmrs_entity_parent": "usual_residence",
-        "openmrs_entity": "person_address",
-        "openmrs_entity_id": "address1",
-        "type": "edit_text",
-        "hint": "Landmark",
-        "edit_type": "name"
+        "key": "CHW_Phone_Number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person",
+        "openmrs_entity_id": "CHW_Phone_Number",
+        "type": "spinner",
+        "hint": "Clinic Health Worker *",
+        "values": [
+          "Nurse 1",
+          "Nurse 2",
+          "Nurse 3",
+          "Nurse 4",
+          "Nurse 5",
+          "Nurse 6"
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please Select The Clinic Health Worker"
+        }
       }
     ]
   }

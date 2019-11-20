@@ -84,7 +84,7 @@ public class AnnualCoverageReportOndoGanciActivity extends BaseReportActivity {
             size = 0L;
         }
 
-        TextView zeirNumber = (TextView) findViewById(R.id.zeir_number);
+        TextView zeirNumber = findViewById(R.id.zeir_number);
         zeirNumber.setText(String.format(getString(R.string.cso_population_value), size));
     }
 
@@ -106,10 +106,10 @@ public class AnnualCoverageReportOndoGanciActivity extends BaseReportActivity {
     protected <T> View generateView(final View view, final VaccineRepo.Vaccine vaccine, final List<T> indicators) {
         long value = retrieveCumulativeIndicatorValue(indicators, vaccine);
 
-        TextView vaccinatedTextView = (TextView) view.findViewById(R.id.vaccinated);
+        TextView vaccinatedTextView = view.findViewById(R.id.vaccinated);
         vaccinatedTextView.setText(String.valueOf(value));
 
-        TextView coverageTextView = (TextView) view.findViewById(R.id.coverage);
+        TextView coverageTextView = view.findViewById(R.id.coverage);
 
         int percentage = 0;
         if (value > 0 && getHolder().getSize() != null && getHolder().getSize() > 0) {

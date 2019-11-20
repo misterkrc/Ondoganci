@@ -458,7 +458,6 @@ public class ChildImmunizationActivity extends BaseActivity
 
             final String BCG_NAME = "BCG";
             final String BCG2_NAME = "BCG 2";
-            final String VITAMINC = "Vit C";
             final String BCG_NO_SCAR_NAME = "BCG: no scar";
             final String BCG_SCAR_NAME = "BCG: scar";
             final String VACCINE_GROUP_BIRTH_NAME = "Birth";
