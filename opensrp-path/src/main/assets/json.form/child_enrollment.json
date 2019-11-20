@@ -509,10 +509,10 @@
         }
       },
       {
-        "key": "CHW_Phone_Number",
+        "key": "PMTCT_Status",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "person",
-        "openmrs_entity_id": "CHW_Phone_Number",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "1396AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "type": "spinner",
         "hint": "Clinic Health Worker *",
         "values": [
@@ -523,10 +523,18 @@
           "Nurse 5",
           "Nurse 6"
         ],
+        "openmrs_choice_ids": {
+          "Nurse 1": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "Nurse 2": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "Nurse 3": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "Nurse 4": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "Nurse 5": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "Nurse 6": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        },
         "v_required": {
-          "value": "true",
-          "err": "Please Select The Clinic Health Worker"
-        }
+        "value": "true",
+        "err": "Please Select The Clinic Health Worker"
+      }
       }
     ]
   }
