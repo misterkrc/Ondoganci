@@ -94,7 +94,7 @@ public class ChildRegistrationDataFragment extends Fragment {
             CustomFontTextView tvChildsResidentialArea = fragmentView.findViewById(R.id.value_childs_residential_area);
             CustomFontTextView tvChildsOtherResidentialArea = fragmentView.findViewById(R.id.value_other_childs_residential_area);
             CustomFontTextView tvChildsHomeAddress = fragmentView.findViewById(R.id.value_home_address);
-            CustomFontTextView tvLandmark = fragmentView.findViewById(R.id.value_landmark);
+//            CustomFontTextView tvLandmark = fragmentView.findViewById(R.id.value_landmark);
 
 //            CustomFontTextView tvHivExposure = fragmentView.findViewById(R.id.value_hiv_exposure);
 
@@ -185,7 +185,7 @@ public class ChildRegistrationDataFragment extends Fragment {
             }
 
             tvChildsHomeAddress.setText(Utils.getValue(detailsMap, "address2", true));
-            tvLandmark.setText(Utils.getValue(detailsMap, "address1", true));
+//            tvLandmark.setText(Utils.getValue(detailsMap, "address1", true));
             //tvHivExposure.setText(Utils.getValue(childDetailsColumnMaps, "pmtct_status", true));
         }
     }

@@ -81,20 +81,14 @@
         "hint": "Suspected cause of death",
         "edit_type": "name"
       },
-
-
-
-
-
-
       {
         "key": "Place_Death",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "1572AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_id": "1541AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "openmrs_data_type": "select one",
         "type": "spinner",
-        "hint": "Place of death *",
+        "hint": "Where did the death occur? *",
         "values": [
           "Health facility",
           "Home"
@@ -104,56 +98,10 @@
           "Home": "1536AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
         },
         "v_required": {
-          "value": true,
-          "err": "Please enter the place of birth"
+          "value": "true",
+          "err": "Please select one option"
         }
       },
-      {
-        "key": "Death_Facility_Name",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "163531AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "openmrs_data_type": "text",
-        "type": "tree",
-        "hint": "Which health facility did the child die in? *",
-        "tree": [],
-        "v_required": {
-          "value": true,
-          "err": "Please enter the facility name"
-        },
-        "relevance": {
-          "step1:Place_Birth": {
-            "type": "string",
-            "ex": "equalTo(., \"Health facility\")"
-          }
-        }
-      },
-      {
-        "key": "Death_Facility_Name_Other",
-        "openmrs_entity_parent": "163531AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "160632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "type": "edit_text",
-        "hint": "Other health facility *",
-        "edit_type": "name",
-        "v_required": {
-          "value": true,
-          "err": "Please specify the health facility the child was born in"
-        },
-        "relevance": {
-          "step1:Birth_Facility_Name": {
-            "type": "string",
-            "ex": "equalTo(., \"[\"Other\"]\")"
-          }
-        }
-      },
-
-
-
-
-
-
-
       {
         "key": "Date_Birth",
         "openmrs_entity_parent": "",

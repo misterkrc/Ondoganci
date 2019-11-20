@@ -304,7 +304,7 @@ public class ChildImmunizationActivity extends BaseActivity
         TextView nameTV = (TextView) findViewById(R.id.name_tv);
         nameTV.setText(name);
         TextView childIdTV = (TextView) findViewById(R.id.child_id_tv);
-        childIdTV.setText(String.format("%s: %s", getString(R.string.label_zeir), childId));
+        childIdTV.setText(String.format("%s: %s", getString(R.string.ONDOGANCI_id), childId));
 
         Utils.startAsyncTask(new GetSiblingsTask(), null);
     }

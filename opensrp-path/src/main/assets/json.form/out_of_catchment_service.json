@@ -62,7 +62,7 @@
         "value": "",
         "v_required": {
           "value": "true",
-          "err": "Enter the child's ZEIR ID"
+          "err": "Enter the child's ONDOGANCI ID"
         }
       },
       {

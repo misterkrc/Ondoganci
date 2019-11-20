@@ -64,7 +64,6 @@ PathConstants extends AllConstants {
         public static final String INACTIVE = "inactive";
         public static final String LOST_TO_FOLLOW_UP = "lost_to_follow_up";
 
-
     }
 
     public static final class GENDER {

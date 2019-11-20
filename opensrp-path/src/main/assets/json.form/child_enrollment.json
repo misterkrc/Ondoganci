@@ -288,6 +288,10 @@
         "openmrs_entity_id": "159635AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "type": "edit_text",
         "hint": "Mother/guardian phone number",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the Mother's phone number *"
+        },
         "v_numeric": {
           "value": "true",
           "err": "Number must begin with 070, 080, or 081 and must be a total of 11 digits in length"
@@ -305,6 +309,10 @@
         "type": "edit_text",
         "hint": "Caregiver Name",
         "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the Caregiver's name *"
+        },
         "v_regex": {
           "value": "[A-Za-z\\s\.\-]*",
           "err": "Please enter a valid name"
@@ -316,7 +324,11 @@
         "openmrs_entity": "person_attribute",
         "openmrs_entity_id": "CHW_Phone_Number",
         "type": "edit_text",
-        "hint": "Caregiver phone number",
+        "hint": "Caregiver phone number *",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the Caregiver's phone number *"
+        },
         "v_numeric": {
           "value": "true",
           "err": "Number must begin with 070, 080, or 081 and must be a total of 11 digits in length"
@@ -457,15 +469,6 @@
           "value": true,
           "err": "Please enter the home address"
         }
-      },
-      {
-        "key": "Physical_Landmark",
-        "openmrs_entity_parent": "usual_residence",
-        "openmrs_entity": "person_address",
-        "openmrs_entity_id": "address1",
-        "type": "edit_text",
-        "hint": "Landmark",
-        "edit_type": "name"
       }
     ]
   }
