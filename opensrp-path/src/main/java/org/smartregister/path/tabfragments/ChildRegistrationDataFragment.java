@@ -138,8 +138,8 @@ public class ChildRegistrationDataFragment extends Fragment {
 
             tvChildDateFirstSeen.setText(dateString);
             tvChildsBirthWeight.setText(Utils.kgStringSuffix(Utils.getValue(detailsMap, "Birth_Weight", true)));
-            tvChildsBirthHeight.setText(Utils.kgStringSuffix(Utils.getValue(detailsMap, "Birth_Height", true)));
-            tvChildsHeadCircumference.setText(Utils.kgStringSuffix(Utils.getValue(detailsMap, "Birth_Head_Circumference", true)));
+            tvChildsBirthHeight.setText(Utils.kgStringSuffix(Utils.getValue(detailsMap, "Birth_Height", true)).replace("kg", "cm"));
+            tvChildsHeadCircumference.setText(Utils.kgStringSuffix(Utils.getValue(detailsMap, "Birth_Head_Circumference", true)).replace("kg", " "));
             tvMotherFirstName.setText(Utils.getValue(childDetailsColumnMaps, "mother_first_name", true).isEmpty() ? Utils.getValue(childDetails.getDetails(), "mother_first_name", true) : Utils.getValue(childDetailsColumnMaps, "mother_first_name", true));
             tvMotherLastName.setText(Utils.getValue(childDetailsColumnMaps, "mother_last_name", true).isEmpty() ? Utils.getValue(childDetails.getDetails(), "mother_last_name", true) : Utils.getValue(childDetailsColumnMaps, "mother_last_name", true));
 
