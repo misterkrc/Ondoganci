@@ -79,6 +79,8 @@ public class ChildRegistrationDataFragment extends Fragment {
             CustomFontTextView tvChildsAge = fragmentView.findViewById(R.id.value_age);
             CustomFontTextView tvChildDateFirstSeen = fragmentView.findViewById(R.id.value_date_first_seen);
             CustomFontTextView tvChildsBirthWeight = fragmentView.findViewById(R.id.value_birth_weight);
+            CustomFontTextView tvChildsBirthHeight = fragmentView.findViewById(R.id.value_birth_height);
+            CustomFontTextView tvChildsHeadCircumference = fragmentView.findViewById(R.id.value_head_circum);
             CustomFontTextView tvMotherFirstName = fragmentView.findViewById(R.id.value_mother_guardian_first_name);
             CustomFontTextView tvMotherLastName = fragmentView.findViewById(R.id.value_mother_guardian_last_name);
             CustomFontTextView tvMotherDOB = fragmentView.findViewById(R.id.value_mother_guardian_dob);
@@ -94,7 +96,7 @@ public class ChildRegistrationDataFragment extends Fragment {
             CustomFontTextView tvChildsResidentialArea = fragmentView.findViewById(R.id.value_childs_residential_area);
             CustomFontTextView tvChildsOtherResidentialArea = fragmentView.findViewById(R.id.value_other_childs_residential_area);
             CustomFontTextView tvChildsHomeAddress = fragmentView.findViewById(R.id.value_home_address);
-//            CustomFontTextView tvLandmark = fragmentView.findViewById(R.id.value_landmark);
+            CustomFontTextView tvChealthWorkerName = fragmentView.findViewById(R.id.value_chw);
 
 //            CustomFontTextView tvHivExposure = fragmentView.findViewById(R.id.value_hiv_exposure);
 
@@ -136,6 +138,8 @@ public class ChildRegistrationDataFragment extends Fragment {
 
             tvChildDateFirstSeen.setText(dateString);
             tvChildsBirthWeight.setText(Utils.kgStringSuffix(Utils.getValue(detailsMap, "Birth_Weight", true)));
+            tvChildsBirthHeight.setText(Utils.kgStringSuffix(Utils.getValue(detailsMap, "Birth_Height", true)));
+            tvChildsHeadCircumference.setText(Utils.kgStringSuffix(Utils.getValue(detailsMap, "Birth_Head_Circumference", true)));
             tvMotherFirstName.setText(Utils.getValue(childDetailsColumnMaps, "mother_first_name", true).isEmpty() ? Utils.getValue(childDetails.getDetails(), "mother_first_name", true) : Utils.getValue(childDetailsColumnMaps, "mother_first_name", true));
             tvMotherLastName.setText(Utils.getValue(childDetailsColumnMaps, "mother_last_name", true).isEmpty() ? Utils.getValue(childDetails.getDetails(), "mother_last_name", true) : Utils.getValue(childDetailsColumnMaps, "mother_last_name", true));
 
@@ -185,7 +189,7 @@ public class ChildRegistrationDataFragment extends Fragment {
             }
 
             tvChildsHomeAddress.setText(Utils.getValue(detailsMap, "address2", true));
-//            tvLandmark.setText(Utils.getValue(detailsMap, "address1", true));
+            tvChealthWorkerName.setText(Utils.getValue(childDetailsColumnMaps, "pmtct_status", true));
             //tvHivExposure.setText(Utils.getValue(childDetailsColumnMaps, "pmtct_status", true));
         }
     }
