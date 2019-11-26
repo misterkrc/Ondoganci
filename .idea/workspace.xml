@@ -24,7 +24,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="5200f7578d1dc523" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="42000106b48f836f" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -38,7 +38,84 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/smart_register_child_client.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="2244">
+              <caret line="132" column="28" selection-start-line="132" selection-start-column="28" selection-end-line="132" selection-end-column="28" />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/activity_child_immunization.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/activity_main.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/app_bar_child_detail.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="422">
+              <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/app_bar_child_immunization.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/app_facility_cumulative_coverage_report.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/smart_register_status_bar_customized.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/smart_register_nav_bar_customized.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/smart_register_cursor_fragment.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/smart_register_child_header.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -154,6 +231,28 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
+              <item name="opensrp-path" type="e9137016:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
+              <item name="opensrp-path" type="e9137016:NonAndroidModuleNode" />
+              <item name="resources" type="f7eae187:NonAndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
+              <item name="opensrp-path" type="e9137016:NonAndroidModuleNode" />
+              <item name="resources" type="f7eae187:NonAndroidSourceTypeNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -161,45 +260,113 @@
               <item name="opensrp-app-path" type="b2602c69:ProjectViewProjectNode" />
               <item name="opensrp-android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
+            <path>
+              <item name="opensrp-app-path" type="b2602c69:ProjectViewProjectNode" />
+              <item name="opensrp-android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="opensrp-path" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="opensrp-app-path" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="opensrp-app-path" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Gradle: org.smartregister:opensrp-client-stock:1.1.0-SNAPSHOT@aar" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="opensrp-app-path" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Gradle: org.smartregister:opensrp-client-stock:1.1.0-SNAPSHOT@aar" type="70bed36:NamedLibraryElementNode" />
+              <item name="classes.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opensrp-app-path" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Gradle: org.smartregister:opensrp-client-stock:1.1.0-SNAPSHOT@aar" type="70bed36:NamedLibraryElementNode" />
+              <item name="classes.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="stock" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opensrp-app-path" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Gradle: org.smartregister:opensrp-client-stock:1.1.0-SNAPSHOT@aar" type="70bed36:NamedLibraryElementNode" />
+              <item name="classes.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="stock" type="462c0819:PsiDirectoryNode" />
+              <item name="activity" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView">
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Non-Source Files'; set:Project Non-Source Files; class com.jetbrains.cidr.lang.search.scopes.ProjectSourcesScopeProvider$NonSourceFilesScope">
+          <expand>
+            <path>
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\saraf\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\saraf\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\saraf\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\saraf\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\saraf\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\saraf\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\saraf\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\saraf\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
         <subPane>
           <expand>
             <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="opensrp-path" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="opensrp-path" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="opensrp-path" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="path" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="opensrp-path" type="feadf853:AndroidModuleNode" />
-              <item name="res (generated)" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="opensrp-path" type="feadf853:AndroidModuleNode" />
-              <item name="res (generated)" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="opensrp-app-path" type="58d84e3e:PackageViewProjectNode" />
+              <item name="opensrp-path" type="616d4139:PackageViewModuleNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -346,7 +513,7 @@
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32569557" />
       <window_info anchor="bottom" x="22" y="419" width="1322" height="235" id="Logcat" order="7" type="WINDOWED" weight="0.95090014" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
-      <window_info anchor="bottom" id="Build" order="9" sideWeight="0.49546143" weight="0.21603929" />
+      <window_info active="true" anchor="bottom" id="Build" order="9" sideWeight="0.49546143" visible="true" weight="0.801964" />
       <window_info anchor="bottom" id="Find" order="10" weight="0.3289689" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
@@ -358,6 +525,69 @@
       <window_info anchor="right" id="Preview" order="7" weight="0.3343419" />
       <window_info anchor="right" id="Hierarchy" order="8" weight="0.32980332" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19515885" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.32980332" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Designer" order="4" />
+      <window_info id="Resources Explorer" order="5" weight="0.38880485" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info id="Build Variants" order="8" side_tool="true" weight="0.33509833" />
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.49848714" weight="0.32569557" />
+      <window_info anchor="bottom" id="TODO" order="1" sideWeight="0.49924356" weight="0.3289689" />
+      <window_info anchor="bottom" id="Debug" order="2" sideWeight="0.4969743" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49621785" weight="0.31914893" />
+      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Flutter Performance" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="6" weight="0.32569557" />
+      <window_info anchor="bottom" x="25" y="422" width="1322" height="235" id="Logcat" order="7" type="WINDOWED" visible="true" weight="0.95090014" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" />
+      <window_info anchor="bottom" id="Build" order="9" sideWeight="0.49546143" weight="0.21603929" />
+      <window_info anchor="bottom" id="Find" order="10" weight="0.3289689" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Theme Preview" order="1" />
+      <window_info anchor="right" id="Flutter Inspector" order="2" />
+      <window_info anchor="right" id="Flutter Outline" order="3" weight="0.32980332" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" weight="0.329429" />
+      <window_info anchor="right" id="Gradle" order="6" />
+      <window_info anchor="right" id="Preview" order="7" weight="0.3343419" />
+      <window_info anchor="right" id="Hierarchy" order="8" weight="0.32980332" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="RELOAD_CONTEXT" value="false" />
@@ -370,13 +600,13 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/fragment/DailyTalliesFragment.java</url>
           <line>181</line>
-          <properties class="org.smartregister.path.fragment.DailyTalliesFragment" method="addIgnoredIndicators" />
+          <properties class="org.smartregister.path.fragment.DailyTalliesFragment" />
           <option name="timeStamp" value="246" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/activity/ReportSummaryActivity.java</url>
           <line>102</line>
-          <properties class="org.smartregister.path.activity.ReportSummaryActivity" method="setTallies">
+          <properties class="org.smartregister.path.activity.ReportSummaryActivity">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="250" />
@@ -384,7 +614,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/domain/Tally.java</url>
           <line>31</line>
-          <properties class="org.smartregister.path.domain.Tally" method="getIndicator">
+          <properties class="org.smartregister.path.domain.Tally">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="252" />
@@ -392,7 +622,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/domain/Tally.java</url>
           <line>79</line>
-          <properties class="org.smartregister.path.domain.Tally" method="getReportHia2Indicator">
+          <properties class="org.smartregister.path.domain.Tally">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="253" />
@@ -400,73 +630,73 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/activity/HIA2ReportsActivity.java</url>
           <line>273</line>
-          <properties class="org.smartregister.path.activity.HIA2ReportsActivity" method="retrieveValue" />
+          <properties class="org.smartregister.path.activity.HIA2ReportsActivity" />
           <option name="timeStamp" value="274" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/repository/DailyTalliesRepository.java</url>
           <line>174</line>
-          <properties class="org.smartregister.path.repository.DailyTalliesRepository" method="getUniqueMonths" />
+          <properties class="org.smartregister.path.repository.DailyTalliesRepository" />
           <option name="timeStamp" value="277" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/repository/DailyTalliesRepository.java</url>
           <line>189</line>
-          <properties class="org.smartregister.path.repository.DailyTalliesRepository" method="findTalliesInMonth" />
+          <properties class="org.smartregister.path.repository.DailyTalliesRepository" />
           <option name="timeStamp" value="278" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/repository/HIA2IndicatorsRepository.java</url>
           <line>220</line>
-          <properties class="org.smartregister.path.repository.HIA2IndicatorsRepository" method="fetchAll" />
+          <properties class="org.smartregister.path.repository.HIA2IndicatorsRepository" />
           <option name="timeStamp" value="279" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/repository/HIA2IndicatorsRepository.java</url>
           <line>196</line>
-          <properties class="org.smartregister.path.repository.HIA2IndicatorsRepository" method="checkIfExists" />
+          <properties class="org.smartregister.path.repository.HIA2IndicatorsRepository" />
           <option name="timeStamp" value="284" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/repository/HIA2IndicatorsRepository.java</url>
           <line>165</line>
-          <properties class="org.smartregister.path.repository.HIA2IndicatorsRepository" method="save" />
+          <properties class="org.smartregister.path.repository.HIA2IndicatorsRepository" />
           <option name="timeStamp" value="285" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/repository/HIA2IndicatorsRepository.java</url>
           <line>134</line>
-          <properties class="org.smartregister.path.repository.HIA2IndicatorsRepository" method="readAllDataElements" />
+          <properties class="org.smartregister.path.repository.HIA2IndicatorsRepository" />
           <option name="timeStamp" value="286" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/repository/HIA2IndicatorsRepository.java</url>
           <line>92</line>
-          <properties class="org.smartregister.path.repository.HIA2IndicatorsRepository" method="findByIndicatorCode" />
+          <properties class="org.smartregister.path.repository.HIA2IndicatorsRepository" />
           <option name="timeStamp" value="287" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/repository/HIA2IndicatorsRepository.java</url>
           <line>60</line>
-          <properties class="org.smartregister.path.repository.HIA2IndicatorsRepository" method="createTable" />
+          <properties class="org.smartregister.path.repository.HIA2IndicatorsRepository" />
           <option name="timeStamp" value="288" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/repository/DailyTalliesRepository.java</url>
           <line>133</line>
-          <properties class="org.smartregister.path.repository.DailyTalliesRepository" method="findAllDistinctMonths" />
+          <properties class="org.smartregister.path.repository.DailyTalliesRepository" />
           <option name="timeStamp" value="300" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/repository/DailyTalliesRepository.java</url>
           <line>307</line>
-          <properties class="org.smartregister.path.repository.DailyTalliesRepository" method="readAllDataElements" />
+          <properties class="org.smartregister.path.repository.DailyTalliesRepository" />
           <option name="timeStamp" value="309" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/activity/ChildImmunizationActivity.java</url>
           <line>736</line>
-          <properties method="onClick" />
+          <properties class="org.smartregister.path.activity.ChildImmunizationActivity" />
           <option name="timeStamp" value="324" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -721,20 +951,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/smart_register_child_header.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/advanced_search_client.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="88" column="24" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/toolbar/ChildDetailsToolbar.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -744,8 +970,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/menu/menu_child_detail_settings.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/tabfragments/ChildRegistrationDataFragment.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -755,12 +981,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/toolbar_child_details.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/test/java/org/smartregister/path/activity/ChildDetailTabbedActivityUnitTest.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -770,68 +996,64 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/activity_child_immunization.xml">
+      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="50" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/smart_register_child_client.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="-289">
+        <state relative-caret-position="2244">
           <caret line="132" column="28" selection-start-line="132" selection-start-column="28" selection-end-line="132" selection-end-column="28" />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/toolbar_stock.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/lookup_dialog_tree_view.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/detail_nav_bar.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/provider_profile.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="43" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="43" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a92a1dbbb8335a20a30c44d1a1501672/opensrp-client-core-1.3.6-SNAPSHOT/res/layout-land/detail_nav_bar.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/dialog_view_title_bcg_create.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/dialog_view_title_bcg_scar.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/dialog_view_title_bcg_turn_off.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/daily_tally_header.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/action_base_drawer.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/app_annual_coverage_report_ondo.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a75fa508993890025c6d5a37c2c9729b/opensrp-client-growth-monitoring-1.1.1-SNAPSHOT/res/values/values.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -841,20 +1063,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/child_detail_activity_simple_tabs.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/app_bar_child_immunization.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a92a1dbbb8335a20a30c44d1a1501672/opensrp-client-core-1.3.6-SNAPSHOT/jars/classes.jar!/org/smartregister/view/contract/SmartRegisterClient.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -871,8 +1093,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/dropout_report_cohort_bcg_header.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.robolectric/shadows-framework/3.8/73f1f3e533c2e5a2092c08307ca268987d753362/shadows-framework-3.8-sources.jar!/org/robolectric/shadows/ShadowWebView.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -889,12 +1111,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/content_child_immunization.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="2465">
           <caret line="145" column="75" selection-start-line="145" selection-start-column="75" selection-end-line="145" selection-end-column="75" />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor" />
@@ -925,7 +1147,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/xml/preferences.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="39" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
@@ -934,6 +1155,7 @@
           </folding>
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/build/generated/res/resValues/debug/values/gradleResValues.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -943,12 +1165,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/app_bar_child_detail.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
           <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/activity/ChildDetailTabbedActivity.java">
       <provider selected="true" editor-type-id="text-editor">
