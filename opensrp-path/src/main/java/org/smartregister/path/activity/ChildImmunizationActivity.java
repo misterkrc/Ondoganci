@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -131,6 +132,7 @@ public class ChildImmunizationActivity extends BaseActivity
     private static final HashMap<String, String> COMBINED_VACCINES_MAP;
     private boolean bcgScarNotificationShown;
     private boolean weightNotificationShown;
+    private boolean heightNotificationShown;
     private static final int RANDOM_MAX_RANGE = 4232;
     private static final int RANDOM_MIN_RANGE = 213;
     private static final int RECORD_WEIGHT_BUTTON_ACTIVE_MIN = 12;
@@ -201,6 +203,7 @@ public class ChildImmunizationActivity extends BaseActivity
 
         bcgScarNotificationShown = false;
         weightNotificationShown = false;
+        heightNotificationShown = false;
 
         toolbar.init(this);
         setLastModified(false);
@@ -719,6 +722,51 @@ public class ChildImmunizationActivity extends BaseActivity
             }
         });
     }
+    private void updateHeightViews(Weight lastUnsyncedHeight, final boolean isActive) {
+
+        String childName = constructChildName();
+        String gender = Utils.getValue(childDetails.getColumnmaps(), PathConstants.KEY.GENDER, true);
+        String motherFirstName = Utils.getValue(childDetails.getColumnmaps(), PathConstants.KEY.MOTHER_FIRST_NAME, true);
+        if (StringUtils.isBlank(childName) && StringUtils.isNotBlank(motherFirstName)) {
+            childName = "B/o " + motherFirstName.trim();
+        }
+
+        String zeirId = Utils.getValue(childDetails.getColumnmaps(), PathConstants.KEY.ZEIR_ID, false);
+        String duration = "";
+        String dobString = Utils.getValue(childDetails.getColumnmaps(), PathConstants.EC_CHILD_TABLE.DOB, false);
+        DateTime dateTime = util.Utils.dobStringToDateTime(dobString);
+        if (dateTime != null) {
+            duration = DateUtil.getDuration(dateTime);
+        }
+
+        Photo photo = ImageUtils.profilePhotoByClient(childDetails);
+
+        WeightWrapper heightWrapper = new WeightWrapper();
+        heightWrapper.setId(childDetails.entityId());
+        heightWrapper.setGender(gender);
+        heightWrapper.setPatientName(childName);
+        heightWrapper.setPatientNumber(zeirId);
+        heightWrapper.setPatientAge(duration);
+        heightWrapper.setPhoto(photo);
+        heightWrapper.setPmtctStatus(Utils.getValue(childDetails.getColumnmaps(), PathConstants.KEY.PMTCT_STATUS, false));
+
+        if (lastUnsyncedHeight != null) {
+            heightWrapper.setWeight(lastUnsyncedHeight.getKg());
+            heightWrapper.setDbKey(lastUnsyncedHeight.getId());
+            heightWrapper.setUpdatedWeightDate(new DateTime(lastUnsyncedHeight.getDate()), false);
+        }
+
+
+        updateRecordHeightViews(heightWrapper, isActive);
+
+        ImageButton growthChartButton = findViewById(R.id.growth_chart_height);
+        growthChartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.startAsyncTask(new ShowGrowthChartTask(), null);
+            }
+        });
+    }
 
     private void updateRecordWeightViews(WeightWrapper weightWrapper, final boolean isActive) {
         View recordWeight = findViewById(R.id.record_weight);
@@ -773,8 +821,80 @@ public class ChildImmunizationActivity extends BaseActivity
         recordWeight.setTag(weightWrapper);
 
     }
+ private void updateRecordHeightViews(WeightWrapper weightWrapper, final boolean isActive) {
+        View recordHeight = findViewById(R.id.record_height);
+        recordHeight.setClickable(true);
+        recordHeight.setBackground(getResources().getDrawable(R.drawable.record_weight_bg));
+
+        TextView recordHeightText = findViewById(R.id.record_height_text);
+        recordHeightText.setText(R.string.record_height);
+        if (!isActive) {
+            recordHeightText.setTextColor(getResources().getColor(R.color.inactive_text_color));
+        } else {
+            recordHeightText.setTextColor(getResources().getColor(R.color.text_black));
+        }
+
+        ImageView recordHeightCheck = findViewById(R.id.record_Height_check);
+        recordHeightCheck.setVisibility(View.GONE);
+        recordHeight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isActive) {
+                    showHeightDialog(view);
+                } else {
+                    showActivateChildStatusDialogBox();
+                }
+            }
+        });
+
+        if (weightWrapper.getDbKey() != null && weightWrapper.getWeight() != null) {
+            recordHeightText.setText(Utils.kgStringSuffix(weightWrapper.getWeight()));
+            recordHeightCheck.setVisibility(View.VISIBLE);
+
+            if (weightWrapper.getUpdatedWeightDate() != null) {
+                long timeDiff = Calendar.getInstance().getTimeInMillis() - weightWrapper.getUpdatedWeightDate().getMillis();
+
+                if (timeDiff <= TimeUnit.MILLISECONDS.convert(RECORD_WEIGHT_BUTTON_ACTIVE_MIN, TimeUnit.HOURS)) {
+                    //disable the button
+                    recordHeight.setClickable(false);
+                    recordHeight.setBackground(new ColorDrawable(getResources()
+                            .getColor(android.R.color.transparent)));
+                } else {
+                    //reset state
+                    weightWrapper.setWeight(null);
+                    weightWrapper.setDbKey(null);
+                    recordHeight.setClickable(true);
+                    recordHeight.setBackground(getResources().getDrawable(R.drawable.record_weight_bg));
+                    recordHeightText.setText(R.string.record_height);
+                    recordHeightCheck.setVisibility(View.GONE);
+                }
+            }
+        }
+
+        recordHeight.setTag(weightWrapper);
+
+    }
 
     private void showWeightDialog(View view) {
+        FragmentTransaction ft = this.getFragmentManager().beginTransaction();
+        Fragment prev = this.getFragmentManager().findFragmentByTag(DIALOG_TAG);
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+
+        String dobString = Utils.getValue(childDetails.getColumnmaps(), PathConstants.EC_CHILD_TABLE.DOB, false);
+        Date dob = util.Utils.dobStringToDate(dobString);
+        if (dob == null) {
+            dob = Calendar.getInstance().getTime();
+        }
+
+        WeightWrapper weightWrapper = (WeightWrapper) view.getTag();
+        RecordWeightDialogFragment recordWeightDialogFragment = RecordWeightDialogFragment.newInstance(dob, weightWrapper);
+        recordWeightDialogFragment.show(ft, DIALOG_TAG);
+
+    }
+    private void showHeightDialog(View view) {
         FragmentTransaction ft = this.getFragmentManager().beginTransaction();
         Fragment prev = this.getFragmentManager().findFragmentByTag(DIALOG_TAG);
         if (prev != null) {
@@ -857,7 +977,9 @@ public class ChildImmunizationActivity extends BaseActivity
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            fileContents = new String(buffer, StandardCharsets.UTF_8);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                fileContents = new String(buffer, StandardCharsets.UTF_8);
+            }
         } catch (IOException ex) {
             Log.e(TAG, ex.toString(), ex);
         }
@@ -1058,13 +1180,22 @@ public class ChildImmunizationActivity extends BaseActivity
                         recordWeight.performClick();
                     }
                 });
-            } else if (registerClickables.isRecordAll()) {
+            } else if (registerClickables.isRecordHeight()){
+                final View recordHeight = findViewById(R.id.record_height);
+                recordHeight.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        recordHeight.performClick();
+                    }
+                });
+            }else if (registerClickables.isRecordAll()) {
                 performRecordAllClick(0);
             }
 
             //Reset register actions
             registerClickables.setRecordAll(false);
             registerClickables.setRecordWeight(false);
+            registerClickables.setRecordHeight(false);
         }
     }
 
@@ -1202,6 +1333,26 @@ public class ChildImmunizationActivity extends BaseActivity
                         public void onClick(View v) {
                             View recordWeight = findViewById(R.id.record_weight);
                             showWeightDialog(recordWeight);
+                            hideNotification();
+                        }
+                    }, R.string.cancel, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            hideNotification();
+                        }
+                    }, null);
+        }
+    }
+    private void showRecordHeightNotification() {
+        if (!heightNotificationShown) {
+            heightNotificationShown = true;
+            showNotification(R.string.record_height_notification, R.drawable.ic_weight_notification,
+                    R.string.record_height,
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            View recordHeight = findViewById(R.id.record_height);
+                            showWeightDialog(recordHeight);
                             hideNotification();
                         }
                     }, R.string.cancel, new View.OnClickListener() {
@@ -1453,9 +1604,9 @@ public class ChildImmunizationActivity extends BaseActivity
         return ImmunizationLibrary.getInstance().assetJsonToJava(filename, classType, listType);
     }
 
-    ////////////////////////////////////////////////////////////////
+
     // Inner classes
-    ////////////////////////////////////////////////////////////////
+
 
     private class UpdateViewTask extends AsyncTask<Void, Void, Map<String, NamedObject<?>>> {
 
@@ -1502,6 +1653,7 @@ public class ChildImmunizationActivity extends BaseActivity
             Weight weight = AsyncTaskUtils.retriveWeight(map);
 
             updateWeightViews(weight, isChildActive);
+            updateHeightViews(weight, isChildActive);
             updateServiceViews(serviceTypeMap, serviceRecords, alertList);
             updateVaccinationViews(vaccineList, alertList);
             performRegisterActions();
@@ -1753,9 +1905,13 @@ public class ChildImmunizationActivity extends BaseActivity
             hideProgressDialog();
             updateVaccineGroupViews(view, list, vaccineList);
             View recordWeight = findViewById(R.id.record_weight);
+            View recordHeight = findViewById(R.id.record_height);
             WeightWrapper weightWrapper = (WeightWrapper) recordWeight.getTag();
+            WeightWrapper heightWrapper = (WeightWrapper) recordHeight.getTag();
             if (weightWrapper == null || weightWrapper.getWeight() == null) {
                 showRecordWeightNotification();
+            }else if (heightWrapper == null || heightWrapper.getWeight() == null){
+                showRecordHeightNotification();
             }
 
             updateVaccineGroupsUsingAlerts(affectedVaccines, vaccineList, alertList);
