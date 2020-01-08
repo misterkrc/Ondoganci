@@ -198,6 +198,7 @@ dependencies {
     }
 
     testImplementation 'org.apache.maven:maven-ant-tasks:2.1.3'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
 
 //Testing and coveralls

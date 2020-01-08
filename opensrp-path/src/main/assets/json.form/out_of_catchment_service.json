@@ -95,6 +95,40 @@
           "value": "true",
           "err": "Enter a valid weight"
         }
+      },
+      {
+        "key": "Height_Cm",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "5089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_data_type": "text",
+        "type": "edit_text",
+        "hint": "Child's height (Cm)",
+        "v_min": {
+          "value": "0.1",
+          "err": "Height must be greater than 0"
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": "Enter a valid height"
+        }
+      },
+      {
+        "key": "Head_Circumference",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "5089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_data_type": "text",
+        "type": "edit_text",
+        "hint": "Child's head circumference",
+        "v_min": {
+          "value": "0.1",
+          "err": "Head circumference must be greater than 0"
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": "Enter a valid head circumference"
+        }
       }
     ]
   }

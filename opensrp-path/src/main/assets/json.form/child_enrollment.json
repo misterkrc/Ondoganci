@@ -349,8 +349,12 @@
         "openmrs_entity": "person_attribute",
         "openmrs_entity_id": "CHW_Name",
         "type": "edit_text",
-        "hint": "Caregiver Name",
+        "hint": "Caregiver Name *",
         "edit_type": "name",
+        "v_required": {
+          "value": true,
+          "err": "Please Enter Caregiver's Name"
+        },
         "v_regex": {
           "value": "[A-Za-z\\s\.\-]*",
           "err": "Please enter a valid name"
