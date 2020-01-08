@@ -1,5 +1,6 @@
 package org.smartregister.path.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.os.AsyncTask;
@@ -97,7 +98,7 @@ public class ChildSmartRegisterFragment extends BaseSmartRegisterFragment implem
 
             @Override
             public String nameInShortFormForTitle() {
-                return context().getStringResource(R.string.ondoganci);
+                return context().getStringResource(R.string.ondo);
             }
         };
     }
@@ -209,7 +210,7 @@ public class ChildSmartRegisterFragment extends BaseSmartRegisterFragment implem
         filterSection = view.findViewById(R.id.filter_selection);
         filterSection.setOnClickListener(clientActionHandler);
 
-        filterCount = (TextView) view.findViewById(R.id.filter_count);
+        filterCount = view.findViewById(R.id.filter_count);
         filterCount.setVisibility(View.GONE);
         filterCount.setClickable(false);
         filterCount.setOnClickListener(new View.OnClickListener() {
@@ -231,10 +232,10 @@ public class ChildSmartRegisterFragment extends BaseSmartRegisterFragment implem
         View qrCode = view.findViewById(R.id.scan_qr_code);
         qrCode.setOnClickListener(clientActionHandler);
 
-        backButton = (ImageView) view.findViewById(R.id.back_button);
-        nameInitials = (TextView) view.findViewById(R.id.name_inits);
-        btnBackToHome = (LinearLayout) view.findViewById(R.id.btn_back_to_home);
-        syncProgressBar = (ProgressBar) view.findViewById(R.id.sync_progress_bar);
+        backButton = view.findViewById(R.id.back_button);
+        nameInitials = view.findViewById(R.id.name_inits);
+        btnBackToHome = view.findViewById(R.id.btn_back_to_home);
+        syncProgressBar = view.findViewById(R.id.sync_progress_bar);
         Circle circle = new Circle();
         syncProgressBar.setIndeterminateDrawable(circle);
 
@@ -244,7 +245,7 @@ public class ChildSmartRegisterFragment extends BaseSmartRegisterFragment implem
             String[] preferredNameArray = preferredName.split(" ");
             String initials = "";
             if (preferredNameArray.length > 1) {
-                initials = String.valueOf(preferredNameArray[0].charAt(0)) + String.valueOf(preferredNameArray[1].charAt(0));
+                initials = preferredNameArray[0].charAt(0) + String.valueOf(preferredNameArray[1].charAt(0));
             } else if (preferredNameArray.length == 1) {
                 initials = String.valueOf(preferredNameArray[0].charAt(0));
             }
@@ -378,10 +379,10 @@ public class ChildSmartRegisterFragment extends BaseSmartRegisterFragment implem
     }
 
     private void populateClientListHeaderView(View view) {
-        LinearLayout clientsHeaderLayout = (LinearLayout) view.findViewById(org.smartregister.R.id.clients_header_layout);
+        LinearLayout clientsHeaderLayout = view.findViewById(R.id.clients_header_layout);
         clientsHeaderLayout.setVisibility(View.GONE);
 
-        LinearLayout headerLayout = (LinearLayout) getLayoutInflater(null).inflate(R.layout.smart_register_child_header, null);
+        @SuppressLint("RestrictedApi") LinearLayout headerLayout = (LinearLayout) getLayoutInflater(null).inflate(R.layout.smart_register_child_header, null);
         clientsView.addHeaderView(headerLayout);
         clientsView.setEmptyView(getActivity().findViewById(R.id.empty_view));
 
@@ -512,7 +513,7 @@ public class ChildSmartRegisterFragment extends BaseSmartRegisterFragment implem
             backButton.setVisibility(View.VISIBLE);
         } else {
             if (titleLabelView != null) {
-                titleLabelView.setText(getString(R.string.ondoganci));
+                titleLabelView.setText(getString(R.string.ondo));
             }
             nameInitials.setVisibility(View.VISIBLE);
             backButton.setVisibility(View.GONE);

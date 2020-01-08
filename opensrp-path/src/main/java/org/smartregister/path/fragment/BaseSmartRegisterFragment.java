@@ -88,7 +88,7 @@ public class BaseSmartRegisterFragment extends SecuredNativeSmartRegisterCursorA
         View viewParent = (View) appliedSortView.getParent();
         viewParent.setVisibility(View.GONE);
 
-        clinicSelection = (LocationPickerView) view.findViewById(R.id.clinic_selection);
+        clinicSelection = view.findViewById(R.id.clinic_selection);
         clinicSelection.init();
 
     }

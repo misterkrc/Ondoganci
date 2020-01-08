@@ -220,6 +220,171 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_category_horizontal_margin"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:clickable="false"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:minHeight="135dp"
+                app:cardCornerRadius="@dimen/card_view_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="10dp">
+
+                    <org.smartregister.view.customcontrols.CustomFontTextView
+                        style="@style/CustomFontTextViewStyle.ClientList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="HEIGHT-FOR-AGE"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/activity_sub_title_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:id="@+id/record_height"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:background="@drawable/record_weight_bg"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingBottom="16dp"
+                            android:paddingTop="16dp">
+
+                            <ImageView
+                                android:id="@+id/record_Height_check"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="3dp"
+                                android:src="@drawable/ic_action_check"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/record_height_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Record Height"
+                                android:textAllCaps="false"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/text_black"
+                                android:textSize="19sp" />
+                        </LinearLayout>
+
+                        <ImageButton
+                            android:id="@+id/growth_chart_height"
+                            android:src="@drawable/ic_icon_growth_chart"
+                            android:background="@null"
+                            android:layout_width="0dp"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="@dimen/card_category_horizontal_margin"
+                            android:layout_weight="0.5" />
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:clickable="false"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:minHeight="135dp"
+                app:cardCornerRadius="@dimen/card_view_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="10dp">
+
+                    <org.smartregister.view.customcontrols.CustomFontTextView
+                        style="@style/CustomFontTextViewStyle.ClientList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="HEAD CIRCUMFERENCE"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/activity_sub_title_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:id="@+id/record_head"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:background="@drawable/record_weight_bg"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingBottom="16dp"
+                            android:paddingTop="16dp">
+
+                            <ImageView
+                                android:id="@+id/record_head_check"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="3dp"
+                                android:src="@drawable/ic_action_check"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/record_head_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Record Head Circumference"
+                                android:textAllCaps="false"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="@color/text_black"
+                                android:textSize="17.8sp" />
+                        </LinearLayout>
+
+                        <ImageButton
+                            android:id="@+id/growth_chart_head"
+                            android:src="@drawable/ic_icon_growth_chart"
+                            android:background="@null"
+                            android:layout_width="0dp"
+                            android:layout_height="70dp"
+                            android:layout_marginStart="@dimen/card_category_horizontal_margin"
+                            android:layout_weight="0.5" />
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"

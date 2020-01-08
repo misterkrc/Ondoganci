@@ -54,7 +54,7 @@ public abstract class BaseRegisterActivity extends SecuredNativeSmartRegisterAct
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
 
         BaseActivityToggle toggle = new BaseActivityToggle(this, drawer,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
@@ -72,7 +72,7 @@ public abstract class BaseRegisterActivity extends SecuredNativeSmartRegisterAct
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         Bundle extras = this.getIntent().getExtras();
@@ -115,7 +115,7 @@ public abstract class BaseRegisterActivity extends SecuredNativeSmartRegisterAct
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -137,8 +137,8 @@ public abstract class BaseRegisterActivity extends SecuredNativeSmartRegisterAct
     }
 
     private void initViews() {
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        Button logoutButton = (Button) navigationView.findViewById(R.id.logout_b);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        Button logoutButton = navigationView.findViewById(R.id.logout_b);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -148,18 +148,18 @@ public abstract class BaseRegisterActivity extends SecuredNativeSmartRegisterAct
             }
         });
 
-        ImageButton cancelButton = (ImageButton) navigationView.findViewById(R.id.cancel_b);
+        ImageButton cancelButton = navigationView.findViewById(R.id.cancel_b);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DrawerLayout drawer = (DrawerLayout) BaseRegisterActivity.this.findViewById(R.id.drawer_layout);
+                DrawerLayout drawer = BaseRegisterActivity.this.findViewById(R.id.drawer_layout);
                 if (drawer.isDrawerOpen(GravityCompat.START)) {
                     drawer.closeDrawer(GravityCompat.START);
                 }
             }
         });
 
-        TextView initialsTV = (TextView) navigationView.findViewById(R.id.initials_tv);
+        TextView initialsTV = navigationView.findViewById(R.id.initials_tv);
         String preferredName = context().allSharedPreferences().getANMPreferredName(
                 context().allSharedPreferences().fetchRegisteredANM());
         if (!TextUtils.isEmpty(preferredName)) {
@@ -175,7 +175,7 @@ public abstract class BaseRegisterActivity extends SecuredNativeSmartRegisterAct
             initialsTV.setText(initials.toUpperCase());
         }
 
-        TextView nameTV = (TextView) navigationView.findViewById(R.id.name_tv);
+        TextView nameTV = navigationView.findViewById(R.id.name_tv);
         nameTV.setText(preferredName);
         refreshSyncStatusViews(null);
         initializeCustomNavbarLIsteners();
@@ -192,9 +192,9 @@ public abstract class BaseRegisterActivity extends SecuredNativeSmartRegisterAct
 
     /////////////////////////for custom navigation //////////////////////////////////////////////////////
     private void refreshSyncStatusViews(FetchStatus fetchStatus) {
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         if (navigationView != null && navigationView.getMenu() != null) {
-            LinearLayout syncMenuItem = (LinearLayout) navigationView.findViewById(R.id.nav_sync);
+            LinearLayout syncMenuItem = navigationView.findViewById(R.id.nav_sync);
             if (syncMenuItem != null) {
                 if (SyncStatusBroadcastReceiver.getInstance().isSyncing()) {
                     ViewGroup rootView = (ViewGroup) ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
@@ -238,37 +238,37 @@ public abstract class BaseRegisterActivity extends SecuredNativeSmartRegisterAct
     }
 
     private void initializeCustomNavbarLIsteners() {
-        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        LinearLayout syncMenuItem = (LinearLayout) drawer.findViewById(R.id.nav_sync);
+        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        LinearLayout syncMenuItem = drawer.findViewById(R.id.nav_sync);
         syncMenuItem.setOnClickListener(customNavigationBarListener);
 
-        LinearLayout addchild = (LinearLayout) drawer.findViewById(R.id.nav_register);
+        LinearLayout addchild = drawer.findViewById(R.id.nav_register);
         addchild.setOnClickListener(customNavigationBarListener);
 
-        LinearLayout outofcatchment = (LinearLayout) drawer.findViewById(R.id.nav_record_vaccination_out_catchment);
+        LinearLayout outofcatchment = drawer.findViewById(R.id.nav_record_vaccination_out_catchment);
         outofcatchment.setOnClickListener(customNavigationBarListener);
 
-        LinearLayout stockregister = (LinearLayout) drawer.findViewById(R.id.stock_control);
+        LinearLayout stockregister = drawer.findViewById(R.id.stock_control);
         stockregister.setOnClickListener(customNavigationBarListener);
 
-        LinearLayout hia2 = (LinearLayout) drawer.findViewById(R.id.hia2_reports);
+        LinearLayout hia2 = drawer.findViewById(R.id.hia2_reports);
         hia2.setOnClickListener(customNavigationBarListener);
 
-        LinearLayout childregister = (LinearLayout) drawer.findViewById(R.id.child_register);
+        LinearLayout childregister = drawer.findViewById(R.id.child_register);
         childregister.setOnClickListener(customNavigationBarListener);
 
-        LinearLayout coverage = (LinearLayout) drawer.findViewById(R.id.coverage_reports);
+        LinearLayout coverage = drawer.findViewById(R.id.coverage_reports);
         coverage.setOnClickListener(customNavigationBarListener);
 
-        LinearLayout dropout = (LinearLayout) drawer.findViewById(R.id.dropout_reports);
+        LinearLayout dropout = drawer.findViewById(R.id.dropout_reports);
         dropout.setOnClickListener(customNavigationBarListener);
 
     }
 
     private void updateLastSyncText() {
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         if (navigationView != null && navigationView.getMenu() != null) {
-            TextView syncMenuItem = ((TextView) navigationView.findViewById(R.id.nav_synctextview));
+            TextView syncMenuItem = navigationView.findViewById(R.id.nav_synctextview);
             if (syncMenuItem != null) {
                 String lastSync = getLastSyncTime();
 

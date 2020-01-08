@@ -103,16 +103,16 @@ public abstract class BaseActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentView());
-        toolbar = (BaseToolbar) findViewById(getToolbarId());
+        toolbar = findViewById(getToolbarId());
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(getDrawerLayoutId());
+        DrawerLayout drawer = findViewById(getDrawerLayoutId());
         toggle = new BaseActivityToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         notifications = new ArrayList<>();
@@ -152,9 +152,9 @@ public abstract class BaseActivity extends AppCompatActivity
 
     /////////////////////////for custom navigation //////////////////////////////////////////////////////
     private void refreshSyncStatusViews(FetchStatus fetchStatus) {
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         if (navigationView != null && navigationView.getMenu() != null) {
-            LinearLayout syncMenuItem = (LinearLayout) navigationView.findViewById(R.id.nav_sync);
+            LinearLayout syncMenuItem = navigationView.findViewById(R.id.nav_sync);
             if (syncMenuItem != null) {
                 if (SyncStatusBroadcastReceiver.getInstance().isSyncing()) {
                     ViewGroup rootView = (ViewGroup) ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
@@ -196,14 +196,14 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     protected void openDrawer() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(getDrawerLayoutId());
+        DrawerLayout drawer = findViewById(getDrawerLayoutId());
         drawer.openDrawer(Gravity.LEFT);
     }
 
     private void updateLastSyncText() {
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         if (navigationView != null && navigationView.getMenu() != null) {
-            TextView syncMenuItem = ((TextView) navigationView.findViewById(R.id.nav_synctextview));
+            TextView syncMenuItem = navigationView.findViewById(R.id.nav_synctextview);
             if (syncMenuItem != null) {
                 String lastSync = getLastSyncTime();
 
@@ -218,29 +218,29 @@ public abstract class BaseActivity extends AppCompatActivity
     private void initializeCustomNavbarLIsteners() {
 
 
-        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        LinearLayout syncMenuItem = (LinearLayout) drawer.findViewById(R.id.nav_sync);
+        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        LinearLayout syncMenuItem = drawer.findViewById(R.id.nav_sync);
         syncMenuItem.setOnClickListener(customNavigationBarListener);
 
-        LinearLayout addchild = (LinearLayout) drawer.findViewById(R.id.nav_register);
+        LinearLayout addchild = drawer.findViewById(R.id.nav_register);
         addchild.setOnClickListener(customNavigationBarListener);
 
-        LinearLayout outofcatchment = (LinearLayout) drawer.findViewById(R.id.nav_record_vaccination_out_catchment);
+        LinearLayout outofcatchment = drawer.findViewById(R.id.nav_record_vaccination_out_catchment);
         outofcatchment.setOnClickListener(customNavigationBarListener);
 
-        LinearLayout stockregister = (LinearLayout) drawer.findViewById(R.id.stock_control);
+        LinearLayout stockregister = drawer.findViewById(R.id.stock_control);
         stockregister.setOnClickListener(customNavigationBarListener);
 
-        LinearLayout childregister = (LinearLayout) drawer.findViewById(R.id.child_register);
+        LinearLayout childregister = drawer.findViewById(R.id.child_register);
         childregister.setOnClickListener(customNavigationBarListener);
 
-        LinearLayout hia2 = (LinearLayout) drawer.findViewById(R.id.hia2_reports);
+        LinearLayout hia2 = drawer.findViewById(R.id.hia2_reports);
         hia2.setOnClickListener(customNavigationBarListener);
 
-        LinearLayout coverage = (LinearLayout) drawer.findViewById(R.id.coverage_reports);
+        LinearLayout coverage = drawer.findViewById(R.id.coverage_reports);
         coverage.setOnClickListener(customNavigationBarListener);
 
-        LinearLayout dropout = (LinearLayout) drawer.findViewById(R.id.dropout_reports);
+        LinearLayout dropout = drawer.findViewById(R.id.dropout_reports);
         dropout.setOnClickListener(customNavigationBarListener);
 
     }
@@ -302,7 +302,7 @@ public abstract class BaseActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(getDrawerLayoutId());
+        DrawerLayout drawer = findViewById(getDrawerLayoutId());
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -311,8 +311,8 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     private void initViews() {
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        Button logoutButton = (Button) navigationView.findViewById(R.id.logout_b);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        Button logoutButton = navigationView.findViewById(R.id.logout_b);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -322,24 +322,24 @@ public abstract class BaseActivity extends AppCompatActivity
             }
         });
 
-        ImageButton cancelButton = (ImageButton) navigationView.findViewById(R.id.cancel_b);
+        ImageButton cancelButton = navigationView.findViewById(R.id.cancel_b);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DrawerLayout drawer = (DrawerLayout) BaseActivity.this.findViewById(getDrawerLayoutId());
+                DrawerLayout drawer = BaseActivity.this.findViewById(getDrawerLayoutId());
                 if (drawer.isDrawerOpen(GravityCompat.START)) {
                     drawer.closeDrawer(GravityCompat.START);
                 }
             }
         });
 
-        TextView initialsTV = (TextView) navigationView.findViewById(R.id.initials_tv);
+        TextView initialsTV = navigationView.findViewById(R.id.initials_tv);
         initialsTV.setText(getLoggedInUserInitials());
 
         try {
             String preferredName = getOpenSRPContext().allSharedPreferences().getANMPreferredName(
                     getOpenSRPContext().allSharedPreferences().fetchRegisteredANM());
-            TextView nameTV = (TextView) navigationView.findViewById(R.id.name_tv);
+            TextView nameTV = navigationView.findViewById(R.id.name_tv);
             nameTV.setText(preferredName);
 
 
@@ -475,9 +475,9 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     private void updateNotificationViews(final Notification notification) {
-        TextView notiMessage = (TextView) findViewById(R.id.noti_message);
+        TextView notiMessage = findViewById(R.id.noti_message);
         notiMessage.setText(notification.message);
-        Button notiPositiveButton = (Button) findViewById(R.id.noti_positive_button);
+        Button notiPositiveButton = findViewById(R.id.noti_positive_button);
         notiPositiveButton.setTag(notification.tag);
         if (notification.positiveButtonText != null) {
             notiPositiveButton.setVisibility(View.VISIBLE);
@@ -503,7 +503,7 @@ public abstract class BaseActivity extends AppCompatActivity
             notiPositiveButton.setVisibility(View.GONE);
         }
 
-        Button notiNegativeButton = (Button) findViewById(R.id.noti_negative_button);
+        Button notiNegativeButton = findViewById(R.id.noti_negative_button);
         notiNegativeButton.setTag(notification.tag);
         if (notification.negativeButtonText != null) {
             notiNegativeButton.setVisibility(View.VISIBLE);
@@ -529,7 +529,7 @@ public abstract class BaseActivity extends AppCompatActivity
             notiNegativeButton.setVisibility(View.GONE);
         }
 
-        ImageView notiIcon = (ImageView) findViewById(R.id.noti_icon);
+        ImageView notiIcon = findViewById(R.id.noti_icon);
         if (notification.notificationIcon != null) {
             notiIcon.setVisibility(View.VISIBLE);
             notiIcon.setImageDrawable(notification.notificationIcon);
@@ -537,7 +537,7 @@ public abstract class BaseActivity extends AppCompatActivity
             notiIcon.setVisibility(View.GONE);
         }
 
-        final LinearLayout notificationLL = (LinearLayout) findViewById(R.id.notification);
+        final LinearLayout notificationLL = findViewById(R.id.notification);
 
         Animation slideDownAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_down);
         slideDownAnimation.setAnimationListener(new Animation.AnimationListener() {
@@ -561,7 +561,7 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     protected void hideNotification() {
-        final LinearLayout notification = (LinearLayout) findViewById(R.id.notification);
+        final LinearLayout notification = findViewById(R.id.notification);
         if (notification.getVisibility() == View.VISIBLE) {
             Animation slideUpAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_up);
             slideUpAnimation.setAnimationListener(new Animation.AnimationListener() {
@@ -644,14 +644,14 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     protected void showChildsStatus(String status) {
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.ll_inactive_status_bar_layout);
+        LinearLayout linearLayout = findViewById(R.id.ll_inactive_status_bar_layout);
         boolean isStatusActive = getString(R.string.active).equals(status);
 
         if (linearLayout != null) {
             linearLayout.setVisibility((isStatusActive) ? View.GONE : View.VISIBLE);
 
             if (!isStatusActive) {
-                TextView textView = (TextView) findViewById(R.id.tv_inactive_status_bar_status_text);
+                TextView textView = findViewById(R.id.tv_inactive_status_bar_status_text);
 
                 if (textView != null) {
                     textView.setText(String.format(getString(R.string.status_text), status));
@@ -825,11 +825,9 @@ public abstract class BaseActivity extends AppCompatActivity
                 String negativeButtonText = this.negativeButtonText;
                 if (negativeButtonText == null) negativeButtonText = "";
 
-                if (message.equals(notification.message)
+                return message.equals(notification.message)
                         && positiveButtonText.equals(notification.positiveButtonText)
-                        && negativeButtonText.equals(notification.negativeButtonText)) {
-                    return true;
-                }
+                        && negativeButtonText.equals(notification.negativeButtonText);
             }
             return false;
         }

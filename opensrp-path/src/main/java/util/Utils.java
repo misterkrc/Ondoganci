@@ -53,12 +53,14 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Map;
 
 
 /**
  * @author Maimoona
  *         Class containing some static utility methods.
+ *         Edited by Emmanuel Success
  */
 public class Utils {
 
@@ -238,7 +240,7 @@ public class Utils {
 
     public static Date getDateFromString(String date, String dateFormatPattern) {
         try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat(dateFormatPattern);
+            SimpleDateFormat dateFormat = new SimpleDateFormat(dateFormatPattern, Locale.US);
             return dateFormat.parse(date);
         } catch (ParseException e) {
             Log.e(TAG, e.getMessage());
