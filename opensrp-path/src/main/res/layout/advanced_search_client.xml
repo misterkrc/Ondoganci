@@ -11,7 +11,7 @@
         android:id="@+id/child_profile_info_layout"
         android:layout_width="0dp"
         android:layout_height="fill_parent"
-        android:layout_marginRight="1dp"
+        android:layout_marginEnd="1dp"
         android:layout_weight="4.4"
         android:background="#ffffff"
         android:orientation="horizontal">
@@ -23,7 +23,7 @@
             android:layout_gravity="center_vertical"
             android:adjustViewBounds="true"
             android:paddingBottom="2dp"
-            android:paddingLeft="2dp"
+            android:paddingStart="2dp"
             android:paddingTop="2dp"
             android:scaleType="centerCrop" />
 
@@ -31,7 +31,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_marginBottom="1dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="1dp"
             android:gravity="center_vertical"
             android:orientation="vertical">
@@ -41,7 +41,7 @@
                 style="@style/CustomFontTextViewStyle.ClientList.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Child Name"
+                android:text="@string/child_name"
                 android:textColor="@color/client_list_grey"
                 android:textSize="18sp" />
 
@@ -135,7 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/record_weight_with_nl"
+                android:text="@string/record_growth_with_nl"
                 android:textAllCaps="false"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/text_black"
