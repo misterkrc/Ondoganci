@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/opensrp-android.iml" filepath="$PROJECT_DIR$/.idea/opensrp-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opensrp-app-path.iml" filepath="$PROJECT_DIR$/opensrp-app-path.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opensrp-path/opensrp-path.iml" filepath="$PROJECT_DIR$/opensrp-path/opensrp-path.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: net.vidageek:mirror:1.6.1@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.vidageek/mirror/1.6.1/7eeaef220dc37a5c9435764e3736f251d2d702bf/mirror-1.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.vidageek/mirror/1.6.1/4a4cab1e119c999c3f9aeb53f0a3f711bb369281/mirror-1.6.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.vidageek/mirror/1.6.1/b9b6d97e65f23e2e9dcf4f6470d9d12b23bab194/mirror-1.6.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: org.smartregister:opensrp-client-native-form:1.2.4-SNAPSHOT@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/opensrp-client-native-form-1.2.4-SNAPSHOT.aar/42fa85fc95f2b7047b6a3f0e97ed6481/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/opensrp-client-native-form-1.2.4-SNAPSHOT.aar/42fa85fc95f2b7047b6a3f0e97ed6481/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.smartregister/opensrp-client-native-form/1.2.4-SNAPSHOT/2febf88f2dec12f73355519e8b5a3994a1286d7c/opensrp-client-native-form-1.2.4-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.smartregister/opensrp-client-native-form/1.2.4-SNAPSHOT/2febf88f2dec12f73355519e8b5a3994a1286d7c/opensrp-client-native-form-1.2.4-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
