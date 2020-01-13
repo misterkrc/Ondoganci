@@ -4,8 +4,8 @@
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>
         <option name="GRADLE_PROJECT_PATH" value=":opensrp-path" />
-        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="3.5.2" />
-        <option name="LAST_KNOWN_AGP_VERSION" value="3.5.2" />
+        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="3.5.3" />
+        <option name="LAST_KNOWN_AGP_VERSION" value="3.5.3" />
       </configuration>
     </facet>
     <facet type="android" name="Android">
@@ -164,7 +164,7 @@
     <orderEntry type="library" name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.7@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpmime:4.2.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpcore:4.2.2@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.1.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.1.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.1.1@jar" level="project" />
@@ -176,16 +176,13 @@
     <orderEntry type="library" name="Gradle: com.ocpsoft:ocpsoft-pretty-time:1.0.7@jar" level="project" />
     <orderEntry type="library" name="Gradle: ch.acra:acra:4.5.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.mcxiaoke.volley:library:1.0.19@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.apache.commons:commons-csv:1.4@jar" level="project" />
     <orderEntry type="library" name="Gradle: io.reactivex:rxjava:1.1.6@jar" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.12@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.hamcrest:hamcrest-core:1.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.pcollections:pcollections:2.1.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: net.vidageek:mirror:1.6.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout-solver:1.1.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.smartregister:opensrp-client-core:1.3.6-SNAPSHOT@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.smartregister:opensrp-client-immunization:1.4.2-SNAPSHOT@aar" level="project" />
-    <orderEntry type="library" name="Gradle: org.smartregister:opensrp-client-growth-monitoring:1.1.1-SNAPSHOT@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.smartregister:opensrp-client-stock:1.1.0-SNAPSHOT@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:multidex:1.0.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.smartregister:opensrp-client-native-form:1.2.4-SNAPSHOT@aar" level="project" />
@@ -227,6 +224,6 @@
     <orderEntry type="library" name="Gradle: io.fabric.sdk.android:fabric:1.3.14@aar" level="project" />
     <orderEntry type="library" name="Gradle: id.zelory:compressor:1.0.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.ybq:Android-SpinKit:1.4.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout:1.1.3@aar" level="project" />
+    <orderEntry type="module" module-name="growth-monitoring" />
   </component>
 </module>
