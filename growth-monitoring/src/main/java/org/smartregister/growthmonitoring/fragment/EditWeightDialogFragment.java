@@ -2,7 +2,7 @@ package org.smartregister.growthmonitoring.fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.DialogFragment;
+import android.support.v4.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
@@ -74,7 +74,7 @@ public class EditWeightDialogFragment extends DialogFragment {
 
         ViewGroup dialogView = (ViewGroup) inflater.inflate(R.layout.edit_weight_dialog_view, container, false);
 
-        final EditText editWeight = (EditText) dialogView.findViewById(R.id.edit_weight);
+        final EditText editWeight = dialogView.findViewById(R.id.edit_weight);
         if (tag.getWeight() != null) {
             editWeight.setText(tag.getWeight().toString());
             editWeight.setSelection(editWeight.getText().length());
@@ -85,44 +85,44 @@ public class EditWeightDialogFragment extends DialogFragment {
             currentWeightDate = tag.getUpdatedWeightDate();
         }
 
-        final DatePicker earlierDatePicker = (DatePicker) dialogView.findViewById(R.id.earlier_date_picker);
+        final DatePicker earlierDatePicker = dialogView.findViewById(R.id.earlier_date_picker);
         earlierDatePicker.setMaxDate(Calendar.getInstance().getTimeInMillis());
         if (dateOfBirth != null) {
             earlierDatePicker.setMinDate(dateOfBirth.getTime());
         }
 
-        TextView nameView = (TextView) dialogView.findViewById(R.id.child_name);
+        TextView nameView = dialogView.findViewById(R.id.child_name);
         nameView.setText(tag.getPatientName());
 
-        TextView numberView = (TextView) dialogView.findViewById(R.id.child_zeir_id);
+        TextView numberView = dialogView.findViewById(R.id.child_zeir_id);
         if (StringUtils.isNotBlank(tag.getPatientNumber())) {
             numberView.setText(String.format("%s: %s", getString(R.string.label_zeir), tag.getPatientNumber()));
         } else {
             numberView.setText("");
         }
 
-        TextView ageView = (TextView) dialogView.findViewById(R.id.child_age);
+        TextView ageView = dialogView.findViewById(R.id.child_age);
         if (StringUtils.isNotBlank(tag.getPatientAge())) {
             ageView.setText(String.format("%s: %s", getString(R.string.age), tag.getPatientAge()));
         } else {
             ageView.setText("");
         }
 
-        TextView pmtctStatusView = (TextView) dialogView.findViewById(R.id.pmtct_status);
+        TextView pmtctStatusView = dialogView.findViewById(R.id.pmtct_status);
         pmtctStatusView.setText(tag.getPmtctStatus());
 
         if (tag.getId() != null) {
-            ImageView mImageView = (ImageView) dialogView.findViewById(R.id.child_profilepic);
+            ImageView mImageView = dialogView.findViewById(R.id.child_profilepic);
 
             if (tag.getId() != null) {//image already in local storage most likely ):
                 //set profile image by passing the client id.If the image doesn't exist in the image repository then download and save locally
                 mImageView.setTag(R.id.entity_id, tag.getId());
-                DrishtiApplication.getCachedImageLoaderInstance().getImageByClientId(tag.getId(), OpenSRPImageLoader.getStaticImageListener((ImageView) mImageView, ImageUtils.profileImageResourceByGender(tag.getGender()), ImageUtils.profileImageResourceByGender(tag.getGender())));
+                DrishtiApplication.getCachedImageLoaderInstance().getImageByClientId(tag.getId(), OpenSRPImageLoader.getStaticImageListener(mImageView, ImageUtils.profileImageResourceByGender(tag.getGender()), ImageUtils.profileImageResourceByGender(tag.getGender())));
             }
         }
 
 
-        final Button set = (Button) dialogView.findViewById(R.id.set);
+        final Button set = dialogView.findViewById(R.id.set);
         set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -164,7 +164,7 @@ public class EditWeightDialogFragment extends DialogFragment {
             }
         });
 
-        final Button weightDelete = (Button) dialogView.findViewById(R.id.weight_delete);
+        final Button weightDelete = dialogView.findViewById(R.id.weight_delete);
         weightDelete.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -178,11 +178,11 @@ public class EditWeightDialogFragment extends DialogFragment {
         if (tag.getUpdatedWeightDate() != null) {
             ((TextView) dialogView.findViewById(R.id.service_date)).setText("Date weighed: " + tag.getUpdatedWeightDate().dayOfMonth().get() + "-" + tag.getUpdatedWeightDate().monthOfYear().get() + "-" + tag.getUpdatedWeightDate().year().get() + "");
         } else {
-            ((TextView) dialogView.findViewById(R.id.service_date)).setVisibility(View.GONE);
+            dialogView.findViewById(R.id.service_date).setVisibility(View.GONE);
             weightDelete.setVisibility(View.GONE);
         }
 
-        final Button weightTakenEarlier = (Button) dialogView.findViewById(R.id.weight_taken_earlier);
+        final Button weightTakenEarlier = dialogView.findViewById(R.id.weight_taken_earlier);
         weightTakenEarlier.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -201,7 +201,7 @@ public class EditWeightDialogFragment extends DialogFragment {
             }
         });
 
-        Button cancel = (Button) dialogView.findViewById(R.id.cancel);
+        Button cancel = dialogView.findViewById(R.id.cancel);
         cancel.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
