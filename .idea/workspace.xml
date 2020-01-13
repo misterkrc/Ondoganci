@@ -10,19 +10,247 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ec9910d-d283-496c-a595-07f871f2ef2c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/ImmunizationLibrary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/adapter/ImmunizationRowAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/adapter/ServiceCardAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/adapter/ServiceRowAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/adapter/VaccineCardAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/db/VaccineRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/GroupState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/ServiceRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/ServiceSchedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/ServiceTrigger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/ServiceType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/ServiceWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/State.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/VaccinateFormSubmissionWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/Vaccine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/VaccineCondition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/VaccineName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/VaccineSchedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/VaccineTrigger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/VaccineType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/VaccineWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/jsonmapping/Condition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/jsonmapping/Due.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/jsonmapping/Expiry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/jsonmapping/OpenMRSCalculation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/jsonmapping/OpenMRSDate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/jsonmapping/Schedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/jsonmapping/Vaccine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/domain/jsonmapping/VaccineGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/fragment/ActivateChildStatusDialogFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/fragment/ServiceDialogFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/fragment/ServiceEditDialogFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/fragment/UndoServiceDialogFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/fragment/UndoVaccinationDialogFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/fragment/VaccinationDialogFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/fragment/VaccinationEditDialogFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/listener/ServiceActionListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/listener/VaccinationActionListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/listener/VaccineCardAdapterLoadingListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/repository/RecurringServiceRecordRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/repository/RecurringServiceTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/repository/VaccineNameRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/repository/VaccineRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/repository/VaccineTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/service/intent/RecurringIntentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/service/intent/VaccineIntentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/util/IMConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/util/IMDatabaseUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/util/ImageUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/util/JsonFormUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/util/RecurringServiceUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/util/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/util/VaccinateActionUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/util/VaccinatorUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/util/VaccineScheduleUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/view/ExpandableHeightGridView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/view/ImmunizationRowCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/view/ImmunizationRowGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/view/ServiceCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/view/ServiceGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/view/ServiceRowCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/view/ServiceRowGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/view/VaccineCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/view/VaccineGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-hdpi/ic_action_check.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-hdpi/undo_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-hdpi/vaccine_card_background_blue.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-hdpi/vaccine_card_background_green.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-hdpi/vaccine_card_background_red.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-hdpi/vaccine_card_background_white.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/child_boy_infant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/child_girl_infant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/child_transgender_inflant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/due_vaccine_blue_bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/due_vaccine_light_blue_bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/due_vaccine_na_bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/due_vaccine_red_bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/ic_action_check.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/table_row_border.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/undo_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/vaccination_earlier_bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/vaccination_earlier_bg_disabled.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/vaccination_today_bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/vaccination_today_bg_disabled.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/vaccine_card_background_blue.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/vaccine_card_background_green.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/vaccine_card_background_red.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-mdpi/vaccine_card_background_white.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-xhdpi/ic_action_check.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-xxhdpi/ic_action_check.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable-xxxhdpi/ic_action_check.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable/undo_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable/vaccine_card_background_blue.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable/vaccine_card_background_green.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable/vaccine_card_background_red.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/drawable/vaccine_card_background_white.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/dialog_fragment_activate_child_status.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/service_default_actions_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/service_dialog_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/service_itn_actions_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/service_name.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/undo_vaccination_dialog_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/undo_vaccination_dialog_view_ph.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/vaccinate_row_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/vaccination_dialog_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/vaccination_dialog_view_ph.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/vaccination_edit_dialog_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/vaccination_name.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/vaccination_name_edit_dialog.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/view_immunization_row_card.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/view_immunization_row_group.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/view_service_group.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/view_vaccination_card.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/layout/view_vaccine_group.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/menu/menu_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/values-sw600dp/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/values-w600dp/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/values-w720dp/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/values/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/main/res/values/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/BaseUnitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/CustomRoboelectricTestRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/ImmunizationLibraryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/adapter/ImageUtilsShadow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/adapter/ImmunizationRowAdapterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/adapter/ImmunizationRowCardShadow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/adapter/ServiceCardAdapterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/adapter/ServiceCardShadow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/adapter/ServiceRowAdapterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/adapter/ServiceRowCardShadow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/adapter/VaccineCardAdapterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/adapter/VaccineCardShadow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/customshadows/FontTextViewShadow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/db/VaccineRepoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/domain/ServiceData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/domain/ServiceRecordTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/domain/ServiceScheduleTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/domain/ServiceTriggerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/domain/ServiceTypeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/domain/ServiceWrapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/domain/VaccineData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/domain/VaccineNameTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/domain/VaccineScheduleTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/domain/VaccineTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/domain/VaccineTriggerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/domain/VaccineTypeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/domain/VaccineWrapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/ActivateChildStatusDialogFragmentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/ServiceDialogFragmentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/ServiceEditDialogFragmentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/UndoServiceDialogFragmentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/UndoVaccinationDialogFragmentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/VaccinationDialogFragmentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/VaccinationEditDialogFragmentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/mock/CheckBoxMock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/mock/DrishtiApplicationShadow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/mock/FragmentUtilActivityUsingServiceActionListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/mock/OpenSRPImageLoaderMock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/mock/RadioButtonMock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/mock/ServiceDialogFragmentTestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/mock/UndoServiceDialogFragmentTestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/mock/UndoVaccinationDialogFragmentTestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/mock/VaccinationDialogFragmentMock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/mock/VaccinationDialogFragmentTestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/fragment/mock/VaccinationEditDialogFragmentTestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/repository/RecurringServiceRecordRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/repository/RecurringServiceTypeRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/repository/VaccineNameRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/repository/VaccineRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/repository/VaccineTypeRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/service/intent/RecurringIntentServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/service/intent/VaccineIntentServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/utils/IMDatabaseUtilsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/utils/ImageUtilsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/utils/VaccinateActionUtilsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/utils/VaccinateFormSubmissionWrapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/utils/VaccinatorUtilsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/utils/VaccinatorUtilsTestMock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/utils/VaccinatorUtilsTestMockActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/ImmunizationRowCardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/ImmunizationRowGroupTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/ServiceCardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/ServiceGroupTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/ServiceRowCardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/ServiceRowGroupTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/VaccineCardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/VaccineGroupTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/mock/ImmunizationRowCardTestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/mock/ImmunizationRowGroupTestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/mock/ServiceCardTestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/mock/ServiceGroupTestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/mock/ServiceRowCardTestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/mock/ServiceRowGroupTestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/mock/VaccineCardTestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/mock/VaccineGroupTestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opensrp-immunization/src/test/java/org/smartregister/immunization/view/mock/ViewAttributes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileContent/annotation-processors.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_getkeepsafe_relinker_relinker_1_2_2_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_10_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_14_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_converter_gson_2_4_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_retrofit_2_4_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_twilio_voice_android_3_1_2_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_bytebuddy_byte_buddy_1_6_14_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_bytebuddy_byte_buddy_agent_1_6_14_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_smartregister_opensrp_client_immunization_1_4_2_SNAPSHOT_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/EditWeightDialogFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/EditWeightDialogFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/GrowthDialogFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/GrowthDialogFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/RecordWeightDialogFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/RecordWeightDialogFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opensrp-path/src/main/assets/stock_type.json" beforeDir="false" afterPath="$PROJECT_DIR$/opensrp-path/src/main/assets/stock_type.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opensrp-path/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/opensrp-path/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opensrp-path/opensrp-path.iml" beforeDir="false" afterPath="$PROJECT_DIR$/opensrp-path/opensrp-path.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opensrp-path/src/main/assets/vaccines.json" beforeDir="false" afterPath="$PROJECT_DIR$/opensrp-path/src/main/assets/vaccines.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +261,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_C_API_23" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_-_Tablet" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -61,45 +289,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/activity/ChildImmunizationActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="141" column="12" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
+            <state relative-caret-position="2239">
+              <caret line="1554" column="36" selection-start-line="1554" selection-start-column="36" selection-end-line="1554" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/opensrp-path/build.gradle">
+        <entry file="file://$PROJECT_DIR$/opensrp-immunization/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3179">
-              <caret line="187" column="54" selection-start-line="187" selection-start-column="54" selection-end-line="187" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/RecordWeightDialogFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/content_child_immunization.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4658">
-              <caret line="274" column="46" selection-start-line="274" selection-start-column="46" selection-end-line="274" selection-end-column="46" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/application/VaccinatorApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="105" selection-start-line="105" selection-end-line="105" />
+            <state relative-caret-position="-1821">
+              <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -107,8 +307,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/GrowthDialogFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1173">
-              <caret line="72" column="38" lean-forward="true" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="39" />
+            <state relative-caret-position="105">
+              <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -116,8 +316,62 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/EditWeightDialogFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2811">
-              <caret line="42" column="71" lean-forward="true" selection-start-line="42" selection-start-column="71" selection-end-line="42" selection-end-column="71" />
+            <state relative-caret-position="60">
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/RecordWeightDialogFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-349">
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/tabfragments/ChildUnderFiveFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-43">
+              <caret line="375" column="32" selection-start-line="375" selection-start-column="32" selection-end-line="375" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/opensrp-path/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="149" column="95" selection-start-line="149" selection-start-column="95" selection-end-line="149" selection-end-column="95" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/assets/vaccines.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="81">
+              <caret line="116" column="66" selection-start-line="116" selection-start-column="66" selection-end-line="116" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/ImmunizationLibrary.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="30" column="56" lean-forward="true" selection-start-line="30" selection-start-column="56" selection-end-line="30" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/db/VaccineRepo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="18" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -137,6 +391,11 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Eric Lekwa &lt;eric.lekwa@e4email.net&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -146,7 +405,6 @@
         <option value="$PROJECT_DIR$/opensrp-path/src/main/assets/json.form/child_enrollment.json" />
         <option value="$PROJECT_DIR$/opensrp-growth-monitoring/build.gradle" />
         <option value="$PROJECT_DIR$/growth-monitoring/build.gradle" />
-        <option value="$PROJECT_DIR$/opensrp-path/build.gradle" />
         <option value="$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/application/VaccinatorApplication.java" />
         <option value="$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/repository/WeightRepository.java" />
         <option value="$PROJECT_DIR$/growth-monitoring/src/main/res/layout/record_weight_dialog_view.xml" />
@@ -159,9 +417,12 @@
         <option value="$PROJECT_DIR$/growth-monitoring/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/growth-monitoring/src/androidTest/java/org/smartregister/growthmonitoring/ApplicationTest.java" />
         <option value="$PROJECT_DIR$/opensrp-path/src/main/assets/stock_type.json" />
-        <option value="$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/GrowthDialogFragment.java" />
         <option value="$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/RecordWeightDialogFragment.java" />
+        <option value="$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/GrowthDialogFragment.java" />
         <option value="$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/EditWeightDialogFragment.java" />
+        <option value="$PROJECT_DIR$/opensrp-immunization/build.gradle" />
+        <option value="$PROJECT_DIR$/opensrp-path/build.gradle" />
+        <option value="$PROJECT_DIR$/opensrp-path/src/main/assets/vaccines.json" />
       </list>
     </option>
   </component>
@@ -177,133 +438,142 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView">
+      <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="growth-monitoring" type="feadf853:AndroidModuleNode" />
+              <item name="opensrp-app-path" type="b2602c69:ProjectViewProjectNode" />
+              <item name="opensrp-android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Default Changelist'; set:Default Changelist; class com.intellij.packageDependencies.ChangeListScope">
+          <expand>
+            <path>
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/E4E/updates/opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Project Non-Source Files'; set:Project Non-Source Files; class com.jetbrains.cidr.lang.search.scopes.ProjectSourcesScopeProvider$NonSourceFilesScope">
+          <expand>
+            <path>
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
             <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="growth-monitoring" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="growth-monitoring" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="growthmonitoring" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
             <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="growth-monitoring" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="growthmonitoring" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="gradle" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="growth-monitoring" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="growthmonitoring" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="fragment" type="462c0819:PsiDirectoryNode" />
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="gradle" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="wrapper" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="growth-monitoring" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="growthmonitoring" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="listener" type="462c0819:PsiDirectoryNode" />
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="growth-monitoring" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="growthmonitoring" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="build" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="growth-monitoring" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="growthmonitoring" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="intent" type="462c0819:PsiDirectoryNode" />
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="growth-monitoring" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="growthmonitoring" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="opensrp-path" type="feadf853:AndroidModuleNode" />
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="opensrp-path" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="json.form" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Project Source Files'; set:Project Source Files; class com.jetbrains.cidr.lang.search.scopes.ProjectSourcesScopeProvider$SourceFilesScope">
+          <expand>
+            <path>
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
             <path>
-              <item name="opensrp-app-path" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="build" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="opensrp-app-path" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\ibrah\AndroidStudioProjects\opensrp-android" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="opensrp-path" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="opensrp-app-path" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="opensrp-app-path" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Gradle: org.smartregister:opensrp-client-stock:1.1.0-SNAPSHOT@aar" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="opensrp-app-path" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Gradle: org.smartregister:opensrp-client-stock:1.1.0-SNAPSHOT@aar" type="70bed36:NamedLibraryElementNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="opensrp-app-path" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Gradle: org.smartregister:opensrp-client-stock:1.1.0-SNAPSHOT@aar" type="70bed36:NamedLibraryElementNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="drawable" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="opensrp-app-path" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Gradle: org.smartregister:opensrp-client-stock:1.1.0-SNAPSHOT@aar" type="70bed36:NamedLibraryElementNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="drawable-xhdpi-v4" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="opensrp-app-path" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Gradle: org.smartregister:opensrp-client-stock:1.1.0-SNAPSHOT@aar" type="70bed36:NamedLibraryElementNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_C_API_23" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-01-08T13:57:27.451Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="02673258CF000867" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-01-13T16:18:48.456Z" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
@@ -414,11 +684,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1280" height="752" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25189108" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2584814" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Build Variants" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
@@ -426,16 +695,17 @@
       <window_info id="Resources Explorer" order="6" weight="0.3237519" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Favorites" order="8" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.3287879" />
       <window_info anchor="bottom" id="Run" order="0" sideWeight="0.4977307" weight="0.3824885" />
       <window_info anchor="bottom" id="Logcat" order="1" weight="0.32872504" />
       <window_info anchor="bottom" id="TODO" order="2" />
-      <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Android Profiler" order="3" />
       <window_info anchor="bottom" id="Debug" order="4" />
-      <window_info anchor="bottom" id="Terminal" order="5" sideWeight="0.4969743" weight="0.42549923" />
+      <window_info anchor="bottom" id="Terminal" order="5" sideWeight="0.4969743" weight="0.42424244" />
       <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.5060514" side_tool="true" weight="0.51766515" />
       <window_info anchor="bottom" id="Flutter Performance" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Build" order="9" sideWeight="0.49394855" weight="0.51766515" />
+      <window_info anchor="bottom" id="Build" order="9" sideWeight="0.49394855" weight="0.51666665" />
       <window_info anchor="bottom" id="Find" order="10" sideWeight="0.49848714" weight="0.32872504" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" weight="0.32980332" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -446,11 +716,59 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Gradle" order="7" weight="0.32980332" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19515885" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Designer" order="4" />
+      <window_info id="Resources Explorer" order="5" weight="0.38880485" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info id="Build Variants" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="0" weight="0.32872504" />
+      <window_info anchor="bottom" id="TODO" order="1" />
+      <window_info anchor="bottom" id="Debug" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49848714" weight="0.31950846" />
+      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50378215" side_tool="true" weight="0.49462366" />
+      <window_info anchor="bottom" id="Flutter Performance" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="6" />
+      <window_info anchor="bottom" id="Logcat" order="7" weight="0.95238096" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Build" order="9" sideWeight="0.49621785" weight="0.49462366" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Theme Preview" order="1" />
+      <window_info anchor="right" id="Flutter Inspector" order="2" />
+      <window_info anchor="right" id="Flutter Outline" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
+      <window_info anchor="right" id="Gradle" order="6" />
+      <window_info anchor="right" id="Preview" order="7" weight="0.3343419" />
+      <window_info anchor="right" id="Hierarchy" order="8" weight="0.32980332" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="project restore point" />
     <MESSAGE value="Fix issues with growth Monitoring library and updated height and head circumference" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix issues with growth Monitoring library and updated height and head circumference" />
+    <MESSAGE value="#Vaccine Fix&#10;&#10;- Added Immunization Repo to the project to enable administration of HepB, Yellow Fever and VIT A vaccines" />
+    <MESSAGE value="#Vaccine Fix&#10;&#10;- Added Immunization Repo to the project to enable administration of HepB, Yellow Fever and VIT A vaccines&#10;- Added Growth Monitoring Repo from Success Branch.&#10;- Added Login State from Rotimi's branch." />
+    <option name="LAST_COMMIT_MESSAGE" value="#Vaccine Fix&#10;&#10;- Added Immunization Repo to the project to enable administration of HepB, Yellow Fever and VIT A vaccines&#10;- Added Growth Monitoring Repo from Success Branch.&#10;- Added Login State from Rotimi's branch." />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6693cf3e831b2dd760ab75c845516929/opensrp-client-core-1.3.6-SNAPSHOT/jars/classes.jar!/org/smartregister/domain/TimeStatus.class">
@@ -529,8 +847,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/activity/ChildDetailTabbedActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18241">
-          <caret line="1207" column="33" selection-start-line="1207" selection-start-column="33" selection-end-line="1207" selection-end-column="33" />
+        <state relative-caret-position="13245">
+          <caret line="1015" column="17" selection-start-line="1015" selection-start-column="17" selection-end-line="1015" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -556,36 +874,36 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/growth-monitoring/src/main/res/layout/growth_dialog_view.xml">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/app_bar_report_summary.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="33" lean-forward="true" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/provider_profile.xml">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/nav_view_base.xml">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/smart_register_activity_advanced_search.xml">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/smart_register_activity_customized.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="27" column="37" lean-forward="true" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -595,14 +913,15 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/smart_register_child_header.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="72" column="40" lean-forward="true" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="40" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/smart_register_child_client.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
           <caret line="144" column="19" lean-forward="true" selection-start-line="144" selection-start-column="19" selection-end-line="144" selection-end-column="19" />
@@ -611,9 +930,9 @@
           </folding>
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/advanced_search_client.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="133" column="28" selection-start-line="133" selection-start-column="28" selection-end-line="133" selection-end-column="28" />
@@ -624,9 +943,9 @@
           </folding>
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/growth-monitoring/src/main/res/layout/record_weight_dialog_view.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
@@ -654,15 +973,14 @@
           </folding>
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/app_bar_child_immunization.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/growth-monitoring/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
@@ -697,9 +1015,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/assets/vaccines.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/assets/sync_filters.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -711,12 +1026,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/growth-monitoring/src/main/res/layout/edit_weight_dialog_view.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1751">
           <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/GrowthMonitoringLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -725,27 +1040,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/activity/ChildImmunizationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="141" column="12" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/opensrp-path/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3179">
-          <caret line="187" column="54" selection-start-line="187" selection-start-column="54" selection-end-line="187" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/layout/content_child_immunization.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4658">
-          <caret line="274" column="46" selection-start-line="274" selection-start-column="46" selection-end-line="274" selection-end-column="46" />
+        <state relative-caret-position="165">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/application/VaccinatorApplication.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -754,24 +1055,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/EditWeightDialogFragment.java">
+    <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/tabfragments/ChildUnderFiveFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2811">
-          <caret line="42" column="71" lean-forward="true" selection-start-line="42" selection-start-column="71" selection-end-line="42" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/GrowthDialogFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1173">
-          <caret line="72" column="38" lean-forward="true" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="39" />
+        <state relative-caret-position="-43">
+          <caret line="375" column="32" selection-start-line="375" selection-start-column="32" selection-end-line="375" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/RecordWeightDialogFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        <state relative-caret-position="-349">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/GrowthDialogFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/res/xml/preferences.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/growth-monitoring/src/main/java/org/smartregister/growthmonitoring/fragment/EditWeightDialogFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/activity/ChildImmunizationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2239">
+          <caret line="1554" column="36" selection-start-line="1554" selection-start-column="36" selection-end-line="1554" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/java/org/smartregister/path/domain/RegisterClickables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+          <folding>
+            <element signature="e#450#451#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/opensrp-immunization/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1821">
+          <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/java/util/PathConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/db/VaccineRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/opensrp-path/src/main/assets/vaccines.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="116" column="66" selection-start-line="116" selection-start-column="66" selection-end-line="116" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/opensrp-path/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="149" column="95" selection-start-line="149" selection-start-column="95" selection-end-line="149" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/opensrp-immunization/src/main/java/org/smartregister/immunization/ImmunizationLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="30" column="56" lean-forward="true" selection-start-line="30" selection-start-column="56" selection-end-line="30" selection-end-column="56" />
         </state>
       </provider>
     </entry>

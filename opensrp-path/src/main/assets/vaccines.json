@@ -71,8 +71,8 @@
         }
       },
       {
-        "name": "Hepatitis B",
-        "type": "Hepatitis B",
+        "name": "HepB",
+        "type": "HepB",
         "openmrs_date": {
           "parent_entity": "21AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
           "entity": "concept",

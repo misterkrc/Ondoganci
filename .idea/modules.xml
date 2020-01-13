@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/opensrp-growth-monitoring/opensrp-android-opensrp-growth-monitoring.iml" filepath="$PROJECT_DIR$/opensrp-growth-monitoring/opensrp-android-opensrp-growth-monitoring.iml" />
       <module fileurl="file://$PROJECT_DIR$/opensrp-app-path.iml" filepath="$PROJECT_DIR$/opensrp-app-path.iml" />
       <module fileurl="file://$PROJECT_DIR$/opensrp-growth-monitoring/opensrp-growth-monitoring.iml" filepath="$PROJECT_DIR$/opensrp-growth-monitoring/opensrp-growth-monitoring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opensrp-immunization/opensrp-immunization.iml" filepath="$PROJECT_DIR$/opensrp-immunization/opensrp-immunization.iml" />
       <module fileurl="file://$PROJECT_DIR$/opensrp-path/opensrp-path.iml" filepath="$PROJECT_DIR$/opensrp-path/opensrp-path.iml" />
     </modules>
   </component>
