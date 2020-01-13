@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -57,6 +58,7 @@ import java.util.TimeZone;
 
 import util.NetworkUtils;
 import util.PathConstants;
+import util.SaveSharedPreference;
 
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 import static android.view.inputmethod.InputMethodManager.HIDE_NOT_ALWAYS;
@@ -77,6 +79,10 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private android.content.Context appContext;
     private RemoteLoginTask remoteLoginTask;
+    SharedPreferences pref;
+
+
+
 
     public static void setLanguage() {
         AllSharedPreferences allSharedPreferences = new AllSharedPreferences(getDefaultSharedPreferences(getOpenSRPContext().applicationContext()));
@@ -134,10 +140,20 @@ public class LoginActivity extends AppCompatActivity {
             res.updateConfiguration(conf, dm);
         } catch (Exception e) {
             logError("Error onCreate: " + e);
+        }
 
+        String user_name;
+        String pass_word;
+        user_name = SaveSharedPreference.getUsername(getApplicationContext());
+        pass_word = SaveSharedPreference.getPassword(getApplicationContext());
+
+        if(SaveSharedPreference.getLoggedStatus(getApplicationContext())) {
+            localLoginWith(user_name, pass_word);
+            logError("hey", "we are in");
         }
 
         setContentView(R.layout.login);
+
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.black)));
@@ -155,7 +171,33 @@ public class LoginActivity extends AppCompatActivity {
         checkPermissions();
 
         setLanguage();
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -189,6 +231,7 @@ public class LoginActivity extends AppCompatActivity {
         if (!getOpenSRPContext().IsUserLoggedOut()) {
             goToHome(false);
         }
+
     }
 
     public void login(final View view) {
@@ -258,6 +301,9 @@ public class LoginActivity extends AppCompatActivity {
                 public void onEvent(LoginResponse loginResponse) {
                     view.setClickable(true);
                     if (loginResponse == SUCCESS) {
+                        SaveSharedPreference.setLoggedIn(appContext, true);
+                        SaveSharedPreference.setUsername(appContext, userName);
+                        SaveSharedPreference.setPassword(appContext, password);
                         if (getOpenSRPContext().userService().isUserInPioneerGroup(userName)) {
                             TimeStatus timeStatus = getOpenSRPContext().userService().validateDeviceTime(
                                     loginResponse.payload(), PathConstants.MAX_SERVER_TIME_DIFFERENCE);

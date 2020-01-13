@@ -102,6 +102,7 @@
         "openmrs_entity_id": "",
         "openmrs_data_type": "text",
         "type": "edit_text",
+        "editable": false,
         "hint": "Actual number of [vaccine] vials issued *",
         "v_min": {
           "value": "1",

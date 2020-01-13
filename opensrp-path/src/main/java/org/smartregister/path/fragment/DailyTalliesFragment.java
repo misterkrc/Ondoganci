@@ -102,7 +102,8 @@ public class DailyTalliesFragment extends Fragment
             return;
         }
 
-        ExpandedListAdapter<String, String, Date> expandableListAdapter = new ExpandedListAdapter(getActivity(), map, R.layout.daily_tally_header, R.layout.daily_tally_item);
+        ExpandedListAdapter<String, String, Date> expandableListAdapter = new ExpandedListAdapter
+                (getActivity(), map, R.layout.daily_tally_header, R.layout.daily_tally_item);
         expandableListView.setAdapter(expandableListAdapter);
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
