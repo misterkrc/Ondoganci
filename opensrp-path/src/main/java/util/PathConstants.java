@@ -85,7 +85,7 @@ PathConstants extends AllConstants {
         public static final String BIRTHDATE_ESTIMATED = "birthdate_estimated";
         public static final String EPI_CARD_NUMBER = "epi_card_number";
         public static final String MOTHER_LAST_NAME = "mother_last_name";
-        public static final String ZEIR_ID = "zeir_id";
+        public static final String ZEIR_ID = "ondo_id";
         public static final String LOST_TO_FOLLOW_UP = "lost_to_follow_up";
         public static final String GENDER = "gender";
         public static final String MOTHER_BASE_ENTITY_ID = "mother_base_entity_id";

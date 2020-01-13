@@ -97,8 +97,8 @@ public class LocationPickerView extends CustomFontTextView implements View.OnCli
         if (locations.contains(defaultLocation)) {
             locations.remove(defaultLocation);
         }
-      //  Collections.sort(locations);
-      //  locations.add(0, defaultLocation);
+//        Collections.sort(locations);
+//        locations.add(0, defaultLocation);
 
         return locations;
     }

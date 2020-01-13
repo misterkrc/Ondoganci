@@ -40,5 +40,19 @@
     "openmrs_parent_entity_id": "",
     "openmrs_date_concept_id": "",
     "openmrs_quantity_concept_id": ""
+  },
+  {
+    "quantity": "10",
+    "name": "Vitamin A",
+    "openmrs_parent_entity_id": "",
+    "openmrs_date_concept_id": "",
+    "openmrs_quantity_concept_id": ""
+  },
+  {
+    "quantity": "2",
+    "name": "Hepatitis B",
+    "openmrs_parent_entity_id": "",
+    "openmrs_date_concept_id": "",
+    "openmrs_quantity_concept_id": ""
   }
 ]

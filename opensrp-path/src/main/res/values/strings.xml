@@ -19,7 +19,6 @@
     <string name="vaccination_summary"> Vaccination Summary</string>
     <string name="search_hint">Search Register</string>
     <string name="birthdate">DOB</string>
-    <string name="age">Age</string>
     <string name="uc">UC</string>
     <string name="town">Town</string>
     <string name="address">Address</string>
@@ -96,11 +95,11 @@
     <string name="neutral_sex_id">his or her</string>
     <string name="female_sex_id">her</string>
     <string name="male_sex_id">his</string>
-    <string name="label_zeir">ONDOGANCI</string>
+    <string name="label_ondo">ONDOGANCI</string>
     <string name="label_immunization_records">IMMUNISATION &amp; SERVICES</string>
     <string name="str_search_hint">Search name or ID</string>
     <string name="scan_qr_code">Scan QR code</string>
-    <string name="ondoganci">ONDOGANCI</string>
+    <string name="ondo">ONDOGANCI</string>
     <string name="select_location">Select Location</string>
     <string name="no_openmrs_id">No unique ids found. Click on the sync button to get more and if this error persists contact the system admin.</string>
     <string name="edit_registration_data">Edit registration data</string>
@@ -141,11 +140,9 @@
     <string name="lost_to_follow_up">Lost to Follow-Up</string>
     <string name="lost_to_follow_up_with_nl">Lost to\nFollow-Up</string>
     <string name="status">status</string>
-    <string name="ondoganci_id">ONDOGANCI ID</string>
-    <string name="ondoganci_id_hint">ONDOGANCI ID number</string>
-    <string name="first_name">First Name</string>
+    <string name="ONDOGANCI_id">ONDOGANCI ID</string>
+    <string name="ondo_id_hint">ONDOGANCI ID number</string>
     <string name="first_name_hint">First name</string>
-    <string name="last_name">Last Name</string>
     <string name="last_name_hint">Last name</string>
     <string name="mother_guardian_name">Mother/Guardian Name</string>
     <string name="mother_guardian_name_hint">Mother or guardian name</string>
@@ -225,14 +222,14 @@
 
     <string name="cohort_coverage_report">Cohort Coverage Report</string>
     <string name="annual_coverage_report_cso">Annual Coverage Report - CSO</string>
-    <string name="annual_coverage_report_zeir">Annual Coverage Report - ONDOGANSI</string>
+    <string name="annual_coverage_report_ondo">Annual Coverage Report - ONDOGANCI</string>
     <string name="facility_cumulative_coverage_report">Facility Cumulative Coverage Report</string>
 
     <string name="filter_cohort">Cohort: </string>
     <string name="filter_cohort_size">Cohort Size: </string>
     <string name="filter_year">Year: </string>
     <string name="filter_cso_target">CSO Target: </string>
-    <string name="filter_zeir_target">ONDOGANSI Target: </string>
+    <string name="filter_ONDOGANCI_target">ONDOGANCI Target: </string>
 
     <string name="coverage_vaccine_header">Vaccine</string>
     <string name="coverage_vaccinated_header">Vaccinated</string>
@@ -300,4 +297,47 @@
 
     <string name="permissions_required">Permissions Required</string>
     <string name="read_write_permissions_required">Read and write external storage permissions are required when saving and accessing profile images.</string>
+    <string name="child_s_home_health_facility">Child\'s home health facility</string>
+    <string name="child_s_ondoganci_id">Child\'s ONDOGANCI ID</string>
+    <string name="child_s_birth_certificate_number">Child\'s birth certificate number</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="sex">Sex</string>
+    <string name="child_s_dob">Child\'s DOB</string>
+    <string name="age">Age</string>
+    <string name="date_first_seen">Date first seen</string>
+    <string name="birth_weight">Birth weight</string>
+    <string name="birth_height">Birth height</string>
+    <string name="head">Head circumference</string>
+    <string name="mother_guardian_first_name">Mother/guardian first name</string>
+    <string name="mother_guardian_last_name">Mother/guardian last name</string>
+    <string name="mother_guardian_dob">Mother/guardian DOB</string>
+    <string name="mother_guardian_national_identity_number">Mother/guardian National Identity number</string>
+    <string name="father_guardian_full_name">Father/guardian full name</string>
+    <string name="father_guardian_national_identity_number">Father/guardian National Identity number</string>
+    <string name="place_of_birth">Place of birth</string>
+    <string name="health_facility_the_child_was_born_in">Health facility the child was born in</string>
+    <string name="other_birth_facility">Other Birth Facility</string>
+    <string name="child_s_residential_area">Child\'s residential area</string>
+    <string name="other_residential_area">Other Residential Area</string>
+    <string name="home_address">Home address</string>
+    <string name="landmark">Landmark</string>
+    <string name="powered_by">Powered by</string>
+
+<!--    <string name="action_settings">Settings</string>-->
+<!--    <string name="age">Age</string>-->
+<!--    <string name="app_name">opensrp-growth-monitoring</string>-->
+    <string name="boys">Boys</string>
+    <string name="btn_layout_weight">2</string>
+    <string name="edit_weight_data">Edit weight data</string>
+    <string name="girls">Girls</string>
+    <string name="label_zeir">ONDOGANCI</string>
+    <string name="months">Months</string>
+    <string name="previous_weights">PREVIOUS WEIGHTS</string>
+    <string name="record_weight">Record weight</string>
+    <string name="record_height">Record height</string>
+    <string name="record_weight_notification">"Don't forget to record child's weight"</string>
+    <string name="record_height_notification">"Don't forget to record child's height"</string>
+    <string name="record_weight_with_nl">Record\nweight</string>
+    <string name="weight_for_age">Weight-for-age %1$s</string>
 </resources>

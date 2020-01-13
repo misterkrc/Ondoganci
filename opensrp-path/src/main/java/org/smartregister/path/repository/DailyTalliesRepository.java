@@ -22,11 +22,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class DailyTalliesRepository extends BaseRepository {
     private static final String TAG = DailyTalliesRepository.class.getCanonicalName();
-    private static final SimpleDateFormat DAY_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat DAY_FORMAT = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
     private static final String TABLE_NAME = "daily_tallies";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_PROVIDER_ID = "provider_id";
@@ -106,7 +107,9 @@ public class DailyTalliesRepository extends BaseRepository {
                     cv.put(DailyTalliesRepository.COLUMN_DAY, StringUtils.isNotBlank(day) ? DAY_FORMAT.parse(day).getTime() : null);
                     cv.put(DailyTalliesRepository.COLUMN_UPDATED_AT, Calendar.getInstance().getTimeInMillis());
 
-                    database.insertWithOnConflict(TABLE_NAME, null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+                   // database.insert(TABLE_NAME,null,cv);
+
+                   database.insertWithOnConflict(TABLE_NAME, null, cv, SQLiteDatabase.CONFLICT_REPLACE);
                 }
             }
             database.setTransactionSuccessful();
