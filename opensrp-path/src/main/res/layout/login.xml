@@ -28,8 +28,8 @@
                 android:textColor="#bfe7f3" />
 
             <ImageView
-                android:layout_width="@dimen/login_opensrp_logo_width"
-                android:layout_height="@dimen/login_opensrp_logo_height"
+                android:layout_width="180dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="30dp"

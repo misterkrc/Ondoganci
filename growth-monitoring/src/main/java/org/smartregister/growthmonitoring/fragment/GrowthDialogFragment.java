@@ -1,7 +1,7 @@
 package org.smartregister.growthmonitoring.fragment;
 
 import android.annotation.SuppressLint;
-import android.support.v4.app.DialogFragment;
+import android.app.DialogFragment;
 import android.graphics.DashPathEffect;
 import android.graphics.Point;
 import android.os.Bundle;
