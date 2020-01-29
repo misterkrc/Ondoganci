@@ -24,7 +24,6 @@ import static org.smartregister.util.Log.logError;
 
 /**
  * Created by Jason Rogena - jrogena@ona.io on 12/05/2017.
- * Edited by Emmanuel Success on 08/11/19
  */
 
 public class SyncStatusBroadcastReceiver extends BroadcastReceiver {
@@ -87,7 +86,7 @@ public class SyncStatusBroadcastReceiver extends BroadcastReceiver {
         Bundle data = intent.getExtras();
         if (data != null) {
             Serializable fetchStatusSerializable = data.getSerializable(EXTRA_FETCH_STATUS);
-            if (fetchStatusSerializable instanceof FetchStatus) {
+            if (fetchStatusSerializable != null && fetchStatusSerializable instanceof FetchStatus) {
                 FetchStatus fetchStatus = (FetchStatus) fetchStatusSerializable;
                 if (fetchStatus.equals(FetchStatus.fetchStarted)) {
                     started();

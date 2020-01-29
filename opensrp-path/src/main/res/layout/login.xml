@@ -8,7 +8,8 @@
     <RelativeLayout
         android:id="@+id/canvasRL"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
         android:background="@drawable/login_background">
 
         <!-- Most important group of views goes in last to avoid being overlapped by other less important views -->
@@ -24,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="@string/powered_by"
+                android:text="Powered by"
                 android:textColor="#bfe7f3" />
 
             <ImageView
@@ -51,15 +52,7 @@
                 android:layout_height="@dimen/login_logo_height"
                 android:layout_gravity="center"
                 android:scaleType="centerInside"
-                android:src="@drawable/zeir_big" />
-
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:layout_gravity="center"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_opensrp_logo" />
+                android:src="@drawable/ic_logo" />
 
             <TextView
                 android:id="@+id/login_build"
@@ -90,8 +83,7 @@
                 android:ems="10"
                 android:hint="@string/userNameEditText"
                 android:inputType="textNoSuggestions|textFilter|textVisiblePassword"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
+                android:paddingLeft="5dp"
                 android:singleLine="true"
                 android:textColor="#666666"
                 android:textColorHint="#bfbfbf"
@@ -119,7 +111,7 @@
                 android:id="@+id/login_loginButton"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:layout_gravity="end|top"
+                android:layout_gravity="right|top"
                 android:layout_marginTop="25dp"
                 android:layout_weight="8"
                 android:background="@drawable/login_button"

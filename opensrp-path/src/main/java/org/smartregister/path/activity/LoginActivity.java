@@ -174,7 +174,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initializeBuildDetails() {
-        TextView buildDetailsTextView = findViewById(org.smartregister.R.id.login_build);
+        TextView buildDetailsTextView = (TextView) findViewById(org.smartregister.R.id.login_build);
         try {
             buildDetailsTextView.setText("Version " + getVersion() + ", Built on: " + getBuildDate());
         } catch (Exception e) {
@@ -218,8 +218,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initializeLoginFields() {
-        userNameEditText = findViewById(org.smartregister.R.id.login_userNameText);
-        passwordEditText = findViewById(org.smartregister.R.id.login_passwordText);
+        userNameEditText = (EditText) findViewById(org.smartregister.R.id.login_userNameText);
+        passwordEditText = (EditText) findViewById(org.smartregister.R.id.login_passwordText);
     }
 
     private void setDoneActionHandlerOnPasswordField() {
@@ -401,14 +401,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void positionViews() {
-        final ScrollView canvasSV = findViewById(R.id.canvasSV);
+        final ScrollView canvasSV = (ScrollView) findViewById(R.id.canvasSV);
         if (canvasSV == null) {
             return;
         }
 
-        final RelativeLayout canvasRL = findViewById(R.id.canvasRL);
-        final LinearLayout logoCanvasLL = findViewById(R.id.logoCanvasLL);
-        final LinearLayout credentialsCanvasLL = findViewById(R.id.credentialsCanvasLL);
+        final RelativeLayout canvasRL = (RelativeLayout) findViewById(R.id.canvasRL);
+        final LinearLayout logoCanvasLL = (LinearLayout) findViewById(R.id.logoCanvasLL);
+        final LinearLayout credentialsCanvasLL = (LinearLayout) findViewById(R.id.credentialsCanvasLL);
 
         canvasSV.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
 

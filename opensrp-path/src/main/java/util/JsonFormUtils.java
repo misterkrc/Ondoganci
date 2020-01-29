@@ -69,7 +69,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
@@ -92,9 +91,9 @@ public class JsonFormUtils extends org.smartregister.util.JsonFormUtils {
     private static final String M_ZEIR_ID = "M_ZEIR_ID";
     public static final String encounterType = "Update Birth Registration";
     public static final String BCG_SCAR_EVENT = "Bcg Scar";
-    private static final SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+    private static final SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    public static final SimpleDateFormat dd_MM_yyyy = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+    public static final SimpleDateFormat dd_MM_yyyy = new SimpleDateFormat("dd-MM-yyyy");
     //public static Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").create();
     //2007-03-31T04:00:00.000Z
     public static final Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").registerTypeAdapter(DateTime.class, new DateTimeTypeConverter()).create();
@@ -325,7 +324,7 @@ public class JsonFormUtils extends org.smartregister.util.JsonFormUtils {
         }
 
         if (weight != null && serviceDate != null) {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
             weight.setDate(dateFormat.parse(serviceDate));
         }
 
@@ -380,7 +379,7 @@ public class JsonFormUtils extends org.smartregister.util.JsonFormUtils {
             }
         }
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         for (Vaccine curVaccine : vaccines) {
             if (serviceDate != null) {
                 curVaccine.setDate(dateFormat.parse(serviceDate));
@@ -418,7 +417,7 @@ public class JsonFormUtils extends org.smartregister.util.JsonFormUtils {
         OutputStream os = null;
         try {
 
-            if (!entityId.isEmpty()) {
+            if (entityId != null && !entityId.isEmpty()) {
                 final String absoluteFileName = DrishtiApplication.getAppDir() + File.separator + entityId + ".JPEG";
 
                 File outputFile = new File(absoluteFileName);
@@ -495,8 +494,8 @@ public class JsonFormUtils extends org.smartregister.util.JsonFormUtils {
                 .withFirstName(firstName)
                 .withMiddleName(middleName)
                 .withLastName(lastName)
-                .withBirthdate((birthdate), birthdateApprox)
-                .withDeathdate(deathdate, deathdateApprox)
+                .withBirthdate((birthdate != null ? birthdate : null), birthdateApprox)
+                .withDeathdate(deathdate != null ? deathdate : null, deathdateApprox)
                 .withGender(gender).withDateCreated(new Date());
 
         c.withAddresses(addresses)

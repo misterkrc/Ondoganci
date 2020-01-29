@@ -8,13 +8,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.smartregister.path.R;
 import org.smartregister.path.fragment.PathJsonFormFragment;
 import org.smartregister.stock.activity.StockJsonFormActivity;
 
 /**
  * Created by keyman on 11/04/2017.
- * Edited by Emmanuel Success on 14/11/19
  */
 public class PathJsonFormActivity extends StockJsonFormActivity {
 
@@ -29,7 +27,7 @@ public class PathJsonFormActivity extends StockJsonFormActivity {
     public void initializeFormFragment() {
         pathJsonFormFragment = PathJsonFormFragment.getFormFragment(JsonFormConstants.FIRST_STEP_NAME);
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, pathJsonFormFragment).commit();
+                .add(com.vijay.jsonwizard.R.id.container, pathJsonFormFragment).commit();
     }
 
     @Override

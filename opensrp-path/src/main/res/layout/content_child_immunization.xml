@@ -25,8 +25,7 @@
             android:foreground="?android:attr/selectableItemBackground"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="@dimen/card_view_corner_radius"
-            app:cardElevation="@dimen/card_elevation"
-            android:focusable="true">
+            app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
                 android:id="@+id/profile_name_layout"
@@ -127,7 +126,7 @@
                         style="@style/CustomFontTextViewStyle.ClientList"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="CHILD'S GROWTH"
+                        android:text="WEIGHT-FOR-AGE"
                         android:textColor="@color/text_black"
                         android:textSize="@dimen/activity_sub_title_size" />
 
@@ -163,7 +162,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/record_growth"
+                                android:text="@string/record_weight"
                                 android:textAllCaps="false"
                                 android:textAppearance="?android:attr/textAppearanceSmall"
                                 android:textColor="@color/text_black"
@@ -176,7 +175,7 @@
                             android:background="@null"
                             android:layout_width="0dp"
                             android:layout_height="70dp"
-                            android:layout_marginStart="@dimen/card_category_horizontal_margin"
+                            android:layout_marginLeft="@dimen/card_category_horizontal_margin"
                             android:layout_weight="0.5" />
                     </LinearLayout>
                 </LinearLayout>

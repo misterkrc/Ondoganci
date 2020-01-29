@@ -101,7 +101,7 @@ public class VaccinatorApplication extends DrishtiApplication
 
         //Initialize Modules
         CoreLibrary.init(context());
-        GrowthMonitoringLibrary.init(context(), getRepository());
+        GrowthMonitoringLibrary.init(context(), getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
         ImmunizationLibrary.init(context(), getRepository(), createCommonFtsObject(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
 
         if (!BuildConfig.DEBUG) {
@@ -397,16 +397,16 @@ public class VaccinatorApplication extends DrishtiApplication
 
     @Override
     public void onTimeChanged() {
-//        Toast.makeText(this, R.string.device_time_changed, Toast.LENGTH_LONG).show();
-//        context.userService().forceRemoteLogin();
-//        logoutCurrentUser();
+        Toast.makeText(this, R.string.device_time_changed, Toast.LENGTH_LONG).show();
+        context.userService().forceRemoteLogin();
+        logoutCurrentUser();
     }
 
     @Override
     public void onTimeZoneChanged() {
-//        Toast.makeText(this, R.string.device_timezone_changed, Toast.LENGTH_LONG).show();
-//        context.userService().forceRemoteLogin();
-//        logoutCurrentUser();
+        Toast.makeText(this, R.string.device_timezone_changed, Toast.LENGTH_LONG).show();
+        context.userService().forceRemoteLogin();
+        logoutCurrentUser();
     }
 
     private void initOfflineSchedules() {

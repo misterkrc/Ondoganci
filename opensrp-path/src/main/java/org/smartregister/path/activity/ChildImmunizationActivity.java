@@ -1,6 +1,5 @@
 package org.smartregister.path.activity;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -10,7 +9,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -94,7 +92,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.lang.reflect.Type;
-import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -103,7 +100,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -124,7 +120,7 @@ public class ChildImmunizationActivity extends BaseActivity
     private static final String TAG = "ChildImmunoActivity";
     private static final String EXTRA_CHILD_DETAILS = "child_details";
     private static final String EXTRA_REGISTER_CLICKABLES = "register_clickables";
-    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
     private static final String DIALOG_TAG = "ChildImmunoActivity_DIALOG_TAG";
     private ArrayList<VaccineGroup> vaccineGroups;
     private ArrayList<ServiceGroup> serviceGroups;
@@ -190,12 +186,12 @@ public class ChildImmunizationActivity extends BaseActivity
         Bundle extras = this.getIntent().getExtras();
         if (extras != null) {
             Serializable serializable = extras.getSerializable(EXTRA_CHILD_DETAILS);
-            if (serializable instanceof CommonPersonObjectClient) {
+            if (serializable != null && serializable instanceof CommonPersonObjectClient) {
                 childDetails = (CommonPersonObjectClient) serializable;
             }
 
             serializable = extras.getSerializable(EXTRA_REGISTER_CLICKABLES);
-            if (serializable instanceof RegisterClickables) {
+            if (serializable != null && serializable instanceof RegisterClickables) {
                 registerClickables = (RegisterClickables) serializable;
             }
         }
@@ -218,7 +214,7 @@ public class ChildImmunizationActivity extends BaseActivity
         super.onRestoreInstanceState(savedInstanceState);
 
         Serializable serializable = savedInstanceState.getSerializable(EXTRA_CHILD_DETAILS);
-        if (serializable instanceof CommonPersonObjectClient) {
+        if (serializable != null && serializable instanceof CommonPersonObjectClient) {
             childDetails = (CommonPersonObjectClient) serializable;
         }
     }
@@ -227,13 +223,13 @@ public class ChildImmunizationActivity extends BaseActivity
     protected void onResume() {
         super.onResume();
         if (vaccineGroups != null) {
-            LinearLayout vaccineGroupCanvasLL = findViewById(R.id.vaccine_group_canvas_ll);
+            LinearLayout vaccineGroupCanvasLL = (LinearLayout) findViewById(R.id.vaccine_group_canvas_ll);
             vaccineGroupCanvasLL.removeAllViews();
             vaccineGroups = null;
         }
 
         if (serviceGroups != null) {
-            LinearLayout serviceGroupCanvasLL = findViewById(R.id.service_group_canvas_ll);
+            LinearLayout serviceGroupCanvasLL = (LinearLayout) findViewById(R.id.service_group_canvas_ll);
             serviceGroupCanvasLL.removeAllViews();
             serviceGroups = null;
         }
@@ -286,11 +282,11 @@ public class ChildImmunizationActivity extends BaseActivity
 
     private void updateProfilePicture(Gender gender) {
         if (isDataOk()) {
-            ImageView profileImageIV = findViewById(R.id.profile_image_iv);
+            ImageView profileImageIV = (ImageView) findViewById(R.id.profile_image_iv);
 
             if (childDetails.entityId() != null) { //image already in local storage most likey ):
                 //set profile image by passing the client id.If the image doesn't exist in the image repository then download and save locally
-                profileImageIV.setTag(R.id.entity_id, childDetails.entityId());
+                profileImageIV.setTag(org.smartregister.R.id.entity_id, childDetails.entityId());
                 DrishtiApplication.getCachedImageLoaderInstance().getImageByClientId(childDetails.entityId(), OpenSRPImageLoader.getStaticImageListener(profileImageIV, ImageUtils.profileImageResourceByGender(gender), ImageUtils.profileImageResourceByGender(gender)));
 
             }
@@ -305,9 +301,9 @@ public class ChildImmunizationActivity extends BaseActivity
             childId = Utils.getValue(childDetails.getColumnmaps(), PathConstants.KEY.ZEIR_ID, false);
         }
 
-        TextView nameTV = findViewById(R.id.name_tv);
+        TextView nameTV = (TextView) findViewById(R.id.name_tv);
         nameTV.setText(name);
-        TextView childIdTV = findViewById(R.id.child_id_tv);
+        TextView childIdTV = (TextView) findViewById(R.id.child_id_tv);
         childIdTV.setText(String.format("%s: %s", getString(R.string.label_zeir), childId));
 
         Utils.startAsyncTask(new GetSiblingsTask(), null);
@@ -329,9 +325,9 @@ public class ChildImmunizationActivity extends BaseActivity
                 }
             }
         }
-        TextView dobTV = findViewById(R.id.dob_tv);
+        TextView dobTV = (TextView) findViewById(R.id.dob_tv);
         dobTV.setText(String.format("%s: %s", getString(R.string.birthdate), formattedDob));
-        TextView ageTV = findViewById(R.id.age_tv);
+        TextView ageTV = (TextView) findViewById(R.id.age_tv);
         ageTV.setText(String.format("%s: %s", getString(R.string.age), formattedAge));
     }
 
@@ -363,7 +359,7 @@ public class ChildImmunizationActivity extends BaseActivity
         }
         toolbar.updateSeparatorView(toolbarResource);
 
-        TextView childSiblingsTV = findViewById(R.id.child_siblings_tv);
+        TextView childSiblingsTV = (TextView) findViewById(R.id.child_siblings_tv);
         childSiblingsTV.setText(
                 String.format(getString(R.string.child_siblings), identifier).toUpperCase());
         updateProfilePicture(gender);
@@ -406,7 +402,7 @@ public class ChildImmunizationActivity extends BaseActivity
 
 
             serviceGroups = new ArrayList<>();
-            LinearLayout serviceGroupCanvasLL = findViewById(R.id.service_group_canvas_ll);
+            LinearLayout serviceGroupCanvasLL = (LinearLayout) findViewById(R.id.service_group_canvas_ll);
 
             ServiceGroup curGroup = new ServiceGroup(this);
             curGroup.setChildActive(isChildActive);
@@ -566,7 +562,7 @@ public class ChildImmunizationActivity extends BaseActivity
     }
 
     private void addVaccineGroup(int canvasId, org.smartregister.immunization.domain.jsonmapping.VaccineGroup vaccineGroupData, List<Vaccine> vaccineList, List<Alert> alerts) {
-        LinearLayout vaccineGroupCanvasLL = findViewById(R.id.vaccine_group_canvas_ll);
+        LinearLayout vaccineGroupCanvasLL = (LinearLayout) findViewById(R.id.vaccine_group_canvas_ll);
         VaccineGroup curGroup = new VaccineGroup(this);
         curGroup.setChildActive(isChildActive);
         curGroup.setData(vaccineGroupData, childDetails, vaccineList, alerts, PathConstants.KEY.CHILD);
@@ -627,7 +623,7 @@ public class ChildImmunizationActivity extends BaseActivity
             parent.setId(groupParentId);
             vaccineGroupCanvasLL.addView(parent);
         } else {
-            parent = findViewById(groupParentId);
+            parent = (LinearLayout) findViewById(groupParentId);
             parent.removeAllViews();
         }
         parent.addView(curGroup);
@@ -712,7 +708,7 @@ public class ChildImmunizationActivity extends BaseActivity
 
         updateRecordWeightViews(weightWrapper, isActive);
 
-        ImageButton growthChartButton = findViewById(R.id.growth_chart_button);
+        ImageButton growthChartButton = (ImageButton) findViewById(R.id.growth_chart_button);
         growthChartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -726,15 +722,15 @@ public class ChildImmunizationActivity extends BaseActivity
         recordWeight.setClickable(true);
         recordWeight.setBackground(getResources().getDrawable(R.drawable.record_weight_bg));
 
-        TextView recordWeightText = findViewById(R.id.record_weight_text);
-        recordWeightText.setText(R.string.record_growth);
+        TextView recordWeightText = (TextView) findViewById(R.id.record_weight_text);
+        recordWeightText.setText(R.string.record_weight);
         if (!isActive) {
             recordWeightText.setTextColor(getResources().getColor(R.color.inactive_text_color));
         } else {
             recordWeightText.setTextColor(getResources().getColor(R.color.text_black));
         }
 
-        ImageView recordWeightCheck = findViewById(R.id.record_weight_check);
+        ImageView recordWeightCheck = (ImageView) findViewById(R.id.record_weight_check);
         recordWeightCheck.setVisibility(View.GONE);
         recordWeight.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -765,7 +761,7 @@ public class ChildImmunizationActivity extends BaseActivity
                     weightWrapper.setDbKey(null);
                     recordWeight.setClickable(true);
                     recordWeight.setBackground(getResources().getDrawable(R.drawable.record_weight_bg));
-                    recordWeightText.setText(R.string.record_growth);
+                    recordWeightText.setText(R.string.record_weight);
                     recordWeightCheck.setVisibility(View.GONE);
                 }
             }
@@ -858,9 +854,7 @@ public class ChildImmunizationActivity extends BaseActivity
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                fileContents = new String(buffer, StandardCharsets.UTF_8);
-            }
+            fileContents = new String(buffer, "UTF-8");
         } catch (IOException ex) {
             Log.e(TAG, ex.toString(), ex);
         }
@@ -1061,7 +1055,7 @@ public class ChildImmunizationActivity extends BaseActivity
                         recordWeight.performClick();
                     }
                 });
-            }else if (registerClickables.isRecordAll()) {
+            } else if (registerClickables.isRecordAll()) {
                 performRecordAllClick(0);
             }
 
@@ -1082,7 +1076,7 @@ public class ChildImmunizationActivity extends BaseActivity
                         public void onFinishedLoadingVaccineWrappers() {
                             ArrayList<VaccineWrapper> vaccineWrappers = vaccineGroup.getDueVaccines();
                             if (!vaccineWrappers.isEmpty()) {
-                                final TextView recordAllTV = vaccineGroup.findViewById(R.id.record_all_tv);
+                                final TextView recordAllTV = (TextView) vaccineGroup.findViewById(R.id.record_all_tv);
                                 recordAllTV.post(new Runnable() {
                                     @Override
                                     public void run() {
@@ -1167,7 +1161,7 @@ public class ChildImmunizationActivity extends BaseActivity
     }
 
     private void updateVaccineGroupViews(View view, final ArrayList<VaccineWrapper> wrappers, final List<Vaccine> vaccineList, final boolean undo) {
-        if (!(view instanceof VaccineGroup)) {
+        if (view == null || !(view instanceof VaccineGroup)) {
             return;
         }
         final VaccineGroup vaccineGroup = (VaccineGroup) view;
@@ -1199,7 +1193,7 @@ public class ChildImmunizationActivity extends BaseActivity
         if (!weightNotificationShown) {
             weightNotificationShown = true;
             showNotification(R.string.record_weight_notification, R.drawable.ic_weight_notification,
-                    R.string.record_growth,
+                    R.string.record_weight,
                     new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -1400,7 +1394,7 @@ public class ChildImmunizationActivity extends BaseActivity
         }
 
 
-        LinearLayout vaccineGroupCanvasLL = findViewById(R.id.vaccine_group_canvas_ll);
+        LinearLayout vaccineGroupCanvasLL = (LinearLayout) findViewById(R.id.vaccine_group_canvas_ll);
         vaccineGroupCanvasLL.removeAllViews();
         vaccineGroups = null;
         updateViews();
@@ -1456,9 +1450,9 @@ public class ChildImmunizationActivity extends BaseActivity
         return ImmunizationLibrary.getInstance().assetJsonToJava(filename, classType, listType);
     }
 
-
+    ////////////////////////////////////////////////////////////////
     // Inner classes
-
+    ////////////////////////////////////////////////////////////////
 
     private class UpdateViewTask extends AsyncTask<Void, Void, Map<String, NamedObject<?>>> {
 
@@ -1756,9 +1750,7 @@ public class ChildImmunizationActivity extends BaseActivity
             hideProgressDialog();
             updateVaccineGroupViews(view, list, vaccineList);
             View recordWeight = findViewById(R.id.record_weight);
-
             WeightWrapper weightWrapper = (WeightWrapper) recordWeight.getTag();
-
             if (weightWrapper == null || weightWrapper.getWeight() == null) {
                 showRecordWeightNotification();
             }
@@ -1855,7 +1847,6 @@ public class ChildImmunizationActivity extends BaseActivity
         }
     }
 
-    @SuppressLint("StaticFieldLeak")
     private class GetSiblingsTask extends AsyncTask<Void, Void, ArrayList<String>> {
 
         @Override
@@ -1890,12 +1881,11 @@ public class ChildImmunizationActivity extends BaseActivity
 
             Collections.reverse(ids);
 
-            SiblingPicturesGroup siblingPicturesGroup = ChildImmunizationActivity.this.findViewById(R.id.sibling_pictures);
+            SiblingPicturesGroup siblingPicturesGroup = (SiblingPicturesGroup) ChildImmunizationActivity.this.findViewById(R.id.sibling_pictures);
             siblingPicturesGroup.setSiblingBaseEntityIds(ChildImmunizationActivity.this, ids);
         }
     }
 
-    @SuppressLint("StaticFieldLeak")
     private class SaveChildsStatusTask extends AsyncTask<Void, Void, Void> {
 
         @Override

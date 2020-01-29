@@ -1,6 +1,5 @@
 package org.smartregister.path.provider;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.drawable.ColorDrawable;
@@ -92,7 +91,7 @@ public class ChildSmartClientsProvider implements SmartRegisterCLientsProviderFo
         this.allSharedPreferences = allSharedPreferences;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        clientViewLayoutParams = new AbsListView.LayoutParams(MATCH_PARENT, (int) context.getResources().getDimension(R.dimen.list_item_height));
+        clientViewLayoutParams = new AbsListView.LayoutParams(MATCH_PARENT, (int) context.getResources().getDimension(org.smartregister.R.dimen.list_item_height));
     }
 
     @Override
@@ -136,13 +135,13 @@ public class ChildSmartClientsProvider implements SmartRegisterCLientsProviderFo
 
         String gender = getValue(pc.getColumnmaps(), PathConstants.KEY.GENDER, true);
 
-        final ImageView profilePic = convertView.findViewById(R.id.child_profilepic);
+        final ImageView profilePic = (ImageView) convertView.findViewById(R.id.child_profilepic);
         int defaultImageResId = ImageUtils.profileImageResourceByGender(gender);
         profilePic.setImageResource(defaultImageResId);
 
         if (pc.entityId() != null && show()) { //image already in local storage most likely ):
             //set profile image by passing the client id.If the image doesn't exist in the image repository then download and save locally
-            profilePic.setTag(R.id.entity_id, pc.entityId());
+            profilePic.setTag(org.smartregister.R.id.entity_id, pc.entityId());
             DrishtiApplication.getCachedImageLoaderInstance().getImageByClientId(pc.entityId(), OpenSRPImageLoader.getStaticImageListener(profilePic, 0, 0));
         }
 
@@ -180,20 +179,20 @@ public class ChildSmartClientsProvider implements SmartRegisterCLientsProviderFo
         recordWeight.setVisibility(View.VISIBLE);
 
         if (updateWrapper.getWeight() != null) {
-            TextView recordWeightText = updateWrapper.getConvertView().findViewById(R.id.record_weight_text);
+            TextView recordWeightText = (TextView) updateWrapper.getConvertView().findViewById(R.id.record_weight_text);
             recordWeightText.setText(Utils.kgStringSuffix(updateWrapper.getWeight().getKg()));
 
-            ImageView recordWeightCheck = updateWrapper.getConvertView().findViewById(R.id.record_weight_check);
+            ImageView recordWeightCheck = (ImageView) updateWrapper.getConvertView().findViewById(R.id.record_weight_check);
             recordWeightCheck.setVisibility(View.VISIBLE);
 
             recordWeight.setClickable(false);
             recordWeight.setBackground(new ColorDrawable(context.getResources()
                     .getColor(android.R.color.transparent)));
         } else {
-            TextView recordWeightText = updateWrapper.getConvertView().findViewById(R.id.record_weight_text);
+            TextView recordWeightText = (TextView) updateWrapper.getConvertView().findViewById(R.id.record_weight_text);
             recordWeightText.setText(context.getString(R.string.record_weight_with_nl));
 
-            ImageView recordWeightCheck = updateWrapper.getConvertView().findViewById(R.id.record_weight_check);
+            ImageView recordWeightCheck = (ImageView) updateWrapper.getConvertView().findViewById(R.id.record_weight_check);
             recordWeightCheck.setVisibility(View.GONE);
             recordWeight.setClickable(true);
         }
@@ -213,8 +212,8 @@ public class ChildSmartClientsProvider implements SmartRegisterCLientsProviderFo
         View recordVaccination = updateWrapper.getConvertView().findViewById(R.id.record_vaccination);
         recordVaccination.setVisibility(View.VISIBLE);
 
-        TextView recordVaccinationText = updateWrapper.getConvertView().findViewById(R.id.record_vaccination_text);
-        ImageView recordVaccinationCheck = updateWrapper.getConvertView().findViewById(R.id.record_vaccination_check);
+        TextView recordVaccinationText = (TextView) updateWrapper.getConvertView().findViewById(R.id.record_vaccination_text);
+        ImageView recordVaccinationCheck = (ImageView) updateWrapper.getConvertView().findViewById(R.id.record_vaccination_check);
         recordVaccinationCheck.setVisibility(View.GONE);
 
         updateWrapper.getConvertView().setLayoutParams(clientViewLayoutParams);
@@ -425,7 +424,7 @@ public class ChildSmartClientsProvider implements SmartRegisterCLientsProviderFo
                 });
 
                 if (isWeightRecord) {
-                    TextView recordWeightText = convertView.findViewById(R.id.record_weight_text);
+                    TextView recordWeightText = (TextView) convertView.findViewById(R.id.record_weight_text);
                     recordWeightText.setText("Record\nservice");
 
                     String zeirId = getValue(pc.getColumnmaps(), PathConstants.KEY.ZEIR_ID, false);
@@ -438,7 +437,7 @@ public class ChildSmartClientsProvider implements SmartRegisterCLientsProviderFo
                     recordWeight.setOnClickListener(onClickListener);
                 } else {
 
-                    TextView moveToCatchmentText = convertView.findViewById(R.id.move_to_catchment_text);
+                    TextView moveToCatchmentText = (TextView) convertView.findViewById(R.id.move_to_catchment_text);
                     moveToCatchmentText.setText("Move to my\ncatchment");
 
                     String motherBaseEntityId = getValue(pc.getColumnmaps(), PathConstants.KEY.MOTHER_BASE_ENTITY_ID, false);
@@ -479,7 +478,6 @@ public class ChildSmartClientsProvider implements SmartRegisterCLientsProviderFo
         FULLY_IMMUNIZED
     }
 
-    @SuppressLint("StaticFieldLeak")
     private class WeightAsyncTask extends AsyncTask<Void, Void, Void> {
         private final View convertView;
         private final String entityId;
@@ -524,7 +522,6 @@ public class ChildSmartClientsProvider implements SmartRegisterCLientsProviderFo
         }
     }
 
-    @SuppressLint("StaticFieldLeak")
     private class VaccinationAsyncTask extends AsyncTask<Void, Void, Void> {
         private final View convertView;
         private final String entityId;
