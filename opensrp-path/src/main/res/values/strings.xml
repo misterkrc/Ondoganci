@@ -307,7 +307,7 @@
     <string name="age">Age</string>
     <string name="date_first_seen">Date first seen</string>
     <string name="birth_weight">Birth weight</string>
-    <string name="birth_height">Birth height</string>
+    <string name="birth_height">Birth head</string>
     <string name="head">Head circumference</string>
     <string name="mother_guardian_first_name">Mother/guardian first name</string>
     <string name="mother_guardian_last_name">Mother/guardian last name</string>
@@ -326,7 +326,7 @@
 
     <string name="boys">Boys</string>
     <string name="btn_layout_weight">2</string>
-    <string name="edit_weight_data">Edit weight data</string>
+    <string name="edit_weight_data">Edit growth data</string>
     <string name="girls">Girls</string>
     <string name="label_zeir">ONDOGANCI</string>
     <string name="months">Months</string>

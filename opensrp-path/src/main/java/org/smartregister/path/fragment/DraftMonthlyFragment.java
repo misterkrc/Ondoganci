@@ -34,11 +34,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Created by coder on 6/7/17.
- * Edited by Emmanuel Success on 04/11/19
  */
 public class DraftMonthlyFragment extends Fragment
         implements Hia2ServiceBroadcastReceiver.Hia2ServiceListener {
@@ -62,10 +60,10 @@ public class DraftMonthlyFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View fragmentview = inflater.inflate(R.layout.sent_monthly_fragment, container, false);
 
-        listView = fragmentview.findViewById(R.id.list);
+        listView = (ListView) fragmentview.findViewById(R.id.list);
         noDraftsView = fragmentview.findViewById(R.id.empty_view);
-        startNewReportEnabled = fragmentview.findViewById(R.id.start_new_report_enabled);
-        startNewReportDisabled = fragmentview.findViewById(R.id.start_new_report_disabled);
+        startNewReportEnabled = (Button) fragmentview.findViewById(R.id.start_new_report_enabled);
+        startNewReportDisabled = (Button) fragmentview.findViewById(R.id.start_new_report_disabled);
 
         return fragmentview;
     }
@@ -181,7 +179,7 @@ public class DraftMonthlyFragment extends Fragment
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.month_results, null);
 
-        ListView listView = view.findViewById(R.id.list_view);
+        ListView listView = (ListView) view.findViewById(R.id.list_view);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.PathDialog);
         builder.setView(view);
@@ -189,7 +187,7 @@ public class DraftMonthlyFragment extends Fragment
 
         CustomFontTextView title = new CustomFontTextView(getActivity());
         title.setText(getString(R.string.reports_available));
-        title.setGravity(Gravity.START);
+        title.setGravity(Gravity.LEFT);
         title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
         title.setFontVariant(FontVariant.BOLD);
         title.setPadding(getResources().getDimensionPixelSize(R.dimen.activity_horizontal_margin), getResources().getDimensionPixelSize(R.dimen.activity_vertical_margin), getResources().getDimensionPixelSize(R.dimen.activity_horizontal_margin), getResources().getDimensionPixelSize(R.dimen.activity_vertical_margin));
@@ -226,7 +224,7 @@ public class DraftMonthlyFragment extends Fragment
                     view = convertView;
                 }
 
-                TextView tv = view.findViewById(R.id.tv);
+                TextView tv = (TextView) view.findViewById(R.id.tv);
                 Date date = list.get(position);
                 String text = MonthlyTalliesRepository.DF_YYYYMM.format(date);
                 tv.setText(text);
@@ -250,7 +248,7 @@ public class DraftMonthlyFragment extends Fragment
             alertDialog.dismiss();
 
             Object tag = v.getTag();
-            if (tag instanceof Date) {
+            if (tag != null && tag instanceof Date) {
                 startMonthlyReportForm((Date) tag, true);
             }
 
@@ -260,7 +258,7 @@ public class DraftMonthlyFragment extends Fragment
         @Override
         public void onClick(View v) {
             Object tag = v.getTag();
-            if (tag instanceof Date) {
+            if (tag != null && tag instanceof Date) {
                 startMonthlyReportForm((Date) tag, false);
             }
 
@@ -277,7 +275,7 @@ public class DraftMonthlyFragment extends Fragment
         View snackbarView = snackbar.getView();
         snackbarView.setMinimumHeight(Float.valueOf(textSize).intValue());
 
-        TextView textView = snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 
         snackbar.show();
@@ -333,7 +331,7 @@ public class DraftMonthlyFragment extends Fragment
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View view;
-            SimpleDateFormat df = new SimpleDateFormat("MMM yyyy", Locale.US);
+            SimpleDateFormat df = new SimpleDateFormat("MMM yyyy");
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater)
                         getActivity().getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
@@ -343,8 +341,8 @@ public class DraftMonthlyFragment extends Fragment
                 view = convertView;
             }
 
-            TextView tv = view.findViewById(R.id.tv);
-            TextView startedAt = view.findViewById(R.id.month_draft_started_at);
+            TextView tv = (TextView) view.findViewById(R.id.tv);
+            TextView startedAt = (TextView) view.findViewById(R.id.month_draft_started_at);
             MonthlyTally date = list.get(position);
             String text = df.format(date.getMonth());
             String startedat = MonthlyTalliesRepository.DF_DDMMYY.format(date.getCreatedAt());

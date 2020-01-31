@@ -1,0 +1,4 @@
+<resources>
+    <item name="height_wrapper" type="id"/>
+    <item name="head_wrapper" type="id"/>
+</resources>

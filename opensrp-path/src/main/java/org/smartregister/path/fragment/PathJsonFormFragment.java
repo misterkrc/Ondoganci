@@ -53,7 +53,6 @@ import static org.smartregister.util.Utils.getValue;
 
 /**
  * Created by keyman on 11/04/2017.
- * Edited by Emmanuel Success on 8/11/19
  */
 public class PathJsonFormFragment extends JsonFormFragment {
 
@@ -109,7 +108,7 @@ public class PathJsonFormFragment extends JsonFormFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.mother_lookup_results, null);
 
-        ListView listView = view.findViewById(R.id.list_view);
+        ListView listView = (ListView) view.findViewById(R.id.list_view);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.PathDialog);
         builder.setView(view).setNegativeButton(R.string.dismiss, null);
@@ -175,7 +174,7 @@ public class PathJsonFormFragment extends JsonFormFragment {
                         MaterialEditText materialEditText = (MaterialEditText) view;
                         materialEditText.setEnabled(true);
                         enableEditText(materialEditText);
-                        materialEditText.setTag(R.id.after_look_up, false);
+                        materialEditText.setTag(com.vijay.jsonwizard.R.id.after_look_up, false);
                         materialEditText.setText("");
                     }
                 }
@@ -232,12 +231,12 @@ public class PathJsonFormFragment extends JsonFormFragment {
         snackbarView.setMinimumHeight(Float.valueOf(textSize).intValue());
         snackbarView.setBackgroundResource(R.color.snackbar_background_yellow);
 
-        final Button actionView = snackbarView.findViewById(R.id.snackbar_action);
+        final Button actionView = (Button) snackbarView.findViewById(android.support.design.R.id.snackbar_action);
         actionView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
         actionView.setGravity(Gravity.CENTER);
         actionView.setTextColor(getResources().getColor(R.color.text_black));
 
-        TextView textView = snackbarView.findViewById(R.id.snackbar_text);
+        TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
         textView.setGravity(Gravity.CENTER);
         textView.setOnClickListener(new View.OnClickListener() {
@@ -288,7 +287,7 @@ public class PathJsonFormFragment extends JsonFormFragment {
 
                     for (View view : lookUpViews) {
 
-                        String key = (String) view.getTag(R.id.key);
+                        String key = (String) view.getTag(com.vijay.jsonwizard.R.id.key);
                         String text = "";
 
                         if (StringUtils.containsIgnoreCase(key, MotherLookUpUtils.firstName)) {
@@ -314,7 +313,7 @@ public class PathJsonFormFragment extends JsonFormFragment {
                         if (view instanceof MaterialEditText) {
                             MaterialEditText materialEditText = (MaterialEditText) view;
                             materialEditText.setEnabled(false);
-                            materialEditText.setTag(R.id.after_look_up, true);
+                            materialEditText.setTag(com.vijay.jsonwizard.R.id.after_look_up, true);
                             materialEditText.setText(text);
                             materialEditText.setInputType(InputType.TYPE_NULL);
                             disableEditText(materialEditText);
@@ -374,7 +373,7 @@ public class PathJsonFormFragment extends JsonFormFragment {
                 View view = mMainView.getChildAt(i);
                 if (view instanceof TextView) {
                     TextView textView = (TextView) view;
-                    String key = (String) textView.getTag(R.id.key);
+                    String key = (String) textView.getTag(com.vijay.jsonwizard.R.id.key);
                     if (key.equals(currentKey)) {
                         textView.setText(textstring);
                     }
@@ -394,7 +393,7 @@ public class PathJsonFormFragment extends JsonFormFragment {
                 View view = getMainView().getChildAt(i);
                 if (view instanceof TextView) {
                     TextView textView = (TextView) view;
-                    String key = (String) textView.getTag(R.id.key);
+                    String key = (String) textView.getTag(com.vijay.jsonwizard.R.id.key);
                     if (key.equals(currentKey)) {
                         toreturn = textView.getText().toString();
                     }
@@ -412,7 +411,7 @@ public class PathJsonFormFragment extends JsonFormFragment {
         boolean balanceCheck = true;
         boolean fillFormCheck = true;
 
-        if (item.getItemId() == R.id.action_save) {
+        if (item.getItemId() == com.vijay.jsonwizard.R.id.action_save) {
             JSONObject object = getStep("step1");
             try {
                 if (object.getString("title").contains("Stock Issued") || object.getString("title").contains("Stock Received") || object.getString("title").contains("Stock Loss/Adjustment")) {
@@ -446,7 +445,7 @@ public class PathJsonFormFragment extends JsonFormFragment {
 // Changing message text color
             snackbar.setActionTextColor(Color.WHITE);
             View sbView = snackbar.getView();
-            TextView textView = sbView.findViewById(R.id.snackbar_text);
+            TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
             textView.setTextColor(Color.WHITE);
 
             snackbar.show();

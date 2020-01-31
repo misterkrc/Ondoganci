@@ -8,7 +8,6 @@ import java.io.Serializable;
 public class RegisterClickables implements Serializable {
 
     private boolean recordWeight;
-    private boolean recordHeight;
 
     private boolean recordAll;
 
@@ -18,13 +17,6 @@ public class RegisterClickables implements Serializable {
 
     public boolean isRecordWeight() {
         return recordWeight;
-    }
-    public void setRecordHeight(boolean recordHeight) {
-        this.recordHeight = recordHeight;
-    }
-
-    public boolean isRecordHeight() {
-        return recordHeight;
     }
 
     public void setRecordAll(boolean recordAll) {

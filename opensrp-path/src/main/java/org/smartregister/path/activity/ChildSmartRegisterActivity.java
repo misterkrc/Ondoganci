@@ -105,8 +105,8 @@ public class ChildSmartRegisterActivity extends BaseRegisterActivity {
 
     @Override
     protected void onResumption() {
-        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        LinearLayout childregister = drawer.findViewById(R.id.child_register);
+        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        LinearLayout childregister = (LinearLayout) drawer.findViewById(R.id.child_register);
         childregister.setBackgroundColor(getResources().getColor(R.color.tintcolor));
 
     }
@@ -249,7 +249,7 @@ public class ChildSmartRegisterActivity extends BaseRegisterActivity {
                                 }
                             })
                     .show();
-        } else  {
+        } else if (currentPage == 0) {
             super.onBackPressed(); // allow back key only if we are
         }
     }
@@ -278,7 +278,7 @@ public class ChildSmartRegisterActivity extends BaseRegisterActivity {
         if (currentPage != 0) {
             switchToBaseFragment(null);
             BaseSmartRegisterFragment registerFragment = (BaseSmartRegisterFragment) findFragmentByPosition(0);
-            if (registerFragment instanceof ChildSmartRegisterFragment) {
+            if (registerFragment != null && registerFragment instanceof ChildSmartRegisterFragment) {
                 ((ChildSmartRegisterFragment) registerFragment).triggerFilterSelection();
             }
         }

@@ -88,11 +88,11 @@ public class FacilityCumulativeCoverageReportActivity extends BaseReportActivity
             vaccineName = VaccineRepo.Vaccine.bcg.display() + " + " + VaccineRepo.Vaccine.measles1.display() + "/" + VaccineRepo.Vaccine.mr1.display();
         }
 
-        TextView textView = (TextView) findViewById(R.id.report_title);
+        TextView textView = findViewById(R.id.report_title);
         textView.setText(String.format(getString(R.string.facility_cumulative_title), BaseReportActivity.getYear(holder.getDate()), vaccineName));
 
-        TextView csoTargetView = (TextView) findViewById(R.id.cso_target_value);
-        TextView csoTargetMonthlyView = (TextView) findViewById(R.id.cso_target_monthly_value);
+        TextView csoTargetView = findViewById(R.id.cso_target_value);
+        TextView csoTargetMonthlyView = findViewById(R.id.cso_target_monthly_value);
 
         if (holder.getSize() != null) {
             Long csoTargetMonthly = holder.getSize() / 12;
@@ -286,7 +286,7 @@ public class FacilityCumulativeCoverageReportActivity extends BaseReportActivity
         data.setAxisYRight(new Axis(rightAxisValues).setMaxLabelChars(5).setHasLines(false).setHasTiltedLabels(false));
 
         // Chart
-        LineChartView monitoringChart = (LineChartView) findViewById(R.id.monitoring_chart);
+        LineChartView monitoringChart = findViewById(R.id.monitoring_chart);
         monitoringChart.setLineChartData(data);
         monitoringChart.setViewportCalculationEnabled(false);
         monitoringChart.setZoomEnabled(false);
@@ -327,7 +327,7 @@ public class FacilityCumulativeCoverageReportActivity extends BaseReportActivity
 
         boolean isCheckCurrentTime = checkCurrentTime;
 
-        TableRow titleRow = (TableRow) findViewById(R.id.title_1);
+        TableRow titleRow = findViewById(R.id.title_1);
         for (int i = 0; i < titleRow.getChildCount(); i++) {
             if (i > 0) {
                 TextView titleTextView = (TextView) titleRow.getChildAt(i);
@@ -336,17 +336,17 @@ public class FacilityCumulativeCoverageReportActivity extends BaseReportActivity
             }
         }
 
-        TableRow startTotalValueRow = (TableRow) findViewById(R.id.total_1);
-        TableRow startCumValueRow = (TableRow) findViewById(R.id.cum_1);
+        TableRow startTotalValueRow = findViewById(R.id.total_1);
+        TableRow startCumValueRow = findViewById(R.id.cum_1);
 
-        TableRow endTotalValueRow = (TableRow) findViewById(R.id.total_2);
-        TableRow endCumValueRow = (TableRow) findViewById(R.id.cum_2);
+        TableRow endTotalValueRow = findViewById(R.id.total_2);
+        TableRow endCumValueRow = findViewById(R.id.cum_2);
 
-        TableRow dropoutValueRow = (TableRow) findViewById(R.id.dropout_1);
-        TableRow dropoutPercentageValueRow = (TableRow) findViewById(R.id.drop_percent_1);
+        TableRow dropoutValueRow = findViewById(R.id.dropout_1);
+        TableRow dropoutPercentageValueRow = findViewById(R.id.drop_percent_1);
 
-        TableRow cumDropoutValueRow = (TableRow) findViewById(R.id.cum_dropout_1);
-        TableRow cumDropoutPercentageValueRow = (TableRow) findViewById(R.id.cum_drop_percent_1);
+        TableRow cumDropoutValueRow = findViewById(R.id.cum_dropout_1);
+        TableRow cumDropoutPercentageValueRow = findViewById(R.id.cum_drop_percent_1);
 
         if (isComparison) {
             endTotalValueRow.setVisibility(View.VISIBLE);

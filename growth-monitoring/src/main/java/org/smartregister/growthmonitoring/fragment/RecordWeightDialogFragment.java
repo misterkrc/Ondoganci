@@ -2,7 +2,7 @@ package org.smartregister.growthmonitoring.fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.support.v4.app.DialogFragment;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;

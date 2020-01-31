@@ -3,10 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/growth-monitoring/growth-monitoring.iml" filepath="$PROJECT_DIR$/growth-monitoring/growth-monitoring.iml" />
-      <module fileurl="file://$PROJECT_DIR$/opensrp-growth-monitoring/opensrp-android-opensrp-growth-monitoring.iml" filepath="$PROJECT_DIR$/opensrp-growth-monitoring/opensrp-android-opensrp-growth-monitoring.iml" />
       <module fileurl="file://$PROJECT_DIR$/opensrp-app-path.iml" filepath="$PROJECT_DIR$/opensrp-app-path.iml" />
-      <module fileurl="file://$PROJECT_DIR$/opensrp-growth-monitoring/opensrp-growth-monitoring.iml" filepath="$PROJECT_DIR$/opensrp-growth-monitoring/opensrp-growth-monitoring.iml" />
       <module fileurl="file://$PROJECT_DIR$/opensrp-path/opensrp-path.iml" filepath="$PROJECT_DIR$/opensrp-path/opensrp-path.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stock/stock.iml" filepath="$PROJECT_DIR$/stock/stock.iml" />
     </modules>
   </component>
 </project>

@@ -220,7 +220,7 @@
                     android:textColorHint="@color/light_grey"
                     android:textSize="@dimen/advanced_search_text_size"
                     app:met_floatingLabel="highlight"
-                    app:met_floatingLabelText="@string/ONDOGANCI_id"
+                    app:met_floatingLabelText="@string/ondo"
                     app:met_floatingLabelTextSize="@dimen/advanced_search_text_size"
                     app:met_primaryColor="@color/light_blue"
                     app:met_singleLineEllipsis="true" />
