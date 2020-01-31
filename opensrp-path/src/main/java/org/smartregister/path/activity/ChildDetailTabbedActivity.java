@@ -174,9 +174,9 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
         childUnderFiveFragment = new ChildUnderFiveFragment();
         childUnderFiveFragment.setArguments(this.getIntent().getExtras());
 
-        detailtoolbar = findViewById(R.id.child_detail_toolbar);
+        detailtoolbar = (ChildDetailsToolbar) findViewById(R.id.child_detail_toolbar);
 
-        saveButton = detailtoolbar.findViewById(R.id.save);
+        saveButton = (TextView) detailtoolbar.findViewById(R.id.save);
         saveButton.setVisibility(View.INVISIBLE);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -193,9 +193,9 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        tabLayout = findViewById(R.id.tabs);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
 
-        viewPager = findViewById(R.id.viewpager);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -655,7 +655,7 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
         View notificationsLayout = inflater.inflate(R.layout.notification_base, null);
         notificationsLayout.setVisibility(View.VISIBLE);
 
-        ImageView notificationIcon = notificationsLayout.findViewById(R.id.noti_icon);
+        ImageView notificationIcon = (ImageView) notificationsLayout.findViewById(R.id.noti_icon);
         notificationIcon.setTag("confirm_deceased_icon");
         notificationIcon.setImageResource(R.drawable.ic_deceased);
         notificationIcon.getLayoutParams().height = 165;
@@ -664,12 +664,12 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
         params.setMargins(55, params.topMargin, params.rightMargin, params.bottomMargin);
         notificationIcon.setLayoutParams(params);
 
-        TextView notificationMessage = notificationsLayout.findViewById(R.id.noti_message);
+        TextView notificationMessage = (TextView) notificationsLayout.findViewById(R.id.noti_message);
         notificationMessage.setText(childDetails.getColumnmaps().get("first_name") + " " + childDetails.getColumnmaps().get("last_name") + " marked as deceased");
         notificationMessage.setTextColor(getResources().getColor(R.color.black));
         notificationMessage.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
 
-        Button positiveButton = notificationsLayout.findViewById(R.id.noti_positive_button);
+        Button positiveButton = (Button) notificationsLayout.findViewById(R.id.noti_positive_button);
         positiveButton.setVisibility(View.VISIBLE);
         positiveButton.setText(getResources().getString(R.string.undo));
         positiveButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
@@ -682,7 +682,7 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
             }
         });
 
-        Button negativeButton = notificationsLayout.findViewById(R.id.noti_negative_button);
+        Button negativeButton = (Button) notificationsLayout.findViewById(R.id.noti_negative_button);
         negativeButton.setVisibility(View.VISIBLE);
         negativeButton.setText(getResources().getString(R.string.confirm_button_label));
         negativeButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
@@ -726,9 +726,9 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
     }
 
     private void profileWidget() {
-        TextView profilename = findViewById(R.id.name);
-        TextView profileZeirID = findViewById(R.id.idforclient);
-        TextView profileage = findViewById(R.id.ageforclient);
+        TextView profilename = (TextView) findViewById(R.id.name);
+        TextView profileZeirID = (TextView) findViewById(R.id.idforclient);
+        TextView profileage = (TextView) findViewById(R.id.ageforclient);
         String name = "";
         String childId = "";
         String dobString = "";
@@ -810,7 +810,7 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
     private void updateProfilePicture(Gender gender) {
         ChildDetailTabbedActivity.gender = gender;
         if (isDataOk()) {
-            ImageView profileImageIV = findViewById(R.id.profile_image_iv);
+            ImageView profileImageIV = (ImageView) findViewById(R.id.profile_image_iv);
 
             if (childDetails.entityId() != null) { //image already in local storage most likey ):
                 //set profile image by passing the client id.If the image doesn't exist in the image repository then download and save locally

@@ -100,7 +100,7 @@ public class ChildUnderFiveFragment extends Fragment {
             }
         }
         View underFiveFragment = inflater.inflate(R.layout.child_under_five_fragment, container, false);
-        fragmentContainer = underFiveFragment.findViewById(R.id.container);
+        fragmentContainer = (LinearLayout) underFiveFragment.findViewById(R.id.container);
 
         return underFiveFragment;
     }
@@ -185,9 +185,9 @@ public class ChildUnderFiveFragment extends Fragment {
     }
 
     private void createPTCMTVIEW(LinearLayout fragmentContainer, String labelString, String valueString) {
-        TableRow tableRow = fragmentContainer.findViewById(R.id.tablerowcontainer);
-        TextView label = tableRow.findViewById(R.id.label);
-        TextView value = tableRow.findViewById(R.id.value);
+        TableRow tableRow = (TableRow) fragmentContainer.findViewById(R.id.tablerowcontainer);
+        TextView label = (TextView) tableRow.findViewById(R.id.label);
+        TextView value = (TextView) tableRow.findViewById(R.id.value);
 
         label.setText(labelString);
         value.setText(valueString);
@@ -202,7 +202,7 @@ public class ChildUnderFiveFragment extends Fragment {
                 vaccineList = vaccines;
             }
 
-            LinearLayout vaccineGroupCanvasLL = fragmentContainer.findViewById(R.id.immunizations);
+            LinearLayout vaccineGroupCanvasLL = (LinearLayout) fragmentContainer.findViewById(R.id.immunizations);
             vaccineGroupCanvasLL.removeAllViews();
 
             CustomFontTextView title = new CustomFontTextView(getActivity());
@@ -243,7 +243,7 @@ public class ChildUnderFiveFragment extends Fragment {
                 serviceRecords = services;
             }
 
-            LinearLayout serviceGroupCanvasLL = fragmentContainer.findViewById(R.id.services);
+            LinearLayout serviceGroupCanvasLL = (LinearLayout) fragmentContainer.findViewById(R.id.services);
             serviceGroupCanvasLL.removeAllViews();
 
             CustomFontTextView title = new CustomFontTextView(getActivity());

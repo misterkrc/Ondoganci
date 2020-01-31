@@ -97,7 +97,7 @@ public class ChildSmartRegisterFragment extends BaseSmartRegisterFragment implem
 
             @Override
             public String nameInShortFormForTitle() {
-                return context().getStringResource(R.string.ondo);
+                return context().getStringResource(R.string.zeir);
             }
         };
     }
@@ -512,7 +512,7 @@ public class ChildSmartRegisterFragment extends BaseSmartRegisterFragment implem
             backButton.setVisibility(View.VISIBLE);
         } else {
             if (titleLabelView != null) {
-                titleLabelView.setText(getString(R.string.ondo));
+                titleLabelView.setText(getString(R.string.zeir));
             }
             nameInitials.setVisibility(View.VISIBLE);
             backButton.setVisibility(View.GONE);

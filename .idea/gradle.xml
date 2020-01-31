@@ -8,7 +8,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/growth-monitoring" />
             <option value="$PROJECT_DIR$/opensrp-path" />
             <option value="$PROJECT_DIR$/stock" />
           </set>

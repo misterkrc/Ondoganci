@@ -92,7 +92,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.lang.reflect.Type;
-import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -224,13 +223,13 @@ public class ChildImmunizationActivity extends BaseActivity
     protected void onResume() {
         super.onResume();
         if (vaccineGroups != null) {
-            LinearLayout vaccineGroupCanvasLL = findViewById(R.id.vaccine_group_canvas_ll);
+            LinearLayout vaccineGroupCanvasLL = (LinearLayout) findViewById(R.id.vaccine_group_canvas_ll);
             vaccineGroupCanvasLL.removeAllViews();
             vaccineGroups = null;
         }
 
         if (serviceGroups != null) {
-            LinearLayout serviceGroupCanvasLL = findViewById(R.id.service_group_canvas_ll);
+            LinearLayout serviceGroupCanvasLL = (LinearLayout) findViewById(R.id.service_group_canvas_ll);
             serviceGroupCanvasLL.removeAllViews();
             serviceGroups = null;
         }
@@ -283,7 +282,7 @@ public class ChildImmunizationActivity extends BaseActivity
 
     private void updateProfilePicture(Gender gender) {
         if (isDataOk()) {
-            ImageView profileImageIV = findViewById(R.id.profile_image_iv);
+            ImageView profileImageIV = (ImageView) findViewById(R.id.profile_image_iv);
 
             if (childDetails.entityId() != null) { //image already in local storage most likey ):
                 //set profile image by passing the client id.If the image doesn't exist in the image repository then download and save locally
@@ -302,9 +301,9 @@ public class ChildImmunizationActivity extends BaseActivity
             childId = Utils.getValue(childDetails.getColumnmaps(), PathConstants.KEY.ZEIR_ID, false);
         }
 
-        TextView nameTV = findViewById(R.id.name_tv);
+        TextView nameTV = (TextView) findViewById(R.id.name_tv);
         nameTV.setText(name);
-        TextView childIdTV = findViewById(R.id.child_id_tv);
+        TextView childIdTV = (TextView) findViewById(R.id.child_id_tv);
         childIdTV.setText(String.format("%s: %s", getString(R.string.label_zeir), childId));
 
         Utils.startAsyncTask(new GetSiblingsTask(), null);
@@ -326,9 +325,9 @@ public class ChildImmunizationActivity extends BaseActivity
                 }
             }
         }
-        TextView dobTV = findViewById(R.id.dob_tv);
+        TextView dobTV = (TextView) findViewById(R.id.dob_tv);
         dobTV.setText(String.format("%s: %s", getString(R.string.birthdate), formattedDob));
-        TextView ageTV = findViewById(R.id.age_tv);
+        TextView ageTV = (TextView) findViewById(R.id.age_tv);
         ageTV.setText(String.format("%s: %s", getString(R.string.age), formattedAge));
     }
 
@@ -360,7 +359,7 @@ public class ChildImmunizationActivity extends BaseActivity
         }
         toolbar.updateSeparatorView(toolbarResource);
 
-        TextView childSiblingsTV = findViewById(R.id.child_siblings_tv);
+        TextView childSiblingsTV = (TextView) findViewById(R.id.child_siblings_tv);
         childSiblingsTV.setText(
                 String.format(getString(R.string.child_siblings), identifier).toUpperCase());
         updateProfilePicture(gender);
@@ -403,7 +402,7 @@ public class ChildImmunizationActivity extends BaseActivity
 
 
             serviceGroups = new ArrayList<>();
-            LinearLayout serviceGroupCanvasLL = findViewById(R.id.service_group_canvas_ll);
+            LinearLayout serviceGroupCanvasLL = (LinearLayout) findViewById(R.id.service_group_canvas_ll);
 
             ServiceGroup curGroup = new ServiceGroup(this);
             curGroup.setChildActive(isChildActive);
@@ -563,7 +562,7 @@ public class ChildImmunizationActivity extends BaseActivity
     }
 
     private void addVaccineGroup(int canvasId, org.smartregister.immunization.domain.jsonmapping.VaccineGroup vaccineGroupData, List<Vaccine> vaccineList, List<Alert> alerts) {
-        LinearLayout vaccineGroupCanvasLL = findViewById(R.id.vaccine_group_canvas_ll);
+        LinearLayout vaccineGroupCanvasLL = (LinearLayout) findViewById(R.id.vaccine_group_canvas_ll);
         VaccineGroup curGroup = new VaccineGroup(this);
         curGroup.setChildActive(isChildActive);
         curGroup.setData(vaccineGroupData, childDetails, vaccineList, alerts, PathConstants.KEY.CHILD);
@@ -624,7 +623,7 @@ public class ChildImmunizationActivity extends BaseActivity
             parent.setId(groupParentId);
             vaccineGroupCanvasLL.addView(parent);
         } else {
-            parent = findViewById(groupParentId);
+            parent = (LinearLayout) findViewById(groupParentId);
             parent.removeAllViews();
         }
         parent.addView(curGroup);
@@ -709,7 +708,7 @@ public class ChildImmunizationActivity extends BaseActivity
 
         updateRecordWeightViews(weightWrapper, isActive);
 
-        ImageButton growthChartButton = findViewById(R.id.growth_chart_button);
+        ImageButton growthChartButton = (ImageButton) findViewById(R.id.growth_chart_button);
         growthChartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -723,7 +722,7 @@ public class ChildImmunizationActivity extends BaseActivity
         recordWeight.setClickable(true);
         recordWeight.setBackground(getResources().getDrawable(R.drawable.record_weight_bg));
 
-        TextView recordWeightText = findViewById(R.id.record_weight_text);
+        TextView recordWeightText = (TextView) findViewById(R.id.record_weight_text);
         recordWeightText.setText(R.string.record_weight);
         if (!isActive) {
             recordWeightText.setTextColor(getResources().getColor(R.color.inactive_text_color));
@@ -731,7 +730,7 @@ public class ChildImmunizationActivity extends BaseActivity
             recordWeightText.setTextColor(getResources().getColor(R.color.text_black));
         }
 
-        ImageView recordWeightCheck = findViewById(R.id.record_weight_check);
+        ImageView recordWeightCheck = (ImageView) findViewById(R.id.record_weight_check);
         recordWeightCheck.setVisibility(View.GONE);
         recordWeight.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -787,8 +786,6 @@ public class ChildImmunizationActivity extends BaseActivity
         }
 
         WeightWrapper weightWrapper = (WeightWrapper) view.getTag();
-//        HeightWrapper heightWrapper = (HeightWrapper) view.getTag(R.id.height_wrapper);
-//        HeadWrapper headWrapper = (HeadWrapper) view.getTag(R.id.head_wrapper);
         RecordWeightDialogFragment recordWeightDialogFragment = RecordWeightDialogFragment.newInstance(dob, weightWrapper);
         recordWeightDialogFragment.show(ft, DIALOG_TAG);
 
@@ -857,7 +854,7 @@ public class ChildImmunizationActivity extends BaseActivity
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            fileContents = new String(buffer, StandardCharsets.UTF_8);
+            fileContents = new String(buffer, "UTF-8");
         } catch (IOException ex) {
             Log.e(TAG, ex.toString(), ex);
         }
@@ -1079,7 +1076,7 @@ public class ChildImmunizationActivity extends BaseActivity
                         public void onFinishedLoadingVaccineWrappers() {
                             ArrayList<VaccineWrapper> vaccineWrappers = vaccineGroup.getDueVaccines();
                             if (!vaccineWrappers.isEmpty()) {
-                                final TextView recordAllTV = vaccineGroup.findViewById(R.id.record_all_tv);
+                                final TextView recordAllTV = (TextView) vaccineGroup.findViewById(R.id.record_all_tv);
                                 recordAllTV.post(new Runnable() {
                                     @Override
                                     public void run() {
@@ -1397,7 +1394,7 @@ public class ChildImmunizationActivity extends BaseActivity
         }
 
 
-        LinearLayout vaccineGroupCanvasLL = findViewById(R.id.vaccine_group_canvas_ll);
+        LinearLayout vaccineGroupCanvasLL = (LinearLayout) findViewById(R.id.vaccine_group_canvas_ll);
         vaccineGroupCanvasLL.removeAllViews();
         vaccineGroups = null;
         updateViews();
@@ -1884,7 +1881,7 @@ public class ChildImmunizationActivity extends BaseActivity
 
             Collections.reverse(ids);
 
-            SiblingPicturesGroup siblingPicturesGroup = ChildImmunizationActivity.this.findViewById(R.id.sibling_pictures);
+            SiblingPicturesGroup siblingPicturesGroup = (SiblingPicturesGroup) ChildImmunizationActivity.this.findViewById(R.id.sibling_pictures);
             siblingPicturesGroup.setSiblingBaseEntityIds(ChildImmunizationActivity.this, ids);
         }
     }

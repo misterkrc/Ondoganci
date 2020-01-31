@@ -1,0 +1,16 @@
+<resources>
+    <item name="VIEW_ID" type="id" />
+    <item name="record_action" type="id" />
+    <item name="item_data" type="id" />
+    <item name="stock_detail_holder" type="id" />
+    <item name="client_details_tag" type="id" />
+    <item name="vaccine_stock_used_tag" type="id" />
+    <item name="vaccine_stock_wasted_tag" type="id" />
+    <item name="vaccine_group_parent_id" type="id" />
+    <item name="vaccine_group_vaccine_data" type="id" />
+    <item name="height_wrapper" type="id"/>
+    <item name="weight_wrapper" type="id"/>
+    <item name="growth_edit_flag" type="id"/>
+    <item name="next_appointment_date" type="id" />
+    <item name="move_to_catchment_ids" type="id" />
+</resources>

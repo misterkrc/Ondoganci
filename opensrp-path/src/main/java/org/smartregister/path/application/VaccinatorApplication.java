@@ -101,7 +101,7 @@ public class VaccinatorApplication extends DrishtiApplication
 
         //Initialize Modules
         CoreLibrary.init(context());
-        GrowthMonitoringLibrary.init(context(), getRepository());
+        GrowthMonitoringLibrary.init(context(), getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
         ImmunizationLibrary.init(context(), getRepository(), createCommonFtsObject(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
 
         if (!BuildConfig.DEBUG) {
