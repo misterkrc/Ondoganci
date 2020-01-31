@@ -69,9 +69,42 @@
             }
           ]
         }
+      },
+      {
+        "name": "HepB",
+        "type": "HepB",
+        "openmrs_date": {
+          "parent_entity": "21AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "entity": "concept",
+          "entity_id": "1410AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        },
+        "openmrs_calculate": {
+          "parent_entity": "21AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+
+          "entity": "concept",
+          "entity_id": "1418AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "calculation": 1
+        },
+        "schedule": {
+          "due": [
+            {
+              "reference": "dob",
+              "offset": "+0d",
+              "window": "+10d"
+            }
+          ],
+          "expiry": [
+            {
+              "reference": "dob",
+              "offset": "+14d"
+            }
+          ]
+        }
       }
     ]
   },
+
+
   {
     "name": "6 Weeks",
     "id": "Six_Wks",
@@ -524,17 +557,48 @@
             }
           ]
         }
+      },
+      {
+        "name": "Yellow Fever ",
+        "type": "YLF",
+        "openmrs_date": {
+          "parent_entity": "1783AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "entity": "concept",
+          "entity_id": "1410AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        },
+        "openmrs_calculate": {
+          "parent_entity": "1783AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "entity": "concept",
+          "entity_id": "1418AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "calculation": 4
+        },
+        "schedule": {
+          "due": [
+            {
+              "reference": "dob",
+              "offset": "+9m",
+              "window": "+10d"
+            }
+          ],
+          "expiry": [
+            {
+              "reference": "dob",
+              "offset": "+5y"
+            }
+          ]
+
+        }
       }
     ]
   },
   {
-    "name": "18 Months",
-    "id": "Eighteen_Months",
-    "days_after_birth_due": 548,
+    "name": "15 Months",
+    "id": "Fifteen_Months",
+    "days_after_birth_due": 456,
     "vaccines": [
       {
-        "name": "Measles 2 / MR 2",
-        "type": "Measles / MR",
+        "name": "Vitamin A 2 / VC 2",
+        "type": "Vitamin A / VC",
         "vaccine_separator": " / ",
         "openmrs_date": {
           "parent_entity": "36AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/162586AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -548,24 +612,24 @@
           "calculation": 2
         },
         "schedules": {
-          "Measles 2": {
+          "Vitamin A 2": {
             "due": [
               {
                 "reference": "prerequisite",
-                "prerequisite": "Measles 1",
+                "prerequisite": "Vitamin A 1",
                 "offset": "+9m",
                 "window": "+10d"
               },
               {
                 "reference": "prerequisite",
-                "prerequisite": "MR 1",
+                "prerequisite": "VC 1",
                 "offset": "+9m"
               }
             ],
             "conditions": [
               {
                 "type": "not_given",
-                "vaccine": "MR 2"
+                "vaccine": "VC 2"
               }
             ]
           },
@@ -573,20 +637,20 @@
             "due": [
               {
                 "reference": "prerequisite",
-                "prerequisite": "MR 1",
+                "prerequisite": "VC 1",
                 "offset": "+9m",
                 "window": "+10d"
               },
               {
                 "reference": "prerequisite",
-                "prerequisite": "Measles 1",
+                "prerequisite": "Vitamin A 1",
                 "offset": "+9m"
               }
             ],
             "conditions": [
               {
                 "type": "not_given",
-                "vaccine": "Measles 2"
+                "vaccine": "Vitamin A 2"
               }
             ]
           }
