@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.twotoasters.SectionCursorAdapter:library:1.0.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.0.1.aar/c57f4afe5d009f3a23696f5ff97e4d3c/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.0.1.aar/c57f4afe5d009f3a23696f5ff97e4d3c/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7cb981d3f1c8b5bb8b404c891f55cb8f/library-1.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7cb981d3f1c8b5bb8b404c891f55cb8f/library-1.0.1/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twotoasters.SectionCursorAdapter/library/1.0.1/b39fed1d60bc398c97e90a7319f7e4abe224b208/library-1.0.1-javadoc.jar!/" />
