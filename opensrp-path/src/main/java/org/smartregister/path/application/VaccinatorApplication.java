@@ -62,7 +62,6 @@ import java.util.Map;
 
 import io.fabric.sdk.android.Fabric;
 import util.PathConstants;
-import util.SaveSharedPreference;
 
 import static org.smartregister.util.Log.logError;
 import static org.smartregister.util.Log.logInfo;
@@ -102,7 +101,7 @@ public class VaccinatorApplication extends DrishtiApplication
 
         //Initialize Modules
         CoreLibrary.init(context());
-        GrowthMonitoringLibrary.init(context(), getRepository(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
+        GrowthMonitoringLibrary.init(context(), getRepository());
         ImmunizationLibrary.init(context(), getRepository(), createCommonFtsObject(), BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
 
         if (!BuildConfig.DEBUG) {
@@ -138,10 +137,6 @@ public class VaccinatorApplication extends DrishtiApplication
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         getApplicationContext().startActivity(intent);
         context.userService().logoutSession();
-
-        SaveSharedPreference.setLoggedIn(getApplicationContext(), false);
-        SaveSharedPreference.setPassword(getApplicationContext(), "");
-        SaveSharedPreference.setUsername(getApplicationContext(), "");
     }
 
     protected void cleanUpSyncState() {

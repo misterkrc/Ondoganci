@@ -76,8 +76,8 @@ public class ZScoreRefreshIntentService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         // Dump CSV to file
-        dumpCsv(Gender.MALE, false);
-        dumpCsv(Gender.FEMALE, false);
+//        dumpCsv(Gender.MALE, false);
+  //      dumpCsv(Gender.FEMALE, false);
 
         calculateChildZScores();
 
@@ -195,6 +195,7 @@ public class ZScoreRefreshIntentService extends IntentService {
             Log.e(TAG, Log.getStackTraceString(e));
         }
     }
+
 
     /**
      * This method retrieves all weight records that don't have ZScores and tries to calculate their

@@ -47,7 +47,7 @@ public class CoverageReportsActivity extends BaseActivity {
         List<String> list = new ArrayList<>();
         list.add(getString(R.string.cohort_coverage_report));
         list.add(getString(R.string.annual_coverage_report_cso));
-        list.add(getString(R.string.annual_coverage_report_zeir));
+        list.add(getString(R.string.annual_coverage_report_ondo));
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(CoverageReportsActivity.this, R.layout.coverage_reports_item, R.id.tv, list);
         listView.setAdapter(arrayAdapter);
@@ -64,7 +64,7 @@ public class CoverageReportsActivity extends BaseActivity {
                         startActivity(intent);
                         break;
                     case 2:
-                        intent = new Intent(CoverageReportsActivity.this, AnnualCoverageReportZeirActivity.class);
+                        intent = new Intent(CoverageReportsActivity.this, AnnualCoverageReportOndoGanciActivity.class);
                         startActivity(intent);
                         break;
                     default:

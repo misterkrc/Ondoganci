@@ -64,6 +64,7 @@ PathConstants extends AllConstants {
         public static final String INACTIVE = "inactive";
         public static final String LOST_TO_FOLLOW_UP = "lost_to_follow_up";
 
+
     }
 
     public static final class GENDER {
@@ -119,6 +120,4 @@ PathConstants extends AllConstants {
         public final static String CHILD_ENROLLMENT = "child_enrollment";
         public final static String OUT_OF_CATCHMENT = "out_of_catchment_service";
     }
-
-
 }

@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import net.sqlcipher.database.SQLiteDatabase;
-import net.sqlcipher.database.SQLiteQueryBuilder;
 
 import org.apache.commons.lang3.StringUtils;
 import org.smartregister.path.application.VaccinatorApplication;
@@ -212,13 +211,8 @@ public class DailyTalliesRepository extends BaseRepository {
             endDate.add(Calendar.DATE, -1);
 
             cursor = getReadableDatabase().query(TABLE_NAME, TABLE_COLUMNS,
-                     getDayBetweenDatesSelection(startDate.getTime(), endDate.getTime()),
+                    getDayBetweenDatesSelection(startDate.getTime(), endDate.getTime()),
                     null, null, null, null, null);
-            SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
-            qb.setTables(TABLE_NAME);
-            String sql = qb.buildQuery(null, null, null, null, null,
-                    null, null);
-            Log.d("Example", sql);
             if (cursor != null && cursor.getCount() > 0) {
                 for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
                     DailyTally curTally = extractDailyTally(indicatorMap, cursor);
@@ -242,7 +236,6 @@ public class DailyTalliesRepository extends BaseRepository {
         }
 
         return talliesFromMonth;
-
     }
 
     private String getDayBetweenDatesSelection(Date startDate, Date endDate) {

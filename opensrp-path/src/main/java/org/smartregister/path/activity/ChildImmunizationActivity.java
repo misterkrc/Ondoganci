@@ -786,6 +786,8 @@ public class ChildImmunizationActivity extends BaseActivity
         }
 
         WeightWrapper weightWrapper = (WeightWrapper) view.getTag();
+//        HeightWrapper heightWrapper = (HeightWrapper) view.getTag(R.id.height_wrapper);
+//        HeadWrapper headWrapper = (HeadWrapper) view.getTag(R.id.head_wrapper);
         RecordWeightDialogFragment recordWeightDialogFragment = RecordWeightDialogFragment.newInstance(dob, weightWrapper);
         recordWeightDialogFragment.show(ft, DIALOG_TAG);
 
