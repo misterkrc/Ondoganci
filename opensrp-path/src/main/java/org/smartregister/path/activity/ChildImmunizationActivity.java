@@ -26,6 +26,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
