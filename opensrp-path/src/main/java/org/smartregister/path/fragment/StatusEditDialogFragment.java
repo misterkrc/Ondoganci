@@ -52,7 +52,7 @@ public class StatusEditDialogFragment extends DialogFragment {
         LinearLayout inactiveLayout = dialogView.findViewById(R.id.inactivelayout);
         LinearLayout lostToFollowUpLayout = dialogView.findViewById(R.id.losttofollowuplayout);
         final ImageView activeImageView = dialogView.findViewById(R.id.active_check);
-        final ImageView inactiveImageView = dialogView.findViewById(R.id.inactive_check);
+        final ImageView inactiveImageView =  dialogView.findViewById(R.id.inactive_check);
         final ImageView lostToFollowUpImageView = dialogView.findViewById(R.id.lost_to_followup_check);
 
         activeImageView.setVisibility(View.INVISIBLE);

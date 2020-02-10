@@ -60,7 +60,7 @@ public class AnnualCoverageReportOndoGanciActivity extends BaseReportActivity {
 
     @Override
     protected int getContentView() {
-        return R.layout.activity_annual_coverage_report_zeir;
+        return R.layout.activity_annual_coverage_report_ondo;
     }
 
     @Override

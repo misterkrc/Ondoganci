@@ -39,6 +39,18 @@
     <color name="snackbar_background_yellow">#FFED18</color>
     <color name="bluetext">#3D9EC9</color>
 
+    <color name="vaccine_blue_bg_stk">#267ea5</color>
+    <color name="vaccine_blue_bg_st">#389cc8</color>
+    <color name="vaccine_blue_bg_end">#3495bf</color>
+
+    <color name="vaccine_grey_bg_stk">#d8d8d8</color>
+    <color name="vaccine_grey_bg_st">#f4f4f4</color>
+    <color name="vaccine_grey_bg_end">#ebebeb</color>
+
+    <color name="vaccine_red_bg_stk">#a82525</color>
+    <color name="vaccine_red_bg_st">#cd2c2c</color>
+    <color name="vaccine_red_bg_end">#be2727</color>
+
     <color name="translucent_client_list_grey">#aa737373</color>
     <color name="toolbar_grey">#494949</color>
     <color name="snackbar_action_color">#eeff1c</color>
