@@ -70,7 +70,7 @@
                             style="@style/CustomFontTextViewStyle.ClientList.Light"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ONDOGANCI"
+                            android:text="EIR"
                             android:textColor="@color/dark_grey"
                             android:textSize="@dimen/activity_sub_title_size" />
 

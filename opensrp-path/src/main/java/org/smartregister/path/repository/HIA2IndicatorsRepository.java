@@ -220,12 +220,7 @@ public class HIA2IndicatorsRepository extends BaseRepository {
      */
     public List<Hia2Indicator> fetchAll() {
         SQLiteDatabase database = getReadableDatabase();
-        Log.i("shhhhhffffffffffffff","knsdnnnsssssffffffffffffffffffffffffffffffffffffffffffsssssssssssss");
-        Log.i("shhhhhffffffffffffff", String.valueOf(database));
         Cursor cursor = database.query(HIA2_INDICATORS_TABLE_NAME, HIA2_TABLE_COLUMNS, null, null, null, null, ID_COLUMN + " asc ");
-
-        Log.i("shhhhhffffffffffffff","knsdnnnsssssffffffffffffffffffffffffffffffffffffffffffsssssssssssss");
-        Log.i("shhhhhffffffffffffff", String.valueOf(readAllDataElements(cursor)));
         return readAllDataElements(cursor);
     }
 

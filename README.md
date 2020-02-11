@@ -82,7 +82,7 @@ The OpenSRP Path App enables providers to:
 
 ## App Walkthrough (End-User)
 
-1. **(Optional)** Open the app, open the app menu > Settings > Change url to your `server-url:port`. eg Point to Ona OpenSRP test server at `http://104.225.217.132:8080/opensrp`.
+1. **(Optional)** Open the app, open the app menu > Settings > Change url to your `server-url:port`. eg Point to Ona OpenSRP test server at `http://46.101.51.199:8080/opensrp`.
 
 > **Note**
 > Ona OpenSRP test server may not be up. You can follow [this Docker Setup](https://smartregister.atlassian.net/wiki/spaces/Documentation/pages/52690946/Docker+Setup) and [this Docker Compose Setup](https://smartregister.atlassian.net/wiki/spaces/Documentation/pages/52690976/Docker+Compose+Setup) guide for setting up your OpenSRP and OpenMRS Server.
@@ -91,8 +91,8 @@ The OpenSRP Path App enables providers to:
 
 2. Login using Sample Credentials(Provider Credentials) eg. 
 
-	**Username:** admin
-	**Password:** Admin123
+	**Username:** biddemo
+	**Password:** Linda123
  
 	**Note:** _If the genymotion emulator **crashes on pressing the Login button**, use the **Enter Key** on your keyboard - (Reason for Crash) Genymotion emulator seems to have a bug_
 

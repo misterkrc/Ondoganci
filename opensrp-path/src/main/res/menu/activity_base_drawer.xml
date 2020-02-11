@@ -9,7 +9,7 @@
         <item
             android:id="@+id/nav_record_vaccination_out_catchment"
             android:icon="@drawable/ic_action_out_catchment"
-            android:title="Record out of Health Facility Service" />
+            android:title="Record out of catchment vaccination" />
         <item
             android:id="@+id/stock"
             android:icon="@drawable/stockreg"
