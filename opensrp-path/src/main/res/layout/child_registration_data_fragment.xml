@@ -64,7 +64,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             style="@style/CustomFontTextViewStyle.ClientList.Light"
                             android:textColor="@color/dark_grey"
-                            android:text="Child's ZEIR ID"
+                            android:text="Child's OndoGANCI ID"
                             android:layout_weight="1"/>
 
                         <org.smartregister.view.customcontrols.CustomFontTextView
@@ -669,7 +669,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             style="@style/CustomFontTextViewStyle.ClientList.Light"
                             android:textColor="@color/dark_grey"
-                            android:text="CHW name"
+                            android:text="Caregiver name"
                             android:layout_weight="1"/>
 
                         <org.smartregister.view.customcontrols.CustomFontTextView
@@ -694,7 +694,7 @@
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             style="@style/CustomFontTextViewStyle.ClientList.Light"
                             android:textColor="@color/dark_grey"
-                            android:text="CHW phone number"
+                            android:text="Caregiver phone number"
                             android:layout_weight="1"/>
 
                         <org.smartregister.view.customcontrols.CustomFontTextView
