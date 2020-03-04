@@ -361,6 +361,34 @@
         }
       },
       {
+        "key": "CHW_Title",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "CHW_Title",
+        "type": "spinner",
+        "hint": "Caregiver Title *",
+        "v_required": {
+          "value": true,
+          "err": "Please Enter Caregiver's Title"
+        },
+        "values": [
+          "Dr.",
+          "Hon.",
+          "Engr.",
+          "Mr.",
+          "Mrs",
+          "Miss."
+        ],
+        "openmrs_choice_ids": {
+          "Dr.": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "Hon.": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "Engr.": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "Mr.": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "Mrs.": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "Miss.": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        }
+      },
+      {
         "key": "CHW_Phone_Number",
         "openmrs_entity_parent": "",
         "openmrs_entity": "person_attribute",
@@ -524,17 +552,14 @@
           "Nurse 2",
           "Nurse 3",
           "Nurse 4",
-          "Nurse 5",
-          "Nurse 6"
+          "Nurse 5"
         ],
         "openmrs_choice_ids": {
           "Nurse 1": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
           "Nurse 2": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
           "Nurse 3": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
           "Nurse 4": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-          "Nurse 5": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-          "Nurse 6": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-        },
+          "Nurse 5": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
         "v_required": {
         "value": "true",
         "err": "Please Select The Clinic Health Worker"

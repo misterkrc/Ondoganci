@@ -94,6 +94,7 @@ public class ChildRegistrationDataFragment extends Fragment {
             CustomFontTextView tvChildsHomeAddress = (CustomFontTextView) fragmentView.findViewById(R.id.value_home_address);
             CustomFontTextView tvLandmark = (CustomFontTextView) fragmentView.findViewById(R.id.value_landmark);
             CustomFontTextView tvChwName = (CustomFontTextView) fragmentView.findViewById(R.id.value_chw_name);
+            //CustomFontTextView tvChwTitle = (CustomFontTextView) fragmentView.findViewById(R.id.value_chw_title);
             CustomFontTextView tvChwPhoneNumber = (CustomFontTextView) fragmentView.findViewById(R.id.value_chw_phone_number);
             CustomFontTextView tvHivExposure = (CustomFontTextView) fragmentView.findViewById(R.id.value_hiv_exposure);
 
@@ -183,7 +184,12 @@ public class ChildRegistrationDataFragment extends Fragment {
 
             tvChildsHomeAddress.setText(Utils.getValue(detailsMap, "address2", true));
             tvLandmark.setText(Utils.getValue(detailsMap, "address1", true));
-            tvChwName.setText(Utils.getValue(detailsMap, "CHW_Name", true));
+
+            String caregiver_title = (Utils.getValue(detailsMap, "CHW_Title", true));
+            String caregiver_name = (Utils.getValue(detailsMap, "CHW_Name", true));
+            String caregiver_fullname = caregiver_title + " " + caregiver_name ;
+
+            tvChwName.setText(caregiver_fullname);
             tvChwPhoneNumber.setText(Utils.getValue(detailsMap, "CHW_Phone_Number", true));
             tvHivExposure.setText(Utils.getValue(childDetailsColumnMaps, "pmtct_status", true));
         }

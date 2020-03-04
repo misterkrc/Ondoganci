@@ -361,6 +361,30 @@
         }
       },
       {
+        "key": "CHW_Title",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "1396AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "type": "spinner",
+        "hint": "Caretaker Title",
+        "values": [
+          "DR",
+          "HON",
+          "ENGR",
+          "MR",
+          "MRS",
+          "MISS"
+        ],
+        "openmrs_choice_ids": {
+          "DR": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "HON": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "ENGR": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "MR": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "MRS": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "MISS": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        }
+      },
+      {
         "key": "CHW_Phone_Number",
         "openmrs_entity_parent": "",
         "openmrs_entity": "person_attribute",
@@ -532,8 +556,7 @@
           "Nurse 2": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
           "Nurse 3": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
           "Nurse 4": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-          "Nurse 5": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-          "Nurse 6": "664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          "Nurse 5": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
         },
         "v_required": {
         "value": "true",

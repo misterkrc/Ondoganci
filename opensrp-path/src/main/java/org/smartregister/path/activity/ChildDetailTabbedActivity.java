@@ -562,6 +562,9 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
                     if (jsonObject.getString(JsonFormUtils.KEY).equalsIgnoreCase("CHW_Name")) {
                         jsonObject.put(JsonFormUtils.VALUE, getValue(detailsMap, "CHW_Name", true));
                     }
+                    if (jsonObject.getString(JsonFormUtils.KEY).equalsIgnoreCase("CHW_Title")) {
+                        jsonObject.put(JsonFormUtils.VALUE, getValue(detailsMap, "CHW_Title", true));
+                    }
                     if (jsonObject.getString(JsonFormUtils.KEY).equalsIgnoreCase("CHW_Phone_Number")) {
                         jsonObject.put(JsonFormUtils.VALUE, getValue(detailsMap, "CHW_Phone_Number", true));
                     }

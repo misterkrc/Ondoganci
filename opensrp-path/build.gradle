@@ -162,7 +162,7 @@ dependencies {
 //    }
 
     implementation (project(":growth-monitoring")){
-        transitive = false
+        transitive = true
         exclude module: 'opensrp-client-core'
     }
 
