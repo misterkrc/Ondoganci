@@ -222,7 +222,7 @@
     <orderEntry type="library" name="Gradle: com.github.ybq:Android-SpinKit:1.2.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: :opensrp-app-debug:@aar" level="project" />
     <orderEntry type="module" module-name="growth-monitoring" />
-    <orderEntry type="module" module-name="immunization" />
-    <orderEntry type="module" module-name="stock" />
+    <orderEntry type="module" module-name="opensrp-android-immunization" />
+    <orderEntry type="module" module-name="opensrp-android-stock" />
   </component>
 </module>
