@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/growth-monitoring/growth-monitoring.iml" filepath="$PROJECT_DIR$/growth-monitoring/growth-monitoring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/growth-monitoring/growth-monitoring.iml" filepath="$PROJECT_DIR$/growth-monitoring/growth-monitoring.iml" group="opensrp-app-path/growth-monitoring" />
       <module fileurl="file://$PROJECT_DIR$/immunization/immunization.iml" filepath="$PROJECT_DIR$/immunization/immunization.iml" />
-      <module fileurl="file://$PROJECT_DIR$/immunization/opensrp-android-immunization.iml" filepath="$PROJECT_DIR$/immunization/opensrp-android-immunization.iml" />
-      <module fileurl="file://$PROJECT_DIR$/stock/opensrp-android-stock.iml" filepath="$PROJECT_DIR$/stock/opensrp-android-stock.iml" />
-      <module fileurl="file://$PROJECT_DIR$/opensrp-app-path.iml" filepath="$PROJECT_DIR$/opensrp-app-path.iml" />
-      <module fileurl="file://$PROJECT_DIR$/opensrp-path/opensrp-path.iml" filepath="$PROJECT_DIR$/opensrp-path/opensrp-path.iml" />
+      <module fileurl="file://$PROJECT_DIR$/immunization/opensrp-android-immunization.iml" filepath="$PROJECT_DIR$/immunization/opensrp-android-immunization.iml" group="opensrp-app-path/immunization" />
+      <module fileurl="file://$PROJECT_DIR$/stock/opensrp-android-stock.iml" filepath="$PROJECT_DIR$/stock/opensrp-android-stock.iml" group="opensrp-app-path/stock" />
+      <module fileurl="file://$PROJECT_DIR$/opensrp-app-path.iml" filepath="$PROJECT_DIR$/opensrp-app-path.iml" group="opensrp-app-path" />
+      <module fileurl="file://$PROJECT_DIR$/opensrp-path/opensrp-path.iml" filepath="$PROJECT_DIR$/opensrp-path/opensrp-path.iml" group="opensrp-app-path/opensrp-path" />
       <module fileurl="file://$PROJECT_DIR$/stock/stock.iml" filepath="$PROJECT_DIR$/stock/stock.iml" />
     </modules>
   </component>
