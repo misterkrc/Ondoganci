@@ -6,6 +6,7 @@ import android.view.View;
 
 import org.smartregister.commonregistry.CommonRepository;
 import org.smartregister.growthmonitoring.repository.WeightRepository;
+import org.smartregister.growthmonitoring.repository.HeadCircumferenceRepository;
 import org.smartregister.immunization.repository.VaccineRepository;
 import org.smartregister.path.R;
 import org.smartregister.repository.AllSharedPreferences;
@@ -22,10 +23,11 @@ public class AdvancedSearchClientsProvider extends ChildSmartClientsProvider {
                                          AlertService alertService,
                                          VaccineRepository vaccineRepository,
                                          WeightRepository weightRepository,
+                                         HeadCircumferenceRepository headCircumferenceRepository,
                                          CommonRepository commonRepository,
                                          AllSharedPreferences allSharedPreferences) {
         super(context, onClickListener, alertService,
-                vaccineRepository, weightRepository, commonRepository, allSharedPreferences);
+                vaccineRepository, weightRepository, headCircumferenceRepository, commonRepository, allSharedPreferences);
 
     }
 

@@ -1001,7 +1001,7 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
     }
 
     @Override
-    public void onWeightTaken(WeightWrapper tag) {
+    public void                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                onWeightTaken(WeightWrapper tag) {
         if (tag != null) {
             WeightRepository weightRepository = VaccinatorApplication.getInstance().weightRepository();
             Weight weight = new Weight();

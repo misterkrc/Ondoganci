@@ -288,6 +288,7 @@ public class ChildSmartRegisterFragment extends BaseSmartRegisterFragment implem
                 clientActionHandler, context().alertService(),
                 VaccinatorApplication.getInstance().vaccineRepository(),
                 VaccinatorApplication.getInstance().weightRepository(),
+                VaccinatorApplication.getInstance().headCircumferenceRepository(),
                 context().commonrepository(tableName),
                 context().allSharedPreferences());
         clientAdapter = new SmartRegisterPaginatedCursorAdapter(getActivity(), null, hhscp, context().commonrepository(tableName));
@@ -567,6 +568,10 @@ public class ChildSmartRegisterFragment extends BaseSmartRegisterFragment implem
                     break;
                 case R.id.record_weight:
                     registerClickables.setRecordWeight(true);
+                    ChildImmunizationActivity.launchActivity(getActivity(), client, registerClickables);
+                    break;
+                case R.id.record_head_circum:
+                    registerClickables.setRecordHC(true);
                     ChildImmunizationActivity.launchActivity(getActivity(), client, registerClickables);
                     break;
 

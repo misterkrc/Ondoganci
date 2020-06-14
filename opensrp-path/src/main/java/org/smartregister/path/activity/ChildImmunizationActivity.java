@@ -46,10 +46,14 @@ import org.smartregister.domain.Alert;
 import org.smartregister.domain.Photo;
 import org.smartregister.growthmonitoring.domain.Weight;
 import org.smartregister.growthmonitoring.domain.WeightWrapper;
+import org.smartregister.growthmonitoring.domain.HeadCircumference;
+import org.smartregister.growthmonitoring.domain.HCWrapper;
 import org.smartregister.growthmonitoring.fragment.GrowthDialogFragment;
 import org.smartregister.growthmonitoring.fragment.RecordWeightDialogFragment;
 import org.smartregister.growthmonitoring.listener.WeightActionListener;
 import org.smartregister.growthmonitoring.repository.WeightRepository;
+import org.smartregister.growthmonitoring.listener.HCActionListener;
+import org.smartregister.growthmonitoring.repository.HeadCircumferenceRepository;
 import org.smartregister.immunization.ImmunizationLibrary;
 import org.smartregister.immunization.db.VaccineRepo;
 import org.smartregister.immunization.domain.ServiceRecord;
@@ -111,13 +115,8 @@ import util.ImageUtils;
 import util.JsonFormUtils;
 import util.PathConstants;
 
-
-/**
- * Created by Jason Rogena - jrogena@ona.io on 16/02/2017.
- */
-
 public class ChildImmunizationActivity extends BaseActivity
-        implements LocationSwitcherToolbar.OnLocationChangeListener, WeightActionListener, VaccinationActionListener, ServiceActionListener {
+        implements LocationSwitcherToolbar.OnLocationChangeListener, WeightActionListener, HCActionListener, VaccinationActionListener, ServiceActionListener {
 
     private static final String TAG = "ChildImmunoActivity";
     private static final String EXTRA_CHILD_DETAILS = "child_details";
@@ -773,6 +772,60 @@ public class ChildImmunizationActivity extends BaseActivity
 
     }
 
+    private void updateRecordHCViews(HCWrapper hcWrapper, final boolean isActive) {
+        View recordHC = findViewById(R.id.record_head_circum);
+        recordHC.setClickable(true);
+        recordHC.setBackground(getResources().getDrawable(R.drawable.record_weight_bg));
+
+        TextView recordHCText = (TextView) findViewById(R.id.record_weight_text);
+        recordHCText.setText(R.string.record_head_circumference);
+        if (!isActive) {
+            recordHCText.setTextColor(getResources().getColor(R.color.inactive_text_color));
+        } else {
+            recordHCText.setTextColor(getResources().getColor(R.color.text_black));
+        }
+
+        ImageView recordHCCheck = (ImageView) findViewById(R.id.record_weight_check);
+        recordHCCheck.setVisibility(View.GONE);
+        recordHC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isActive) {
+                    showWeightDialog(view);
+                } else {
+                    showActivateChildStatusDialogBox();
+                }
+            }
+        });
+
+        if (hcWrapper.getDbKey() != null && hcWrapper.getHeadCircumference() != null) {
+            recordHCText.setText(Utils.kgStringSuffix(hcWrapper.getHeadCircumference()));
+            recordHCCheck.setVisibility(View.VISIBLE);
+
+            if (hcWrapper.getUpdatedHCDate() != null) {
+                long timeDiff = Calendar.getInstance().getTimeInMillis() - hcWrapper.getUpdatedHCDate().getMillis();
+
+                if (timeDiff <= TimeUnit.MILLISECONDS.convert(RECORD_WEIGHT_BUTTON_ACTIVE_MIN, TimeUnit.HOURS)) {
+                    //disable the button
+                    recordHC.setClickable(false);
+                    recordHC.setBackground(new ColorDrawable(getResources()
+                            .getColor(android.R.color.transparent)));
+                } else {
+                    //reset state
+                    hcWrapper.setHeadCircumference(null);
+                    hcWrapper.setDbKey(null);
+                    recordHC.setClickable(true);
+                    recordHC.setBackground(getResources().getDrawable(R.drawable.record_weight_bg));
+                    recordHCText.setText(R.string.record_weight);
+                    recordHCCheck.setVisibility(View.GONE);
+                }
+            }
+        }
+
+        recordHC.setTag(hcWrapper);
+
+    }
+
     private void showWeightDialog(View view) {
         FragmentTransaction ft = this.getFragmentManager().beginTransaction();
         Fragment prev = this.getFragmentManager().findFragmentByTag(DIALOG_TAG);
@@ -788,9 +841,10 @@ public class ChildImmunizationActivity extends BaseActivity
         }
 
         WeightWrapper weightWrapper = (WeightWrapper) view.getTag();
+        HCWrapper hcWrapper = (HCWrapper) view.getTag();
 //        HeightWrapper heightWrapper = (HeightWrapper) view.getTag(R.id.height_wrapper);
 //        HeadWrapper headWrapper = (HeadWrapper) view.getTag(R.id.head_wrapper);
-        RecordWeightDialogFragment recordWeightDialogFragment = RecordWeightDialogFragment.newInstance(dob, weightWrapper);
+        RecordWeightDialogFragment recordWeightDialogFragment = RecordWeightDialogFragment.newInstance(dob, weightWrapper, hcWrapper);
         recordWeightDialogFragment.show(ft, DIALOG_TAG);
 
     }
@@ -963,6 +1017,43 @@ public class ChildImmunizationActivity extends BaseActivity
     }
 
     @Override
+    public void onHCTaken(HCWrapper tag) {
+        if (tag != null) {
+            final HeadCircumferenceRepository headCircumferenceRepository = VaccinatorApplication.getInstance().headCircumferenceRepository();
+            HeadCircumference headCircumference = new HeadCircumference();
+            if (tag.getDbKey() != null) {
+                headCircumference = headCircumferenceRepository.find(tag.getDbKey());
+            }
+            headCircumference.setBaseEntityId(childDetails.entityId());
+            headCircumference.setInch(tag.getHeadCircumference());
+            headCircumference.setDate(tag.getUpdatedHCDate().toDate());
+            headCircumference.setAnmId(getOpenSRPContext().allSharedPreferences().fetchRegisteredANM());
+            headCircumference.setLocationId(LocationHelper.getInstance().getOpenMrsLocationId(toolbar.getCurrentLocation()));
+
+            Gender gender = Gender.UNKNOWN;
+            String genderString = Utils.getValue(childDetails, PathConstants.KEY.GENDER, false);
+            if (genderString != null && genderString.toLowerCase().equals(PathConstants.GENDER.FEMALE)) {
+                gender = Gender.FEMALE;
+            } else if (genderString != null && genderString.toLowerCase().equals(PathConstants.GENDER.MALE)) {
+                gender = Gender.MALE;
+            }
+
+            String dobString = Utils.getValue(childDetails.getColumnmaps(), PathConstants.EC_CHILD_TABLE.DOB, false);
+            Date dob = util.Utils.dobStringToDate(dobString);
+
+            if (dob != null && gender != Gender.UNKNOWN) {
+                headCircumferenceRepository.add(dob, gender, headCircumference);
+            } else {
+                headCircumferenceRepository.add(headCircumference);
+            }
+
+            tag.setDbKey(headCircumference.getId());
+            updateRecordHCViews(tag, isActiveStatus(childDetails));
+            setLastModified(true);
+        }
+    }
+
+    @Override
     public void onVaccinateToday(ArrayList<VaccineWrapper> tags, View v) {
         if (tags != null && !tags.isEmpty()) {
             View view = getLastOpenedView();
@@ -1057,6 +1148,14 @@ public class ChildImmunizationActivity extends BaseActivity
                     @Override
                     public void run() {
                         recordWeight.performClick();
+                    }
+                });
+            } else if (registerClickables.isRecordHC()) {
+                final View recordHC = findViewById(R.id.record_head_circum);
+                recordHC.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        recordHC.performClick();
                     }
                 });
             } else if (registerClickables.isRecordAll()) {
@@ -1680,7 +1779,7 @@ public class ChildImmunizationActivity extends BaseActivity
         }
     }
 
-    private class ShowGrowthChartTask extends AsyncTask<Void, Void, List<Weight>> {
+    private class ShowGrowthChartTask extends AsyncTask<Void, Void, Wrapper> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -1688,9 +1787,13 @@ public class ChildImmunizationActivity extends BaseActivity
         }
 
         @Override
-        protected List<Weight> doInBackground(Void... params) {
+        protected Wrapper doInBackground(Void... params) {
+            Wrapper w = new Wrapper();
+
             WeightRepository weightRepository = VaccinatorApplication.getInstance().weightRepository();
             List<Weight> allWeights = weightRepository.findByEntityId(childDetails.entityId());
+            HeadCircumferenceRepository headCircumferenceRepository = VaccinatorApplication.getInstance().headCircumferenceRepository();
+            List<HeadCircumference> allHeadCircumferences = headCircumferenceRepository.findByEntityId(childDetails.entityId());
             try {
                 String dobString = Utils.getValue(childDetails.getColumnmaps(), PathConstants.EC_CHILD_TABLE.DOB, false);
                 Date dob = util.Utils.dobStringToDate(dobString);
@@ -1701,16 +1804,18 @@ public class ChildImmunizationActivity extends BaseActivity
                     Weight weight = new Weight(-1l, null, (float) birthWeight.doubleValue(), dob, null, null, null, Calendar.getInstance().getTimeInMillis(), null, null, 0);
                     allWeights.add(weight);
                 }
+                w.allWeights = allWeights;
+                w.allHeadCircumferences = allHeadCircumferences;
             } catch (Exception e) {
                 Log.e(TAG, Log.getStackTraceString(e));
             }
 
-            return allWeights;
+            return w;
         }
 
         @Override
-        protected void onPostExecute(List<Weight> allWeights) {
-            super.onPostExecute(allWeights);
+        protected void onPostExecute(Wrapper w) {
+            super.onPostExecute(w);
             hideProgressDialog();
             FragmentTransaction ft = ChildImmunizationActivity.this.getFragmentManager().beginTransaction();
             Fragment prev = ChildImmunizationActivity.this.getFragmentManager().findFragmentByTag(DIALOG_TAG);
@@ -1720,9 +1825,15 @@ public class ChildImmunizationActivity extends BaseActivity
             ft.addToBackStack(null);
 
 
-            GrowthDialogFragment growthDialogFragment = GrowthDialogFragment.newInstance(childDetails, allWeights);
+            GrowthDialogFragment growthDialogFragment = GrowthDialogFragment.newInstance(childDetails, w.allWeights, w.allHeadCircumferences);
             growthDialogFragment.show(ft, DIALOG_TAG);
         }
+    }
+
+    private static class Wrapper
+    {
+        private List<Weight> allWeights;
+        private List<HeadCircumference> allHeadCircumferences;
     }
 
     private class SaveVaccinesTask extends AsyncTask<VaccineWrapper, Void, ArrayList<VaccineWrapper>> {
@@ -1754,7 +1865,9 @@ public class ChildImmunizationActivity extends BaseActivity
             hideProgressDialog();
             updateVaccineGroupViews(view, list, vaccineList);
             View recordWeight = findViewById(R.id.record_weight);
+            View recordHC = findViewById(R.id.record_head_circum);
             WeightWrapper weightWrapper = (WeightWrapper) recordWeight.getTag();
+            HCWrapper hcWrapper = (HCWrapper) recordHC.getTag();
             if (weightWrapper == null || weightWrapper.getWeight() == null) {
                 showRecordWeightNotification();
             }

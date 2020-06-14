@@ -17,6 +17,8 @@ import org.smartregister.commonregistry.CommonFtsObject;
 import org.smartregister.growthmonitoring.GrowthMonitoringLibrary;
 import org.smartregister.growthmonitoring.repository.WeightRepository;
 import org.smartregister.growthmonitoring.repository.ZScoreRepository;
+import org.smartregister.growthmonitoring.repository.HeadCircumferenceRepository;
+import org.smartregister.growthmonitoring.repository.HCZScoreRepository;
 import org.smartregister.immunization.ImmunizationLibrary;
 import org.smartregister.immunization.db.VaccineRepo;
 import org.smartregister.immunization.domain.VaccineSchedule;
@@ -271,6 +273,10 @@ public class VaccinatorApplication extends DrishtiApplication
         return GrowthMonitoringLibrary.getInstance().weightRepository();
     }
 
+    public HeadCircumferenceRepository headCircumferenceRepository() {
+        return GrowthMonitoringLibrary.getInstance().headCircumferenceRepository();
+    }
+
     public Context context() {
         return context;
     }
@@ -281,6 +287,10 @@ public class VaccinatorApplication extends DrishtiApplication
 
     public ZScoreRepository zScoreRepository() {
         return GrowthMonitoringLibrary.getInstance().zScoreRepository();
+    }
+
+    public HCZScoreRepository hczScoreRepository() {
+        return GrowthMonitoringLibrary.getInstance().hczScoreRepository();
     }
 
     public UniqueIdRepository uniqueIdRepository() {

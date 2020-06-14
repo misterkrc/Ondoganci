@@ -24,6 +24,8 @@ import org.joda.time.DateTime;
 import org.smartregister.growthmonitoring.R;
 import org.smartregister.growthmonitoring.domain.WeightWrapper;
 import org.smartregister.growthmonitoring.listener.WeightActionListener;
+import org.smartregister.growthmonitoring.domain.HCWrapper;
+import org.smartregister.growthmonitoring.listener.HCActionListener;
 import org.smartregister.growthmonitoring.util.ImageUtils;
 import org.smartregister.util.DatePickerUtils;
 import org.smartregister.util.OpenSRPImageLoader;
@@ -37,13 +39,15 @@ import java.util.Date;
 public class RecordWeightDialogFragment extends DialogFragment {
     private WeightWrapper tag;
     private WeightActionListener listener;
+    private HCWrapper hctag;
+    private HCActionListener hclistener;
     private Date dateOfBirth;
 
     public static final String WRAPPER_TAG = "tag";
     public static final String DATE_OF_BIRTH_TAG = "dob";
 
     public static RecordWeightDialogFragment newInstance(
-            Date dateOfBirth, WeightWrapper tag) {
+            Date dateOfBirth, WeightWrapper tag, HCWrapper hctag) {
 
         WeightWrapper tagToSend;
         if (tag == null) {
@@ -52,11 +56,19 @@ public class RecordWeightDialogFragment extends DialogFragment {
             tagToSend = tag;
         }
 
+        HCWrapper hctagToSend;
+        if (hctag == null) {
+            hctagToSend = new HCWrapper();
+        } else {
+            hctagToSend = hctag;
+        }
+
         RecordWeightDialogFragment recordWeightDialogFragment = new RecordWeightDialogFragment();
 
         Bundle args = new Bundle();
         args.putSerializable(DATE_OF_BIRTH_TAG, dateOfBirth);
         args.putSerializable(WRAPPER_TAG, tagToSend);
+        args.putSerializable(WRAPPER_TAG, hctagToSend);
         recordWeightDialogFragment.setArguments(args);
 
         return recordWeightDialogFragment;
@@ -76,9 +88,14 @@ public class RecordWeightDialogFragment extends DialogFragment {
         Serializable serializable = bundle.getSerializable(WRAPPER_TAG);
         if (serializable != null && serializable instanceof WeightWrapper) {
             tag = (WeightWrapper) serializable;
+            hctag = (HCWrapper) serializable;
         }
 
         if (tag == null) {
+            return null;
+        }
+
+        if (hctag == null) {
             return null;
         }
 
@@ -90,9 +107,17 @@ public class RecordWeightDialogFragment extends DialogFragment {
         ViewGroup dialogView = (ViewGroup) inflater.inflate(R.layout.record_weight_dialog_view, container, false);
 
         final EditText editWeight = dialogView.findViewById(R.id.edit_weight);
+
+        final EditText editHC = dialogView.findViewById(R.id.edit_head);
+
         if (tag.getWeight() != null) {
             editWeight.setText(tag.getWeight().toString());
             editWeight.setSelection(editWeight.getText().length());
+        }
+
+        if (hctag.getHeadCircumference() != null) {
+            editHC.setText(hctag.getHeadCircumference().toString());
+            editHC.setSelection(editHC.getText().length());
         }
         //formatEditWeightView(editWeight, "");
 
@@ -140,7 +165,11 @@ public class RecordWeightDialogFragment extends DialogFragment {
             @Override
             public void onClick(View view) {
                 String weightString = editWeight.getText().toString();
+                String HCString = editHC.getText().toString();
                 if (StringUtils.isBlank(weightString) || Float.valueOf(weightString) <= 0f) {
+                    return;
+                }
+                if (StringUtils.isBlank(HCString) || Float.valueOf(HCString) <= 0f) {
                     return;
                 }
 
@@ -153,11 +182,16 @@ public class RecordWeightDialogFragment extends DialogFragment {
                 Calendar calendar = Calendar.getInstance();
                 calendar.set(year, month, day);
                 tag.setUpdatedWeightDate(new DateTime(calendar.getTime()), false);
+                hctag.setUpdatedHCDate(new DateTime(calendar.getTime()), false);
 
                 Float weight = Float.valueOf(weightString);
                 tag.setWeight(weight);
 
+                Float headCircumference = Float.valueOf(HCString);
+                hctag.setHeadCircumference(headCircumference);
+
                 listener.onWeightTaken(tag);
+                hclistener.onHCTaken(hctag);
 
             }
         });
@@ -167,7 +201,11 @@ public class RecordWeightDialogFragment extends DialogFragment {
             @Override
             public void onClick(View view) {
                 String weightString = editWeight.getText().toString();
+                String HCString = editHC.getText().toString();
                 if (StringUtils.isBlank(weightString) || Float.valueOf(weightString) <= 0f) {
+                    return;
+                }
+                if (StringUtils.isBlank(HCString) || Float.valueOf(HCString) <= 0f) {
                     return;
                 }
 
@@ -219,6 +257,7 @@ public class RecordWeightDialogFragment extends DialogFragment {
         try {
             // Instantiate the WeightActionListener so we can send events to the host
             listener = (WeightActionListener) activity;
+            hclistener = (HCActionListener) activity;
         } catch (ClassCastException e) {
             // The activity doesn't implement the interface, throw exception
             throw new ClassCastException(activity.toString()
@@ -226,7 +265,7 @@ public class RecordWeightDialogFragment extends DialogFragment {
         }
     }
 
-    private void formatEditWeightView(EditText editWeight, String userInput) {
+    private void formatEditWeightView(EditText editWeight, EditText editHC, String userInput) {
         StringBuilder stringBuilder = new StringBuilder(userInput);
 
         while (stringBuilder.length() > 2 && stringBuilder.charAt(0) == '0') {
@@ -238,8 +277,10 @@ public class RecordWeightDialogFragment extends DialogFragment {
         stringBuilder.insert(stringBuilder.length() - 1, '.');
 
         editWeight.setText(stringBuilder.toString());
+        editHC.setText(stringBuilder.toString());
         // keeps the cursor always to the right
         Selection.setSelection(editWeight.getText(), stringBuilder.toString().length());
+        Selection.setSelection(editHC.getText(), stringBuilder.toString().length());
     }
 
     @Override

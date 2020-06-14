@@ -22,6 +22,8 @@ import org.smartregister.domain.Alert;
 import org.smartregister.domain.AlertStatus;
 import org.smartregister.growthmonitoring.domain.Weight;
 import org.smartregister.growthmonitoring.repository.WeightRepository;
+import org.smartregister.growthmonitoring.domain.HeadCircumference;
+import org.smartregister.growthmonitoring.repository.HeadCircumferenceRepository;
 import org.smartregister.immunization.db.VaccineRepo;
 import org.smartregister.immunization.domain.Vaccine;
 import org.smartregister.immunization.repository.VaccineRepository;
@@ -31,6 +33,7 @@ import org.smartregister.path.fragment.AdvancedSearchFragment;
 import org.smartregister.path.receiver.SyncStatusBroadcastReceiver;
 import org.smartregister.path.wrapper.VaccineViewRecordUpdateWrapper;
 import org.smartregister.path.wrapper.WeightViewRecordUpdateWrapper;
+import org.smartregister.path.wrapper.HCViewRecordUpdateWrapper;
 import org.smartregister.repository.AllSharedPreferences;
 import org.smartregister.service.AlertService;
 import org.smartregister.util.DateUtil;
@@ -64,9 +67,6 @@ import static org.smartregister.util.Utils.getName;
 import static org.smartregister.util.Utils.getValue;
 import static util.Utils.LINE_SEPARATOR;
 
-/**
- * Created by Ahmed on 13-Oct-15.
- */
 public class ChildSmartClientsProvider implements SmartRegisterCLientsProviderForCursorAdapter {
     private final LayoutInflater inflater;
     private final Context context;
@@ -74,19 +74,21 @@ public class ChildSmartClientsProvider implements SmartRegisterCLientsProviderFo
     private final AlertService alertService;
     private final VaccineRepository vaccineRepository;
     private final WeightRepository weightRepository;
+    private final HeadCircumferenceRepository headCircumferenceRepository;
     private final AbsListView.LayoutParams clientViewLayoutParams;
     private final CommonRepository commonRepository;
     private AllSharedPreferences allSharedPreferences;
 
     public ChildSmartClientsProvider(Context context, View.OnClickListener onClickListener,
                                      AlertService alertService, VaccineRepository vaccineRepository,
-                                     WeightRepository weightRepository, CommonRepository commonRepository,
+                                     WeightRepository weightRepository, HeadCircumferenceRepository headCircumferenceRepository, CommonRepository commonRepository,
                                      AllSharedPreferences allSharedPreferences) {
         this.onClickListener = onClickListener;
         this.context = context;
         this.alertService = alertService;
         this.vaccineRepository = vaccineRepository;
         this.weightRepository = weightRepository;
+        this.headCircumferenceRepository = headCircumferenceRepository;
         this.commonRepository = commonRepository;
         this.allSharedPreferences = allSharedPreferences;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -154,6 +156,12 @@ public class ChildSmartClientsProvider implements SmartRegisterCLientsProviderFo
         recordWeight.setOnClickListener(onClickListener);
         recordWeight.setVisibility(View.INVISIBLE);
 
+        View recordHC = convertView.findViewById(R.id.record_head_circum);
+        recordHC.setBackground(context.getResources().getDrawable(R.drawable.record_weight_bg));
+        recordHC.setTag(client);
+        recordHC.setOnClickListener(onClickListener);
+        recordHC.setVisibility(View.INVISIBLE);
+
         View recordVaccination = convertView.findViewById(R.id.record_vaccination);
         recordVaccination.setTag(client);
         recordVaccination.setOnClickListener(onClickListener);
@@ -205,6 +213,41 @@ public class ChildSmartClientsProvider implements SmartRegisterCLientsProviderFo
         //Update Out of Catchment
         if (updateWrapper.getCursor() instanceof AdvancedSearchFragment.AdvancedMatrixCursor) {
             updateViews(updateWrapper.getConvertView(), updateWrapper.getClient(), true);
+        }
+    }
+
+    private void updateRecordHC(HCViewRecordUpdateWrapper updateHCWrapper) {
+
+        View recordHC = updateHCWrapper.getConvertView().findViewById(R.id.record_head_circum);
+        recordHC.setVisibility(View.VISIBLE);
+
+        if (updateHCWrapper.getHeadCircumference() != null) {
+            TextView recordHCText = (TextView) updateHCWrapper.getConvertView().findViewById(R.id.record_weight_text);
+            recordHCText.setText(Utils.kgStringSuffix(updateHCWrapper.getHeadCircumference().getInch()));
+
+            ImageView recordHCCheck = (ImageView) updateHCWrapper.getConvertView().findViewById(R.id.record_weight_check);
+            recordHCCheck.setVisibility(View.VISIBLE);
+
+            recordHC.setClickable(false);
+            recordHC.setBackground(new ColorDrawable(context.getResources()
+                    .getColor(android.R.color.transparent)));
+        } else {
+            TextView recordWeightText = (TextView) updateHCWrapper.getConvertView().findViewById(R.id.record_weight_text);
+            recordWeightText.setText(context.getString(R.string.record_weight_with_nl));
+
+            ImageView recordWeightCheck = (ImageView) updateHCWrapper.getConvertView().findViewById(R.id.record_weight_check);
+            recordWeightCheck.setVisibility(View.GONE);
+            recordHC.setClickable(true);
+        }
+
+        // Update active/inactive/lostToFollowup status
+        if (updateHCWrapper.getLostToFollowUp().equals(Boolean.TRUE.toString()) || updateHCWrapper.getInactive().equals(Boolean.TRUE.toString())) {
+            recordHC.setVisibility(View.INVISIBLE);
+        }
+
+        //Update Out of Catchment
+        if (updateHCWrapper.getCursor() instanceof AdvancedSearchFragment.AdvancedMatrixCursor) {
+            updateViews(updateHCWrapper.getConvertView(), updateHCWrapper.getClient(), true);
         }
     }
 
@@ -518,6 +561,48 @@ public class ChildSmartClientsProvider implements SmartRegisterCLientsProviderFo
             wrapper.setCursor(cursor);
             wrapper.setConvertView(convertView);
             updateRecordWeight(wrapper);
+
+        }
+    }
+
+    private class HCAsyncTask extends AsyncTask<Void, Void, Void> {
+        private final View convertView;
+        private final String entityId;
+        private final String lostToFollowUp;
+        private final String inactive;
+        private HeadCircumference headCircumference;
+        private SmartRegisterClient client;
+        private Cursor cursor;
+
+        private HCAsyncTask(View convertView,
+                            String entityId,
+                            String lostToFollowUp,
+                            String inactive,
+                            SmartRegisterClient smartRegisterClient,
+                            Cursor cursor) {
+            this.convertView = convertView;
+            this.entityId = entityId;
+            this.lostToFollowUp = lostToFollowUp;
+            this.inactive = inactive;
+            this.client = smartRegisterClient;
+            this.cursor = cursor;
+        }
+        @Override
+        protected Void doInBackground(Void... params) {
+            headCircumference = headCircumferenceRepository.findUnSyncedByEntityId(entityId);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void param) {
+            HCViewRecordUpdateWrapper wrapper = new HCViewRecordUpdateWrapper();
+            wrapper.setHeadCircumference(headCircumference);
+            wrapper.setLostToFollowUp(lostToFollowUp);
+            wrapper.setInactive(inactive);
+            wrapper.setClient(client);
+            wrapper.setCursor(cursor);
+            wrapper.setConvertView(convertView);
+            updateRecordHC(wrapper);
 
         }
     }

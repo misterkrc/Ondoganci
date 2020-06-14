@@ -600,6 +600,7 @@ public class AdvancedSearchFragment extends BaseSmartRegisterFragment {
                 clientActionHandler, context().alertService(),
                 VaccinatorApplication.getInstance().vaccineRepository(),
                 VaccinatorApplication.getInstance().weightRepository(),
+                VaccinatorApplication.getInstance().headCircumferenceRepository(),
                 commonRepository(),
                 context().allSharedPreferences());
         clientAdapter = new AdvancedSearchPaginatedCursorAdapter(getActivity(), null, hhscp, context().commonrepository(tableName));
@@ -1238,6 +1239,15 @@ public class AdvancedSearchFragment extends BaseSmartRegisterFragment {
                         ((ChildSmartRegisterActivity) getActivity()).startFormActivity("out_of_catchment_service", zeirId, null);
                     } else {
                         registerClickables.setRecordWeight(true);
+                        ChildImmunizationActivity.launchActivity(getActivity(), client, registerClickables);
+                    }
+                    break;
+                case R.id.record_head_circum:
+                    if (client == null && view.getTag() != null && view.getTag() instanceof String) {
+                        String zeirId = view.getTag().toString();
+                        ((ChildSmartRegisterActivity) getActivity()).startFormActivity("out_of_catchment_service", zeirId, null);
+                    } else {
+                        registerClickables.setRecordHC(true);
                         ChildImmunizationActivity.launchActivity(getActivity(), client, registerClickables);
                     }
                     break;

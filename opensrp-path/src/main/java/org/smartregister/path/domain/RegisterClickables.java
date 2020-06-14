@@ -2,12 +2,11 @@ package org.smartregister.path.domain;
 
 import java.io.Serializable;
 
-/**
- * Created by keyman on 24/02/2017.
- */
 public class RegisterClickables implements Serializable {
 
     private boolean recordWeight;
+
+    private boolean recordHC;
 
     private boolean recordAll;
 
@@ -15,8 +14,16 @@ public class RegisterClickables implements Serializable {
         this.recordWeight = recordWeight;
     }
 
+    public void setRecordHC(boolean recordHC) {
+        this.recordHC = recordHC;
+    }
+
     public boolean isRecordWeight() {
         return recordWeight;
+    }
+
+    public boolean isRecordHC() {
+        return recordHC;
     }
 
     public void setRecordAll(boolean recordAll) {

@@ -32,6 +32,8 @@ import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.growthmonitoring.R;
 import org.smartregister.growthmonitoring.domain.Weight;
 import org.smartregister.growthmonitoring.domain.ZScore;
+import org.smartregister.growthmonitoring.domain.HeadCircumference;
+import org.smartregister.growthmonitoring.domain.HCZScore;
 import org.smartregister.growthmonitoring.listener.ViewMeasureListener;
 import org.smartregister.growthmonitoring.util.ImageUtils;
 import org.smartregister.util.DateUtil;
@@ -58,19 +60,23 @@ public class GrowthDialogFragment extends DialogFragment {
     private static final String TAG = GrowthDialogFragment.class.getName();
     private CommonPersonObjectClient personDetails;
     private List<Weight> weights;
+    private List<HeadCircumference> headCircumferences;
     public static final String DIALOG_TAG = "GrowthDialogFragment";
     public static final String WRAPPER_TAG = "tag";
     private boolean isExpanded = false;
     private static final int GRAPH_MONTHS_TIMELINE = 12;
     private Calendar maxWeighingDate = null;
     private Calendar minWeighingDate = null;
+    private Calendar maxMeasureDate = null;
+    private Calendar minMeasureDate = null;
 
     public static GrowthDialogFragment newInstance(CommonPersonObjectClient personDetails,
-                                                   List<Weight> weights) {
+                                                   List<Weight> weights, List<HeadCircumference> headCircumferences) {
 
         GrowthDialogFragment vaccinationDialogFragment = new GrowthDialogFragment();
         vaccinationDialogFragment.setPersonDetails(personDetails);
         vaccinationDialogFragment.setWeights(weights);
+        vaccinationDialogFragment.setHeadCircumferences(headCircumferences);
 
         return vaccinationDialogFragment;
     }
@@ -84,6 +90,11 @@ public class GrowthDialogFragment extends DialogFragment {
     public void setWeights(List<Weight> weights) {
         this.weights = weights;
         sortWeights();
+    }
+
+    public void setHeadCircumferences(List<HeadCircumference> headCircumferences) {
+        this.headCircumferences = headCircumferences;
+        sortHeadCircumferences();
     }
 
     public void setPersonDetails(CommonPersonObjectClient personDetails) {
@@ -115,6 +126,33 @@ public class GrowthDialogFragment extends DialogFragment {
         }
 
         this.weights = result;
+    }
+
+    private void sortHeadCircumferences() {
+        HashMap<Long, HeadCircumference> headCircumferenceHashMap = new HashMap<>();
+        for (HeadCircumference curHC : headCircumferences) {
+            if (curHC.getDate() != null) {
+                Calendar curCalendar = Calendar.getInstance();
+                curCalendar.setTime(curHC.getDate());
+                standardiseCalendarDate(curCalendar);
+
+                if (!headCircumferenceHashMap.containsKey(curCalendar.getTimeInMillis())) {
+                    headCircumferenceHashMap.put(curCalendar.getTimeInMillis(), curHC);
+                } else if (curHC.getUpdatedAt() > headCircumferenceHashMap.get(curCalendar.getTimeInMillis()).getUpdatedAt()) {
+                    headCircumferenceHashMap.put(curCalendar.getTimeInMillis(), curHC);
+                }
+            }
+        }
+
+        List<Long> keys = new ArrayList<>(headCircumferenceHashMap.keySet());
+        Collections.sort(keys, Collections.<Long>reverseOrder());
+
+        List<HeadCircumference> result = new ArrayList<>();
+        for (Long curKey : keys) {
+            result.add(headCircumferenceHashMap.get(curKey));
+        }
+
+        this.headCircumferences = result;
     }
 
     @Override
