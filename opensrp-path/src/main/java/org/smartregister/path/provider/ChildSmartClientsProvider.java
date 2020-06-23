@@ -156,11 +156,10 @@ public class ChildSmartClientsProvider implements SmartRegisterCLientsProviderFo
         recordWeight.setOnClickListener(onClickListener);
         recordWeight.setVisibility(View.INVISIBLE);
 
-        View recordHC = convertView.findViewById(R.id.record_head_circum);
-        recordHC.setBackground(context.getResources().getDrawable(R.drawable.record_weight_bg));
-        recordHC.setTag(client);
-        recordHC.setOnClickListener(onClickListener);
-        recordHC.setVisibility(View.INVISIBLE);
+//        View recordHC = convertView.findViewById(R.id.record_head_circum);
+//        recordHC.setTag(client);
+//        recordHC.setOnClickListener(onClickListener);
+//        recordHC.setVisibility(View.INVISIBLE);
 
         View recordVaccination = convertView.findViewById(R.id.record_vaccination);
         recordVaccination.setTag(client);

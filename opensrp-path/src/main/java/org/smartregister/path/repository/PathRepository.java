@@ -8,6 +8,8 @@ import net.sqlcipher.database.SQLiteDatabase;
 import org.smartregister.domain.db.Column;
 import org.smartregister.growthmonitoring.repository.WeightRepository;
 import org.smartregister.growthmonitoring.repository.ZScoreRepository;
+import org.smartregister.growthmonitoring.repository.HeadCircumferenceRepository;
+import org.smartregister.growthmonitoring.repository.HCZScoreRepository;
 import org.smartregister.immunization.repository.RecurringServiceRecordRepository;
 import org.smartregister.immunization.repository.RecurringServiceTypeRepository;
 import org.smartregister.immunization.repository.VaccineNameRepository;
@@ -53,6 +55,7 @@ public class PathRepository extends Repository {
         //EventClientRepository.createTable(database, EventClientRepository.Table.obs, EventClientRepository.obs_column.values());
         UniqueIdRepository.createTable(database);
         WeightRepository.createTable(database);
+        HeadCircumferenceRepository.createTable(database);
         VaccineRepository.createTable(database);
         onUpgrade(database, 1, PathConstants.DATABASE_VERSION);
 
@@ -204,10 +207,14 @@ public class PathRepository extends Repository {
             db.execSQL(VaccineRepository.EVENT_ID_INDEX);
             db.execSQL(WeightRepository.UPDATE_TABLE_ADD_EVENT_ID_COL);
             db.execSQL(WeightRepository.EVENT_ID_INDEX);
+            db.execSQL(HeadCircumferenceRepository.UPDATE_TABLE_ADD_EVENT_ID_COL);
+            db.execSQL(HeadCircumferenceRepository.EVENT_ID_INDEX);
             db.execSQL(VaccineRepository.UPDATE_TABLE_ADD_FORMSUBMISSION_ID_COL);
             db.execSQL(VaccineRepository.FORMSUBMISSION_INDEX);
             db.execSQL(WeightRepository.UPDATE_TABLE_ADD_FORMSUBMISSION_ID_COL);
             db.execSQL(WeightRepository.FORMSUBMISSION_INDEX);
+            db.execSQL(HeadCircumferenceRepository.UPDATE_TABLE_ADD_FORMSUBMISSION_ID_COL);
+            db.execSQL(HeadCircumferenceRepository.FORMSUBMISSION_INDEX);
         } catch (Exception e) {
             Log.e(TAG, "upgradeToVersion3 " + Log.getStackTraceString(e));
         }
@@ -238,6 +245,8 @@ public class PathRepository extends Repository {
         try {
             ZScoreRepository.createTable(db);
             db.execSQL(WeightRepository.ALTER_ADD_Z_SCORE_COLUMN);
+            HCZScoreRepository.createTable(db);
+            db.execSQL(HeadCircumferenceRepository.ALTER_ADD_Z_SCORE_COLUMN);
         } catch (Exception e) {
             Log.e(TAG, "upgradeToVersion6" + Log.getStackTraceString(e));
         }
@@ -249,6 +258,8 @@ public class PathRepository extends Repository {
             db.execSQL(VaccineRepository.UPDATE_TABLE_ADD_OUT_OF_AREA_COL_INDEX);
             db.execSQL(WeightRepository.UPDATE_TABLE_ADD_OUT_OF_AREA_COL);
             db.execSQL(WeightRepository.UPDATE_TABLE_ADD_OUT_OF_AREA_COL_INDEX);
+            db.execSQL(HeadCircumferenceRepository.UPDATE_TABLE_ADD_OUT_OF_AREA_COL);
+            db.execSQL(HeadCircumferenceRepository.UPDATE_TABLE_ADD_OUT_OF_AREA_COL_INDEX);
             DailyTalliesRepository.createTable(db);
             MonthlyTalliesRepository.createTable(db);
             EventClientRepository.createTable(db, Hia2ReportRepository.Table.hia2_report, Hia2ReportRepository.report_column.values());
@@ -348,6 +359,9 @@ public class PathRepository extends Repository {
             db.execSQL(WeightRepository.ALTER_ADD_CREATED_AT_COLUMN);
             WeightRepository.migrateCreatedAt(db);
 
+            db.execSQL(HeadCircumferenceRepository.ALTER_ADD_CREATED_AT_COLUMN);
+            HeadCircumferenceRepository.migrateCreatedAt(db);
+
             db.execSQL(VaccineRepository.ALTER_ADD_CREATED_AT_COLUMN);
             VaccineRepository.migrateCreatedAt(db);
 
@@ -377,9 +391,14 @@ public class PathRepository extends Repository {
             db.execSQL(WeightRepository.UPDATE_TABLE_ADD_TEAM_ID_COL);
             db.execSQL(WeightRepository.UPDATE_TABLE_ADD_TEAM_COL);
 
+            db.execSQL(HeadCircumferenceRepository.UPDATE_TABLE_ADD_TEAM_ID_COL);
+            db.execSQL(HeadCircumferenceRepository.UPDATE_TABLE_ADD_TEAM_COL);
+
             db.execSQL(VaccineRepository.UPDATE_TABLE_ADD_CHILD_LOCATION_ID_COL);
 
             db.execSQL(WeightRepository.UPDATE_TABLE_ADD_CHILD_LOCATION_ID_COL);
+
+            db.execSQL(HeadCircumferenceRepository.UPDATE_TABLE_ADD_CHILD_LOCATION_ID_COL);
 
             db.execSQL(RecurringServiceRecordRepository.UPDATE_TABLE_ADD_CHILD_LOCATION_ID_COL);
         } catch (Exception e) {

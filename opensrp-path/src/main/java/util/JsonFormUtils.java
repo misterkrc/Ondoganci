@@ -33,6 +33,8 @@ import org.smartregister.domain.FetchStatus;
 import org.smartregister.domain.ProfileImage;
 import org.smartregister.growthmonitoring.domain.Weight;
 import org.smartregister.growthmonitoring.repository.WeightRepository;
+import org.smartregister.growthmonitoring.domain.HeadCircumference;
+import org.smartregister.growthmonitoring.repository.HeadCircumferenceRepository;
 import org.smartregister.immunization.domain.Vaccine;
 import org.smartregister.immunization.domain.jsonmapping.VaccineGroup;
 import org.smartregister.immunization.repository.VaccineRepository;
@@ -333,6 +335,59 @@ public class JsonFormUtils extends org.smartregister.util.JsonFormUtils {
         }
 
         return weight;
+    }
+
+    /**
+     * Constructs a head Circumference object using the out of service area form
+     *
+     * @param openSrpContext The context to work with
+     * @param outOfAreaForm  Out of area form to extract the head Circumference form
+     * @return A head Circumference object if head Circumference recorded in form, or {@code null} if head Circumference not recorded
+     * @throws Exception
+     */
+    private static HeadCircumference getHCObject(org.smartregister.Context openSrpContext, JSONObject outOfAreaForm) throws Exception {
+        HeadCircumference headCircumference = null;
+        JSONArray fields = outOfAreaForm.getJSONObject("step1").getJSONArray("fields");
+        String serviceDate = null;
+        String zeirId = null;
+
+        int foundFields = 0;
+        for (int i = 0; i < fields.length(); i++) {
+            JSONObject curField = fields.getJSONObject(i);
+            if (curField.getString("key").equals("Head_Circumference_Inch")) {
+                foundFields++;
+                if (StringUtils.isNotEmpty(curField.getString("value"))) {
+                    headCircumference = new HeadCircumference();
+                    headCircumference.setBaseEntityId("");
+                    headCircumference.setInch(Float.parseFloat(curField.getString("value")));
+                    headCircumference.setAnmId(openSrpContext.allSharedPreferences().fetchRegisteredANM());
+                    headCircumference.setLocationId(outOfAreaForm.getJSONObject("metadata")
+                            .getString("encounter_location"));
+                    headCircumference.setUpdatedAt(null);
+                }
+            } else if (curField.getString("key").equals("OA_Service_Date")) {
+                foundFields++;
+                serviceDate = curField.getString("value");
+            } else if (curField.getString("key").equals("ZEIR_ID")) {
+                foundFields++;
+                zeirId = formatChildUniqueId(curField.getString("value"));
+            }
+
+            if (foundFields == 3) {
+                break;
+            }
+        }
+
+        if (headCircumference != null && serviceDate != null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            headCircumference.setDate(dateFormat.parse(serviceDate));
+        }
+
+        if (headCircumference != null && zeirId != null) {
+            headCircumference.setProgramClientId(zeirId);
+        }
+
+        return headCircumference;
     }
 
     /**
@@ -1445,6 +1500,13 @@ public class JsonFormUtils extends org.smartregister.util.JsonFormUtils {
                 if (weight != null) {
                     WeightRepository weightRepository = VaccinatorApplication.getInstance().weightRepository();
                     weightRepository.add(weight);
+                }
+
+                // Create a head circumference object if it was recorded
+                HeadCircumference headCircumference = getHCObject(openSrpContext, form);
+                if (headCircumference != null) {
+                    HeadCircumferenceRepository headCircumferenceRepository = VaccinatorApplication.getInstance().headCircumferenceRepository();
+                    headCircumferenceRepository.add(headCircumference);
                 }
 
                 // Create a vaccine object for all recorded vaccines

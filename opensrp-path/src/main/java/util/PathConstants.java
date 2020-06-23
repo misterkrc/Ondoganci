@@ -36,6 +36,7 @@ PathConstants extends AllConstants {
         public static final int WEIGHT_SYNC_PROCESSING = 6;
         public static final int RECURRING_SERVICES_SYNC_PROCESSING = 7;
         public static final int IMAGE_UPLOAD = 8;
+        public static final int HC_SYNC_PROCESSING = 9;
 
     }
 
@@ -100,6 +101,7 @@ PathConstants extends AllConstants {
         public static final String LOCATION_NAME = "location_name";
         public static final String LAST_INTERACTED_WITH = "last_interacted_with";
         public static final String BIRTH_WEIGHT = "Birth_Weight";
+        public static final String BIRTH_HC = "Birth_Head_Circumference";
         public static final String RELATIONAL_ID = "relational_id";
         public static final String MOTHER = "mother";
         public static final String ENTITY_ID = "entity_id";

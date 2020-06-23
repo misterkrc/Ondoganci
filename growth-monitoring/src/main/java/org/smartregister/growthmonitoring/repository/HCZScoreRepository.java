@@ -7,7 +7,6 @@ import net.sqlcipher.database.SQLiteDatabase;
 
 import org.opensrp.api.constants.Gender;
 import org.smartregister.growthmonitoring.domain.HCZScore;
-import org.smartregister.growthmonitoring.domain.ZScore;
 import org.smartregister.repository.BaseRepository;
 import org.smartregister.repository.Repository;
 
@@ -24,7 +23,7 @@ import java.util.List;
 
 public class HCZScoreRepository extends BaseRepository {
     private static final String TAG = HCZScoreRepository.class.getName();
-    public static final String TABLE_NAME = "z_scores";
+    public static final String TABLE_NAME = "hcz_scores";
     public static final String COLUMN_SEX = "sex";
     public static final String COLUMN_MONTH = "month";
     public static final String COLUMN_L = "l";
@@ -56,8 +55,8 @@ public class HCZScoreRepository extends BaseRepository {
             COLUMN_SD3 + " REAL NOT NULL, " +
             "UNIQUE(" + COLUMN_SEX + ", " + COLUMN_MONTH + ") ON CONFLICT REPLACE)";
 
-    private static final String CREATE_INDEX_SEX_QUERY = "CREATE INDEX " + COLUMN_SEX + "_index ON " + TABLE_NAME + "(" + COLUMN_SEX + " COLLATE NOCASE);";
-    private static final String CREATE_INDEX_MONTH_QUERY = "CREATE INDEX " + COLUMN_MONTH + "_index ON " + TABLE_NAME + "(" + COLUMN_MONTH + " COLLATE NOCASE);";
+    private static final String CREATE_INDEX_SEX_QUERY = "CREATE INDEX " + COLUMN_SEX + "_index2 ON " + TABLE_NAME + "(" + COLUMN_SEX + " COLLATE NOCASE);";
+    private static final String CREATE_INDEX_MONTH_QUERY = "CREATE INDEX " + COLUMN_MONTH + "_index2 ON " + TABLE_NAME + "(" + COLUMN_MONTH + " COLLATE NOCASE);";
 
     public HCZScoreRepository(Repository repository) {
         super(repository);

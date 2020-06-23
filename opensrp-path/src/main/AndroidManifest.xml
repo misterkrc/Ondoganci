@@ -16,7 +16,9 @@
     <application
         android:name=".application.VaccinatorApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher">
+        android:icon="@drawable/ic_launcher"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true">
         <activity
             android:name=".activity.LoginActivity"
             android:label="@string/app_name"
@@ -88,10 +90,12 @@
         <service android:name=".service.intent.path.PathStockSyncIntentService" />
         <service android:name=".service.intent.ValidateIntentService" />
         <service android:name=".service.intent.path.PathZScoreRefreshIntentService" />
+        <service android:name=".service.intent.path.PathHCZScoreRefreshIntentService" />
 
         <service android:name=".service.intent.HIA2IntentService" />
         <service android:name=".service.intent.path.PathImageUploadSyncService" />
         <service android:name=".service.intent.path.PathWeightIntentService" />
+        <service android:name=".service.intent.path.PathHeadCIntentService" />
         <service android:name=".service.intent.path.PathVaccineIntentService" />
         <service android:name=".service.intent.path.PathRecurringIntentService" />
         <service android:name=".service.intent.PullUniqueIdsIntentService" />

@@ -2,6 +2,7 @@ package util;
 
 import org.smartregister.domain.Alert;
 import org.smartregister.growthmonitoring.domain.Weight;
+import org.smartregister.growthmonitoring.domain.HeadCircumference;
 import org.smartregister.immunization.domain.ServiceRecord;
 import org.smartregister.immunization.domain.ServiceType;
 import org.smartregister.immunization.domain.Vaccine;
@@ -76,6 +77,26 @@ public class AsyncTaskUtils {
             NamedObject<?> namedObject = map.get(Weight.class.getName());
             if (namedObject != null) {
                 return (List<Weight>) namedObject.object;
+            }
+        }
+        return new ArrayList<>();
+    }
+
+    public static HeadCircumference retriveHCs(Map<String, NamedObject<?>> map) {
+        if (map.containsKey(HeadCircumference.class.getName())) {
+            NamedObject<?> namedObject = map.get(HeadCircumference.class.getName());
+            if (namedObject != null) {
+                return (HeadCircumference) namedObject.object;
+            }
+        }
+        return null;
+    }
+
+    public static List<HeadCircumference> extractHCs(Map<String, NamedObject<?>> map) {
+        if (map.containsKey(HeadCircumference.class.getName())) {
+            NamedObject<?> namedObject = map.get(HeadCircumference.class.getName());
+            if (namedObject != null) {
+                return (List<HeadCircumference>) namedObject.object;
             }
         }
         return new ArrayList<>();

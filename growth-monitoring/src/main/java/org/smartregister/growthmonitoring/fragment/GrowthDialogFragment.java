@@ -32,8 +32,6 @@ import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.growthmonitoring.R;
 import org.smartregister.growthmonitoring.domain.Weight;
 import org.smartregister.growthmonitoring.domain.ZScore;
-import org.smartregister.growthmonitoring.domain.HeadCircumference;
-import org.smartregister.growthmonitoring.domain.HCZScore;
 import org.smartregister.growthmonitoring.listener.ViewMeasureListener;
 import org.smartregister.growthmonitoring.util.ImageUtils;
 import org.smartregister.util.DateUtil;
@@ -60,23 +58,19 @@ public class GrowthDialogFragment extends DialogFragment {
     private static final String TAG = GrowthDialogFragment.class.getName();
     private CommonPersonObjectClient personDetails;
     private List<Weight> weights;
-    private List<HeadCircumference> headCircumferences;
     public static final String DIALOG_TAG = "GrowthDialogFragment";
     public static final String WRAPPER_TAG = "tag";
     private boolean isExpanded = false;
     private static final int GRAPH_MONTHS_TIMELINE = 12;
     private Calendar maxWeighingDate = null;
     private Calendar minWeighingDate = null;
-    private Calendar maxMeasureDate = null;
-    private Calendar minMeasureDate = null;
 
     public static GrowthDialogFragment newInstance(CommonPersonObjectClient personDetails,
-                                                   List<Weight> weights, List<HeadCircumference> headCircumferences) {
+                                                   List<Weight> weights) {
 
         GrowthDialogFragment vaccinationDialogFragment = new GrowthDialogFragment();
         vaccinationDialogFragment.setPersonDetails(personDetails);
         vaccinationDialogFragment.setWeights(weights);
-        vaccinationDialogFragment.setHeadCircumferences(headCircumferences);
 
         return vaccinationDialogFragment;
     }
@@ -90,11 +84,6 @@ public class GrowthDialogFragment extends DialogFragment {
     public void setWeights(List<Weight> weights) {
         this.weights = weights;
         sortWeights();
-    }
-
-    public void setHeadCircumferences(List<HeadCircumference> headCircumferences) {
-        this.headCircumferences = headCircumferences;
-        sortHeadCircumferences();
     }
 
     public void setPersonDetails(CommonPersonObjectClient personDetails) {
@@ -128,44 +117,17 @@ public class GrowthDialogFragment extends DialogFragment {
         this.weights = result;
     }
 
-    private void sortHeadCircumferences() {
-        HashMap<Long, HeadCircumference> headCircumferenceHashMap = new HashMap<>();
-        for (HeadCircumference curHC : headCircumferences) {
-            if (curHC.getDate() != null) {
-                Calendar curCalendar = Calendar.getInstance();
-                curCalendar.setTime(curHC.getDate());
-                standardiseCalendarDate(curCalendar);
-
-                if (!headCircumferenceHashMap.containsKey(curCalendar.getTimeInMillis())) {
-                    headCircumferenceHashMap.put(curCalendar.getTimeInMillis(), curHC);
-                } else if (curHC.getUpdatedAt() > headCircumferenceHashMap.get(curCalendar.getTimeInMillis()).getUpdatedAt()) {
-                    headCircumferenceHashMap.put(curCalendar.getTimeInMillis(), curHC);
-                }
-            }
-        }
-
-        List<Long> keys = new ArrayList<>(headCircumferenceHashMap.keySet());
-        Collections.sort(keys, Collections.<Long>reverseOrder());
-
-        List<HeadCircumference> result = new ArrayList<>();
-        for (Long curKey : keys) {
-            result.add(headCircumferenceHashMap.get(curKey));
-        }
-
-        this.headCircumferences = result;
-    }
-
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         String firstName = Utils.getValue(personDetails.getColumnmaps(), "first_name", true);
         String lastName = Utils.getValue(personDetails.getColumnmaps(), "last_name", true);
         final ViewGroup dialogView = (ViewGroup) inflater.inflate(R.layout.growth_dialog_view, container, false);
-        TextView nameView = dialogView.findViewById(R.id.child_name);
+        TextView nameView = (TextView) dialogView.findViewById(R.id.child_name);
         nameView.setText(Utils.getName(firstName, lastName));
 
         String personId = Utils.getValue(personDetails.getColumnmaps(), "zeir_id", false);
-        TextView numberView = dialogView.findViewById(R.id.child_zeir_id);
+        TextView numberView = (TextView) dialogView.findViewById(R.id.child_zeir_id);
         if (StringUtils.isNotBlank(personId)) {
             numberView.setText(String.format("%s: %s", getString(R.string.label_zeir), personId));
         } else {
@@ -174,11 +136,11 @@ public class GrowthDialogFragment extends DialogFragment {
 
         String genderString = Utils.getValue(personDetails, "gender", false);
         String baseEntityId = personDetails.entityId();
-        ImageView profilePic = dialogView.findViewById(R.id.child_profilepic);
+        ImageView profilePic = (ImageView) dialogView.findViewById(R.id.child_profilepic);
         profilePic.setTag(R.id.entity_id, baseEntityId);
         DrishtiApplication.getCachedImageLoaderInstance().getImageByClientId(baseEntityId,
                 OpenSRPImageLoader.getStaticImageListener(
-                        profilePic,
+                        (ImageView) profilePic,
                         ImageUtils.profileImageResourceByGender(genderString),
                         ImageUtils.profileImageResourceByGender(genderString)));
 
@@ -194,14 +156,14 @@ public class GrowthDialogFragment extends DialogFragment {
             }
         }
 
-        TextView ageView = dialogView.findViewById(R.id.child_age);
+        TextView ageView = (TextView) dialogView.findViewById(R.id.child_age);
         if (StringUtils.isNotBlank(formattedAge)) {
             ageView.setText(String.format("%s: %s", getString(R.string.age), formattedAge));
         } else {
             ageView.setText("");
         }
 
-        TextView pmtctStatus = dialogView.findViewById(R.id.pmtct_status);
+        TextView pmtctStatus = (TextView) dialogView.findViewById(R.id.pmtct_status);
         String pmtctStatusString = Utils.getValue(personDetails.getColumnmaps(), "pmtct_status", true);
         if (!TextUtils.isEmpty(pmtctStatusString)) {
             pmtctStatus.setText(pmtctStatusString);
@@ -221,7 +183,7 @@ public class GrowthDialogFragment extends DialogFragment {
             genderStringRes = R.string.girls;
         }
 
-        TextView weightForAge = dialogView.findViewById(R.id.weight_for_age);
+        TextView weightForAge = (TextView) dialogView.findViewById(R.id.weight_for_age);
         weightForAge.setText(String.format(getString(R.string.weight_for_age), getString(genderStringRes).toUpperCase()));
 
         Date dob = null;
@@ -233,7 +195,7 @@ public class GrowthDialogFragment extends DialogFragment {
             maxWeighingDate = weighingDates[1];
         }
 
-        Button done = dialogView.findViewById(R.id.done);
+        Button done = (Button) dialogView.findViewById(R.id.done);
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -241,7 +203,7 @@ public class GrowthDialogFragment extends DialogFragment {
             }
         });
 
-        final ImageButton scrollButton = dialogView.findViewById(R.id.scroll_button);
+        final ImageButton scrollButton = (ImageButton) dialogView.findViewById(R.id.scroll_button);
         scrollButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -289,7 +251,7 @@ public class GrowthDialogFragment extends DialogFragment {
             return;
         }
 
-        TableLayout tableLayout = dialogView.findViewById(R.id.weights_table);
+        TableLayout tableLayout = (TableLayout) dialogView.findViewById(R.id.weights_table);
         for (Weight weight : weights) {
             TableRow dividerRow = new TableRow(dialogView.getContext());
             View divider = new View(dialogView.getContext());
@@ -342,12 +304,12 @@ public class GrowthDialogFragment extends DialogFragment {
         }
 
         //Now set the expand button if items are too many
-        final ScrollView weightsTableScrollView = dialogView.findViewById(R.id.weight_scroll_view);
+        final ScrollView weightsTableScrollView = (ScrollView) dialogView.findViewById(R.id.weight_scroll_view);
         getHeight(weightsTableScrollView, new ViewMeasureListener() {
             @Override
             public void onCompletedMeasuring(int height) {
                 int childHeight = weightsTableScrollView.getChildAt(0).getMeasuredHeight();
-                ImageButton scrollButton = dialogView.findViewById(R.id.scroll_button);
+                ImageButton scrollButton = (ImageButton) dialogView.findViewById(R.id.scroll_button);
                 if (childHeight > height) {
                     scrollButton.setVisibility(View.VISIBLE);
                 } else {
@@ -363,7 +325,7 @@ public class GrowthDialogFragment extends DialogFragment {
         }
 
         if (gender != Gender.UNKNOWN && dob != null && minWeighingDate != null) {
-            LineChartView growthChart = parent.findViewById(R.id.growth_chart);
+            LineChartView growthChart = (LineChartView) parent.findViewById(R.id.growth_chart);
             double minAge = ZScore.getAgeInMonths(dob, minWeighingDate.getTime());
             double maxAge = minAge + GRAPH_MONTHS_TIMELINE;
             List<Line> lines = new ArrayList<>();
@@ -506,8 +468,10 @@ public class GrowthDialogFragment extends DialogFragment {
             weighingDate.setTime(weight.getDate());
             standardiseCalendarDate(weighingDate);
 
-            return weighingDate.getTimeInMillis() >= minWeighingDate.getTimeInMillis()
-                    && weighingDate.getTimeInMillis() <= maxWeighingDate.getTimeInMillis();
+            if (weighingDate.getTimeInMillis() >= minWeighingDate.getTimeInMillis()
+                    && weighingDate.getTimeInMillis() <= maxWeighingDate.getTimeInMillis()) {
+                return true;
+            }
         }
 
         return false;

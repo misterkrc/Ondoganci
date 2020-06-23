@@ -245,7 +245,7 @@
         "hint": "Birth Head Circumference *",
         "v_min": {
           "value": "0.1",
-          "err": "Weight must be greater than 0"
+          "err": "Head circumference must be greater than 0"
         },
         "v_numeric": {
           "value": "true",

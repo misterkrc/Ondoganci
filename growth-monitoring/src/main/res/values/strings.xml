@@ -5,10 +5,12 @@
     <string name="age">Age</string>
 
     <string name="edit_weight_data">Edit weight data</string>
+    <string name="edit_hc_data">Edit head circumference data</string>
     <string name="record_weight_with_nl">Record\nweight</string>
     <string name="record_weight">Record weight</string>
     <string name="record_weight_notification">"Don't forget to record child's growth"</string>
     <string name="weight_for_age">Weight-for-age %1$s</string>
+    <string name="hc_for_age">Head Circumference-for-age %1$s</string>
     <string name="previous_weights">PREVIOUS WEIGHTS</string>
     <string name="previous_hcs">PREVIOUS CIRCUMFERENCE</string>
 

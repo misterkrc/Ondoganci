@@ -61,4 +61,34 @@ public class WidgetFactory {
             i++;
         }
     }
+
+    private View createTableRowForHC(LayoutInflater inflater, ViewGroup container, String labelString, String valueString, boolean editenabled, View.OnClickListener listener) {
+        View rows = inflater.inflate(R.layout.tablerows_hc, container, false);
+        TextView label = (TextView) rows.findViewById(R.id.label);
+        TextView value = (TextView) rows.findViewById(R.id.value);
+        Button edit = (Button) rows.findViewById(R.id.edit);
+        if (editenabled) {
+            edit.setVisibility(View.VISIBLE);
+            edit.setOnClickListener(listener);
+        } else {
+            edit.setVisibility(View.INVISIBLE);
+        }
+        label.setText(labelString);
+        value.setText(valueString);
+        return rows;
+    }
+
+    public void createHCWidget(LayoutInflater inflater, LinearLayout fragmentContainer, HashMap<Long, Pair<String, String>> last_five_hc_map, ArrayList<View.OnClickListener> listeners, ArrayList<Boolean> editenabled) {
+        LinearLayout tableLayout = (LinearLayout) fragmentContainer.findViewById(R.id.hcvalues);
+        tableLayout.removeAllViews();
+
+        int i = 0;
+        for (Map.Entry<Long, Pair<String, String>> entry : last_five_hc_map.entrySet()) {
+            Pair<String, String> pair = entry.getValue();
+            View view = createTableRowForHC(inflater, tableLayout, pair.first, pair.second, editenabled.get(i), listeners.get(i));
+
+            tableLayout.addView(view);
+            i++;
+        }
+    }
 }

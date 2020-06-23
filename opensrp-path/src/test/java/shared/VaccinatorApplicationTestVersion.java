@@ -8,6 +8,7 @@ import org.robolectric.TestLifecycleApplication;
 import org.smartregister.Context;
 import org.smartregister.domain.Alert;
 import org.smartregister.growthmonitoring.repository.WeightRepository;
+import org.smartregister.growthmonitoring.repository.HeadCircumferenceRepository;
 import org.smartregister.immunization.domain.ServiceRecord;
 import org.smartregister.immunization.domain.Vaccine;
 import org.smartregister.immunization.repository.RecurringServiceRecordRepository;
@@ -88,6 +89,11 @@ public class VaccinatorApplicationTestVersion extends VaccinatorApplication impl
     }
 
     @Override
+    public HeadCircumferenceRepository headCircumferenceRepository() {
+        return headCircumferenceRepository();
+    }
+
+    @Override
     public RecurringServiceRecordRepository recurringServiceRecordRepository() {
         return recurringServiceRecordRepository;
     }
@@ -98,6 +104,9 @@ public class VaccinatorApplicationTestVersion extends VaccinatorApplication impl
 
     @Mock
     WeightRepository weightRepository;
+
+    @Mock
+    HeadCircumferenceRepository headCircumferenceRepository;
 
     @Override
     public RecurringServiceTypeRepository recurringServiceTypeRepository() {

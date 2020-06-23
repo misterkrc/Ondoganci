@@ -30,14 +30,14 @@ jacoco {
 }
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
 
     defaultPublishConfig !isReleaseBuild() ? "debug" : "release"
 
     defaultConfig {
         minSdkVersion 18
-        targetSdkVersion 27
+        targetSdkVersion 29
         versionCode 14
         versionName "1.4.1"
         multiDexEnabled true

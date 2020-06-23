@@ -70,6 +70,8 @@ public class PathJsonFormActivity extends StockJsonFormActivity {
                         }
                     } else if (vaccineGroup.has("key") && vaccineGroup.getString("key").equals("Weight_Kg") && vaccineGroup.has("value") && vaccineGroup.getString("value").length() > 0) {
                         return true;
+                    } else if (vaccineGroup.has("key") && vaccineGroup.getString("key").equals("Head_Circumference_Inch") && vaccineGroup.has("value") && vaccineGroup.getString("value").length() > 0) {
+                        return true;
                     }
                 }
             }

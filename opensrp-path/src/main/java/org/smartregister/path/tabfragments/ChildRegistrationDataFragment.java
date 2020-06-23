@@ -79,6 +79,7 @@ public class ChildRegistrationDataFragment extends Fragment {
             CustomFontTextView tvChildsAge = (CustomFontTextView) fragmentView.findViewById(R.id.value_age);
             CustomFontTextView tvChildDateFirstSeen = (CustomFontTextView) fragmentView.findViewById(R.id.value_date_first_seen);
             CustomFontTextView tvChildsBirthWeight = (CustomFontTextView) fragmentView.findViewById(R.id.value_birth_weight);
+            CustomFontTextView tvChildsBirthHead = (CustomFontTextView) fragmentView.findViewById(R.id.value_birth_head);
             CustomFontTextView tvMotherFirstName = (CustomFontTextView) fragmentView.findViewById(R.id.value_mother_guardian_first_name);
             CustomFontTextView tvMotherLastName = (CustomFontTextView) fragmentView.findViewById(R.id.value_mother_guardian_last_name);
             CustomFontTextView tvMotherDOB = (CustomFontTextView) fragmentView.findViewById(R.id.value_mother_guardian_dob);
@@ -136,6 +137,7 @@ public class ChildRegistrationDataFragment extends Fragment {
 
             tvChildDateFirstSeen.setText(dateString);
             tvChildsBirthWeight.setText(Utils.kgStringSuffix(Utils.getValue(detailsMap, "Birth_Weight", true)));
+            tvChildsBirthHead.setText(Utils.getValue(detailsMap, "Birth_Head_Circumference", true));
             tvMotherFirstName.setText(Utils.getValue(childDetailsColumnMaps, "mother_first_name", true).isEmpty() ? Utils.getValue(childDetails.getDetails(), "mother_first_name", true) : Utils.getValue(childDetailsColumnMaps, "mother_first_name", true));
             tvMotherLastName.setText(Utils.getValue(childDetailsColumnMaps, "mother_last_name", true).isEmpty() ? Utils.getValue(childDetails.getDetails(), "mother_last_name", true) : Utils.getValue(childDetailsColumnMaps, "mother_last_name", true));
 

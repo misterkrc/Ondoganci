@@ -10,6 +10,7 @@ import org.smartregister.path.service.intent.CoverageDropoutIntentService;
 import org.smartregister.path.service.intent.HIA2IntentService;
 import org.smartregister.path.service.intent.PullUniqueIdsIntentService;
 import org.smartregister.path.service.intent.SyncIntentService;
+import org.smartregister.path.service.intent.path.PathHeadCIntentService;
 import org.smartregister.path.service.intent.path.PathImageUploadSyncService;
 import org.smartregister.path.service.intent.path.PathRecurringIntentService;
 import org.smartregister.path.service.intent.path.PathVaccineIntentService;
@@ -51,6 +52,10 @@ public class VaccinatorAlarmReceiver extends WakefulBroadcastReceiver {
             case PathConstants.ServiceType.WEIGHT_SYNC_PROCESSING:
                 serviceIntent = new Intent(context, PathWeightIntentService.class);
                 android.util.Log.i(TAG, "Started WEIGHT_SYNC_PROCESSING service at: " + dateFormatter.format(new Date()));
+                break;
+            case PathConstants.ServiceType.HC_SYNC_PROCESSING:
+                serviceIntent = new Intent(context, PathHeadCIntentService.class);
+                android.util.Log.i(TAG, "Started HEAD_CIRCUMFERENCE_SYNC_PROCESSING service at: " + dateFormatter.format(new Date()));
                 break;
             case PathConstants.ServiceType.VACCINE_SYNC_PROCESSING:
                 serviceIntent = new Intent(context, PathVaccineIntentService.class);

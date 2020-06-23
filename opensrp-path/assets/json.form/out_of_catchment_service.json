@@ -95,6 +95,23 @@
           "value": "true",
           "err": "Enter a valid weight"
         }
+      },
+      {
+        "key": "Head_Circumference_Inch",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "5314AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_data_type": "text",
+        "type": "edit_text",
+        "hint": "Child's Head Circumference (inch)",
+        "v_min": {
+          "value": "0.1",
+          "err": "Head Circumference must be greater than 0"
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": "Enter a valid head circumference"
+        }
       }
     ]
   }

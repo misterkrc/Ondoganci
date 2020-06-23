@@ -53,6 +53,11 @@ import org.smartregister.growthmonitoring.domain.WeightWrapper;
 import org.smartregister.growthmonitoring.listener.WeightActionListener;
 import org.smartregister.growthmonitoring.repository.WeightRepository;
 import org.smartregister.growthmonitoring.util.WeightUtils;
+import org.smartregister.growthmonitoring.domain.HeadCircumference;
+import org.smartregister.growthmonitoring.domain.HCWrapper;
+import org.smartregister.growthmonitoring.listener.HCActionListener;
+import org.smartregister.growthmonitoring.repository.HeadCircumferenceRepository;
+import org.smartregister.growthmonitoring.util.HeadCircumferenceUtils;
 import org.smartregister.immunization.db.VaccineRepo;
 import org.smartregister.immunization.domain.ServiceRecord;
 import org.smartregister.immunization.domain.ServiceSchedule;
@@ -114,11 +119,7 @@ import util.PathConstants;
 
 import static org.smartregister.util.Utils.getValue;
 
-/**
- * Created by raihan on 1/03/2017.
- */
-
-public class ChildDetailTabbedActivity extends BaseActivity implements VaccinationActionListener, WeightActionListener, StatusChangeListener, ServiceActionListener {
+public class ChildDetailTabbedActivity extends BaseActivity implements VaccinationActionListener, WeightActionListener, HCActionListener, StatusChangeListener, ServiceActionListener {
 
     private Menu overflow;
     private ChildDetailsToolbar detailtoolbar;
@@ -256,7 +257,7 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
         saveButton.setVisibility(View.INVISIBLE);
     }
 
-    public void updateOptionsMenu(List<Vaccine> vaccineList, List<ServiceRecord> serviceRecordList, List<Weight> weightList, List<Alert> alertList) {
+    public void updateOptionsMenu(List<Vaccine> vaccineList, List<ServiceRecord> serviceRecordList, List<Weight> weightList, List<HeadCircumference> headCircumferenceList,  List<Alert> alertList) {
         boolean showVaccineList = false;
         for (int i = 0; i < vaccineList.size(); i++) {
             Vaccine vaccine = vaccineList.get(i);
@@ -286,9 +287,18 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
             }
         }
 
+        boolean showHeadCEdit = false;
+        for (int i = 0; i < headCircumferenceList.size(); i++) {
+            HeadCircumference headCircumference = headCircumferenceList.get(i);
+            showHeadCEdit = HeadCircumferenceUtils.lessThanThreeMonths(headCircumference);
+            if (showHeadCEdit) {
+                break;
+            }
+        }
+
         boolean showRecordBcg2 = showRecordBcg2(vaccineList, alertList);
 
-        updateOptionsMenu(showVaccineList, showServiceList, showWeightEdit, showRecordBcg2);
+        updateOptionsMenu(showVaccineList, showServiceList, showWeightEdit, showHeadCEdit, showRecordBcg2);
     }
 
     private boolean showRecordBcg2(List<Vaccine> vaccineList, List<Alert> alerts) {
@@ -316,10 +326,11 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
         return today.getTime().after(twelveWeeksLaterDate.getTime()) || DateUtils.isSameDay(twelveWeeksLaterDate, today);
     }
 
-    private void updateOptionsMenu(boolean showVaccineList, boolean showServiceList, boolean showWeightEdit, boolean showRecordBcg2) {
+    private void updateOptionsMenu(boolean showVaccineList, boolean showServiceList, boolean showWeightEdit, boolean showHeadCEdit, boolean showRecordBcg2) {
         overflow.findItem(R.id.immunization_data).setEnabled(showVaccineList);
         overflow.findItem(R.id.recurring_services_data).setEnabled(showServiceList);
         overflow.findItem(R.id.weight_data).setEnabled(showWeightEdit);
+        overflow.findItem(R.id.head_circ_data).setEnabled(showHeadCEdit);
     }
 
     @Override
@@ -357,6 +368,16 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
                     viewPager.setCurrentItem(1);
                 }
                 Utils.startAsyncTask(new LoadAsyncTask(STATUS.EDIT_WEIGHT), null);
+                saveButton.setVisibility(View.VISIBLE);
+                for (int i = 0; i < overflow.size(); i++) {
+                    overflow.getItem(i).setVisible(false);
+                }
+                return true;
+            case R.id.head_circ_data:
+                if (viewPager.getCurrentItem() != 1) {
+                    viewPager.setCurrentItem(1);
+                }
+                Utils.startAsyncTask(new LoadAsyncTask(STATUS.EDIT_HEAD_CIRC), null);
                 saveButton.setVisibility(View.VISIBLE);
                 for (int i = 0; i < overflow.size(); i++) {
                     overflow.getItem(i).setVisible(false);
@@ -495,6 +516,10 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
                     if (jsonObject.getString(JsonFormUtils.KEY).equalsIgnoreCase("Birth_Weight")) {
                         jsonObject.put(JsonFormUtils.READ_ONLY, true);
                         jsonObject.put(JsonFormUtils.VALUE, getValue(detailsMap, "Birth_Weight", true));
+                    }
+                    if (jsonObject.getString(JsonFormUtils.KEY).equalsIgnoreCase("Birth_Head_Circumference")) {
+                        jsonObject.put(JsonFormUtils.READ_ONLY, true);
+                        jsonObject.put(JsonFormUtils.VALUE, getValue(detailsMap, "Birth_Head_Circumference", true));
                     }
                     if (jsonObject.getString(JsonFormUtils.KEY).equalsIgnoreCase("Place_Birth")) {
                         jsonObject.put(JsonFormUtils.READ_ONLY, true);
@@ -790,7 +815,7 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
             }
         } else {
             updateOptionsMenu(isChildActive, isChildActive, isChildActive);
-            updateOptionsMenu(isChildActive, isChildActive, isChildActive, isChildActive);
+            updateOptionsMenu(isChildActive, isChildActive, isChildActive, isChildActive, isChildActive);
         }
     }
 
@@ -1039,6 +1064,45 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
         Utils.startAsyncTask(new LoadAsyncTask(), null);
     }
 
+    @Override
+    public void                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                onHCTaken(HCWrapper tag) {
+        if (tag != null) {
+            HeadCircumferenceRepository headCircumferenceRepository = VaccinatorApplication.getInstance().headCircumferenceRepository();
+            HeadCircumference headCircumference = new HeadCircumference();
+            if (tag.getDbKey() != null) {
+                headCircumference = headCircumferenceRepository.find(tag.getDbKey());
+            }
+            headCircumference.setBaseEntityId(childDetails.entityId());
+            headCircumference.setInch(tag.getHeadCircumference());
+            headCircumference.setDate(tag.getUpdatedHCDate().toDate());
+            headCircumference.setAnmId(getOpenSRPContext().allSharedPreferences().fetchRegisteredANM());
+            if (StringUtils.isNotBlank(location_name)) {
+                headCircumference.setLocationId(location_name);
+            }
+
+            Gender gender = Gender.UNKNOWN;
+            String genderString = getValue(childDetails, "gender", false);
+            if (genderString != null && genderString.toLowerCase().equals(PathConstants.GENDER.FEMALE)) {
+                gender = Gender.FEMALE;
+            } else if (genderString != null && genderString.toLowerCase().equals(PathConstants.GENDER.MALE)) {
+                gender = Gender.MALE;
+            }
+
+            String dobString = getValue(childDetails.getColumnmaps(), PathConstants.EC_CHILD_TABLE.DOB, false);
+            Date dob = util.Utils.dobStringToDate(dobString);
+
+            if (dob != null && gender != Gender.UNKNOWN) {
+                headCircumferenceRepository.add(dob, gender, headCircumference);
+            } else {
+                headCircumferenceRepository.add(headCircumference);
+            }
+
+            tag.setDbKey(headCircumference.getId());
+        }
+
+        Utils.startAsyncTask(new LoadAsyncTask(), null);
+    }
+
     private void saveVaccine(List<VaccineWrapper> tags, final View view) {
         if (tags != null && !tags.isEmpty()) {
             if (tags.size() == 1) {
@@ -1271,7 +1335,7 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
     // Inner classes
     ////////////////////////////////////////////////////////////////
     public enum STATUS {
-        NONE, EDIT_WEIGHT, EDIT_VACCINE, EDIT_SERVICE
+        NONE, EDIT_WEIGHT, EDIT_HEAD_CIRC, EDIT_VACCINE, EDIT_SERVICE
     }
 
     private class LoadAsyncTask extends AsyncTask<Void, Void, Map<String, NamedObject<?>>> {
@@ -1304,6 +1368,7 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
             util.Utils.putAll(detailsMap, childDetails.getColumnmaps());
 
             List<Weight> weightList = AsyncTaskUtils.extractWeights(map);
+            List<HeadCircumference> headCircumferenceList = AsyncTaskUtils.extractHCs(map);
             List<Vaccine> vaccineList = AsyncTaskUtils.extractVaccines(map);
             Map<String, List<ServiceType>> serviceTypeMap = AsyncTaskUtils.extractServiceTypes(map);
             List<ServiceRecord> serviceRecords = AsyncTaskUtils.extractServiceRecords(map);
@@ -1312,14 +1377,16 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
             boolean editVaccineMode = STATUS.EDIT_VACCINE.equals(status);
             boolean editServiceMode = STATUS.EDIT_SERVICE.equals(status);
             boolean editWeightMode = STATUS.EDIT_WEIGHT.equals(status);
+            boolean editHCMode = STATUS.EDIT_HEAD_CIRC.equals(status);
 
             if (STATUS.NONE.equals(status)) {
-                updateOptionsMenu(vaccineList, serviceRecords, weightList, alertList);
+                updateOptionsMenu(vaccineList, serviceRecords, weightList, headCircumferenceList, alertList);
                 childDataFragment.loadData(detailsMap);
             }
 
             childUnderFiveFragment.setDetailsMap(detailsMap);
             childUnderFiveFragment.loadWeightView(weightList, editWeightMode);
+            childUnderFiveFragment.loadHCView(headCircumferenceList, editHCMode);
             childUnderFiveFragment.updateVaccinationViews(vaccineList, alertList, editVaccineMode);
             childUnderFiveFragment.updateServiceViews(serviceTypeMap, serviceRecords, alertList, editServiceMode);
 
@@ -1345,6 +1412,12 @@ public class ChildDetailTabbedActivity extends BaseActivity implements Vaccinati
 
             NamedObject<List<Weight>> weightNamedObject = new NamedObject<>(Weight.class.getName(), weightList);
             map.put(weightNamedObject.name, weightNamedObject);
+
+            HeadCircumferenceRepository hcp = VaccinatorApplication.getInstance().headCircumferenceRepository();
+            List<HeadCircumference> headCircumferenceList = hcp.findLast5(childDetails.entityId());
+
+            NamedObject<List<HeadCircumference>> headNamedObject = new NamedObject<>(HeadCircumference.class.getName(), headCircumferenceList);
+            map.put(headNamedObject.name, headNamedObject);
 
             VaccineRepository vaccineRepository = VaccinatorApplication.getInstance().vaccineRepository();
             List<Vaccine> vaccineList = vaccineRepository.findByEntityId(childDetails.entityId());

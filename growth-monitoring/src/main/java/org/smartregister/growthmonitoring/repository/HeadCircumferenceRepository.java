@@ -22,8 +22,8 @@ import java.util.List;
 
 public class HeadCircumferenceRepository extends BaseRepository {
     private static final String TAG = HeadCircumferenceRepository.class.getCanonicalName();
-    private static final String HEADCIRCUMFERENCE_SQL = "CREATE TABLE HEADCIRCUMFEENCES (_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,base_entity_id VARCHAR NOT NULL,program_client_id VARCHAR NULL,kg REAL NOT NULL,date DATETIME NOT NULL,anmid VARCHAR NULL,location_id VARCHAR NULL,sync_status VARCHAR,updated_at INTEGER NULL)";
-    public static final String HEADCIRCUMFERENCE_TABLE_NAME = "HEADCIRCUMFEENCES";
+    private static final String HEADCIRCUMFERENCE_SQL = "CREATE TABLE headCircumferences (_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,base_entity_id VARCHAR NOT NULL,program_client_id VARCHAR NULL,inch REAL NOT NULL,date DATETIME NOT NULL,anmid VARCHAR NULL,location_id VARCHAR NULL,sync_status VARCHAR,updated_at INTEGER NULL)";
+    public static final String HEADCIRCUMFERENCE_TABLE_NAME = "headCircumferences";
     public static final String ID_COLUMN = "_id";
     public static final String BASE_ENTITY_ID = "base_entity_id";
     public static final String EVENT_ID = "event_id";
@@ -40,9 +40,9 @@ public class HeadCircumferenceRepository extends BaseRepository {
     public static final String Z_SCORE = "z_score";
     public static final double DEFAULT_Z_SCORE = 999999d;
     public static final String CREATED_AT = "created_at";
-    public static final String UPDATE_TABLE_ADD_TEAM_COL = "ALTER TABLE headcircumferences ADD COLUMN team VARCHAR;";
-    public static final String UPDATE_TABLE_ADD_TEAM_ID_COL = "ALTER TABLE headcircumferences ADD COLUMN team_id VARCHAR;";
-    public static final String UPDATE_TABLE_ADD_CHILD_LOCATION_ID_COL = "ALTER TABLE headcircumferences ADD COLUMN child_location_id VARCHAR;";
+    public static final String UPDATE_TABLE_ADD_TEAM_COL = "ALTER TABLE headCircumferences ADD COLUMN team VARCHAR;";
+    public static final String UPDATE_TABLE_ADD_TEAM_ID_COL = "ALTER TABLE headCircumferences ADD COLUMN team_id VARCHAR;";
+    public static final String UPDATE_TABLE_ADD_CHILD_LOCATION_ID_COL = "ALTER TABLE headCircumferences ADD COLUMN child_location_id VARCHAR;";
 
     public static final String[] HEADCIRCUMFERENCE_TABLE_COLUMNS = {
             ID_COLUMN, BASE_ENTITY_ID, PROGRAM_CLIENT_ID, INCH, DATE, ANMID, LOCATIONID, SYNC_STATUS,
@@ -74,58 +74,58 @@ public class HeadCircumferenceRepository extends BaseRepository {
     }
 
     /**
-     * This method sets the headcircumference's z-score, before adding it to the database
+     * This method sets the headCircumference's z-score, before adding it to the database
      *
      * @param dateOfBirth
      * @param gender
-     * @param headcircumference
+     * @param headCircumference
      */
-    public void add(Date dateOfBirth, Gender gender, HeadCircumference headcircumference) {
-        headcircumference.setZScore(HCZScore.calculate(gender, dateOfBirth, headcircumference.getDate(), headcircumference.getInch()));
-        add(headcircumference);
+    public void add(Date dateOfBirth, Gender gender, HeadCircumference headCircumference) {
+        headCircumference.setZScore(HCZScore.calculate(gender, dateOfBirth, headCircumference.getDate(), headCircumference.getInch()));
+        add(headCircumference);
     }
 
-    public void add(HeadCircumference headcircumference) {
+    public void add(HeadCircumference headCircumference) {
         try {
-            if (headcircumference == null) {
+            if (headCircumference == null) {
                 return;
             }
-            if (StringUtils.isBlank(headcircumference.getSyncStatus())) {
-                headcircumference.setSyncStatus(TYPE_Unsynced);
+            if (StringUtils.isBlank(headCircumference.getSyncStatus())) {
+                headCircumference.setSyncStatus(TYPE_Unsynced);
             }
-            if (StringUtils.isBlank(headcircumference.getFormSubmissionId())) {
-                headcircumference.setFormSubmissionId(generateRandomUUIDString());
+            if (StringUtils.isBlank(headCircumference.getFormSubmissionId())) {
+                headCircumference.setFormSubmissionId(generateRandomUUIDString());
             }
 
 
-            if (headcircumference.getUpdatedAt() == null) {
-                headcircumference.setUpdatedAt(Calendar.getInstance().getTimeInMillis());
+            if (headCircumference.getUpdatedAt() == null) {
+                headCircumference.setUpdatedAt(Calendar.getInstance().getTimeInMillis());
             }
 
             SQLiteDatabase database = getRepository().getWritableDatabase();
-            if (headcircumference.getId() == null) {
-                HeadCircumference sameHeadcircumference = findUnique(database, headcircumference);
-                if (sameHeadcircumference != null) {
-                    headcircumference.setUpdatedAt(sameHeadcircumference.getUpdatedAt());
-                    headcircumference.setId(sameHeadcircumference.getId());
-                    update(database, headcircumference);
+            if (headCircumference.getId() == null) {
+                HeadCircumference sameHeadCircumference = findUnique(database, headCircumference);
+                if (sameHeadCircumference != null) {
+                    headCircumference.setUpdatedAt(sameHeadCircumference.getUpdatedAt());
+                    headCircumference.setId(sameHeadCircumference.getId());
+                    update(database, headCircumference);
                 } else {
-                    if (headcircumference.getCreatedAt() == null) {
-                        headcircumference.setCreatedAt(new Date());
+                    if (headCircumference.getCreatedAt() == null) {
+                        headCircumference.setCreatedAt(new Date());
                     }
-                    headcircumference.setId(database.insert(HEADCIRCUMFERENCE_TABLE_NAME, null, createValuesFor(headcircumference)));
+                    headCircumference.setId(database.insert(HEADCIRCUMFERENCE_TABLE_NAME, null, createValuesFor(headCircumference)));
                 }
             } else {
-                headcircumference.setSyncStatus(TYPE_Unsynced);
-                update(database, headcircumference);
+                headCircumference.setSyncStatus(TYPE_Unsynced);
+                update(database, headCircumference);
             }
         } catch (Exception e) {
             Log.e(TAG, Log.getStackTraceString(e));
         }
     }
 
-    public void update(SQLiteDatabase database, HeadCircumference headcircumference) {
-        if (headcircumference == null || headcircumference.getId() == null) {
+    public void update(SQLiteDatabase database, HeadCircumference headCircumference) {
+        if (headCircumference == null || headCircumference.getId() == null) {
             return;
         }
 
@@ -138,14 +138,14 @@ public class HeadCircumferenceRepository extends BaseRepository {
             }
 
             String idSelection = ID_COLUMN + " = ?";
-            db.update(HEADCIRCUMFERENCE_TABLE_NAME, createValuesFor(headcircumference), idSelection, new String[]{headcircumference.getId().toString()});
+            db.update(HEADCIRCUMFERENCE_TABLE_NAME, createValuesFor(headCircumference), idSelection, new String[]{headCircumference.getId().toString()});
         } catch (Exception e) {
             Log.e(TAG, Log.getStackTraceString(e));
         }
     }
 
     public List<HeadCircumference> findUnSyncedBeforeTime(int hours) {
-        List<HeadCircumference> headcircumferences = new ArrayList<>();
+        List<HeadCircumference> headCircumferences = new ArrayList<>();
         Cursor cursor = null;
         try {
 
@@ -155,7 +155,7 @@ public class HeadCircumferenceRepository extends BaseRepository {
             Long time = calendar.getTimeInMillis();
 
             cursor = getRepository().getReadableDatabase().query(HEADCIRCUMFERENCE_TABLE_NAME, HEADCIRCUMFERENCE_TABLE_COLUMNS, UPDATED_AT_COLUMN + " < ? " + COLLATE_NOCASE + " AND " + SYNC_STATUS + " = ? " + COLLATE_NOCASE, new String[]{time.toString(), TYPE_Unsynced}, null, null, null, null);
-            headcircumferences = readAllHeadcircumferences(cursor);
+            headCircumferences = readAllHeadCircumferences(cursor);
         } catch (Exception e) {
             Log.e(TAG, Log.getStackTraceString(e));
         } finally {
@@ -163,18 +163,18 @@ public class HeadCircumferenceRepository extends BaseRepository {
                 cursor.close();
             }
         }
-        return headcircumferences;
+        return headCircumferences;
     }
 
     public HeadCircumference findUnSyncedByEntityId(String entityId) {
-        HeadCircumference headcircumference = null;
+        HeadCircumference headCircumference = null;
         Cursor cursor = null;
         try {
 
             cursor = getRepository().getReadableDatabase().query(HEADCIRCUMFERENCE_TABLE_NAME, HEADCIRCUMFERENCE_TABLE_COLUMNS, BASE_ENTITY_ID + " = ? " + COLLATE_NOCASE + " AND " + SYNC_STATUS + " = ? ", new String[]{entityId, TYPE_Unsynced}, null, null, UPDATED_AT_COLUMN + COLLATE_NOCASE + " DESC", null);
-            List<HeadCircumference> headcircumferences = readAllHeadcircumferences(cursor);
-            if (!headcircumferences.isEmpty()) {
-                headcircumference = headcircumferences.get(0);
+            List<HeadCircumference> headCircumferences = readAllHeadCircumferences(cursor);
+            if (!headCircumferences.isEmpty()) {
+                headCircumference = headCircumferences.get(0);
             }
         } catch (Exception e) {
             Log.e(TAG, Log.getStackTraceString(e));
@@ -183,15 +183,15 @@ public class HeadCircumferenceRepository extends BaseRepository {
                 cursor.close();
             }
         }
-        return headcircumference;
+        return headCircumference;
     }
 
     public List<HeadCircumference> findByEntityId(String entityId) {
-        List<HeadCircumference> headcircumferences = null;
+        List<HeadCircumference> headCircumferences = null;
         Cursor cursor = null;
         try {
             cursor = getRepository().getReadableDatabase().query(HEADCIRCUMFERENCE_TABLE_NAME, HEADCIRCUMFERENCE_TABLE_COLUMNS, BASE_ENTITY_ID + " = ? " + COLLATE_NOCASE, new String[]{entityId}, null, null, null, null);
-            headcircumferences = readAllHeadcircumferences(cursor);
+            headCircumferences = readAllHeadCircumferences(cursor);
         } catch (Exception e) {
             Log.e(TAG, Log.getStackTraceString(e));
         } finally {
@@ -200,7 +200,7 @@ public class HeadCircumferenceRepository extends BaseRepository {
             }
         }
 
-        return headcircumferences;
+        return headCircumferences;
     }
 
     public List<HeadCircumference> findWithNoZScore() {
@@ -209,7 +209,7 @@ public class HeadCircumferenceRepository extends BaseRepository {
         try {
             cursor = getRepository().getReadableDatabase().query(HEADCIRCUMFERENCE_TABLE_NAME,
                     HEADCIRCUMFERENCE_TABLE_COLUMNS, Z_SCORE + " = " + DEFAULT_Z_SCORE, null, null, null, null, null);
-            result = readAllHeadcircumferences(cursor);
+            result = readAllHeadCircumferences(cursor);
         } catch (Exception e) {
             Log.e(TAG, Log.getStackTraceString(e));
         } finally {
@@ -222,13 +222,13 @@ public class HeadCircumferenceRepository extends BaseRepository {
     }
 
     public HeadCircumference find(Long caseId) {
-        HeadCircumference headcircumference = null;
+        HeadCircumference headCircumference = null;
         Cursor cursor = null;
         try {
             cursor = getRepository().getReadableDatabase().query(HEADCIRCUMFERENCE_TABLE_NAME, HEADCIRCUMFERENCE_TABLE_COLUMNS, ID_COLUMN + " = ?", new String[]{caseId.toString()}, null, null, null, null);
-            List<HeadCircumference> headcircumferences = readAllHeadcircumferences(cursor);
-            if (!headcircumferences.isEmpty()) {
-                headcircumference = headcircumferences.get(0);
+            List<HeadCircumference> headCircumferences = readAllHeadCircumferences(cursor);
+            if (!headCircumferences.isEmpty()) {
+                headCircumference = headCircumferences.get(0);
             }
         } catch (Exception e) {
             Log.e(TAG, Log.getStackTraceString(e));
@@ -237,15 +237,15 @@ public class HeadCircumferenceRepository extends BaseRepository {
                 cursor.close();
             }
         }
-        return headcircumference;
+        return headCircumference;
     }
 
     public List<HeadCircumference> findLast5(String entityid) {
-        List<HeadCircumference> headcircumferenceList = new ArrayList<>();
+        List<HeadCircumference> headCircumferenceList = new ArrayList<>();
         Cursor cursor = null;
         try {
             cursor = getRepository().getReadableDatabase().query(HEADCIRCUMFERENCE_TABLE_NAME, HEADCIRCUMFERENCE_TABLE_COLUMNS, BASE_ENTITY_ID + " = ? " + COLLATE_NOCASE, new String[]{entityid}, null, null, UPDATED_AT_COLUMN + COLLATE_NOCASE + " DESC", null);
-            headcircumferenceList = readAllHeadcircumferences(cursor);
+            headCircumferenceList = readAllHeadCircumferences(cursor);
         } catch (Exception e) {
             Log.e(TAG, Log.getStackTraceString(e));
         } finally {
@@ -253,12 +253,12 @@ public class HeadCircumferenceRepository extends BaseRepository {
                 cursor.close();
             }
         }
-        return headcircumferenceList;
+        return headCircumferenceList;
     }
 
-    public HeadCircumference findUnique(SQLiteDatabase db, HeadCircumference headcircumference) {
+    public HeadCircumference findUnique(SQLiteDatabase db, HeadCircumference headCircumference) {
 
-        if (headcircumference == null || (StringUtils.isBlank(headcircumference.getFormSubmissionId()) && StringUtils.isBlank(headcircumference.getEventId()))) {
+        if (headCircumference == null || (StringUtils.isBlank(headCircumference.getFormSubmissionId()) && StringUtils.isBlank(headCircumference.getEventId()))) {
             return null;
         }
 
@@ -270,21 +270,21 @@ public class HeadCircumferenceRepository extends BaseRepository {
 
             String selection = null;
             String[] selectionArgs = null;
-            if (StringUtils.isNotBlank(headcircumference.getFormSubmissionId()) && StringUtils.isNotBlank(headcircumference.getEventId())) {
+            if (StringUtils.isNotBlank(headCircumference.getFormSubmissionId()) && StringUtils.isNotBlank(headCircumference.getEventId())) {
                 selection = FORMSUBMISSION_ID + " = ? " + COLLATE_NOCASE + " OR " + EVENT_ID + " = ? " + COLLATE_NOCASE;
-                selectionArgs = new String[]{headcircumference.getFormSubmissionId(), headcircumference.getEventId()};
-            } else if (StringUtils.isNotBlank(headcircumference.getEventId())) {
+                selectionArgs = new String[]{headCircumference.getFormSubmissionId(), headCircumference.getEventId()};
+            } else if (StringUtils.isNotBlank(headCircumference.getEventId())) {
                 selection = EVENT_ID + " = ? " + COLLATE_NOCASE;
-                selectionArgs = new String[]{headcircumference.getEventId()};
-            } else if (StringUtils.isNotBlank(headcircumference.getFormSubmissionId())) {
+                selectionArgs = new String[]{headCircumference.getEventId()};
+            } else if (StringUtils.isNotBlank(headCircumference.getFormSubmissionId())) {
                 selection = FORMSUBMISSION_ID + " = ? " + COLLATE_NOCASE;
-                selectionArgs = new String[]{headcircumference.getFormSubmissionId()};
+                selectionArgs = new String[]{headCircumference.getFormSubmissionId()};
             }
 
             Cursor cursor = database.query(HEADCIRCUMFERENCE_TABLE_NAME, HEADCIRCUMFERENCE_TABLE_COLUMNS, selection, selectionArgs, null, null, ID_COLUMN + " DESC ", null);
-            List<HeadCircumference> headcircumferenceList = readAllHeadcircumferences(cursor);
-            if (!headcircumferenceList.isEmpty()) {
-                return headcircumferenceList.get(0);
+            List<HeadCircumference> headCircumferenceList = readAllHeadCircumferences(cursor);
+            if (!headCircumferenceList.isEmpty()) {
+                return headCircumferenceList.get(0);
             }
         } catch (Exception e) {
             Log.e(TAG, Log.getStackTraceString(e));
@@ -327,8 +327,8 @@ public class HeadCircumferenceRepository extends BaseRepository {
         }
     }
 
-    private List<HeadCircumference> readAllHeadcircumferences(Cursor cursor) {
-        List<HeadCircumference> headcircumferences = new ArrayList<>();
+    private List<HeadCircumference> readAllHeadCircumferences(Cursor cursor) {
+        List<HeadCircumference> headCircumferences = new ArrayList<>();
         try {
             if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
                 while (!cursor.isAfterLast()) {
@@ -347,7 +347,7 @@ public class HeadCircumferenceRepository extends BaseRepository {
                         }
                     }
 
-                    headcircumferences.add(
+                    headCircumferences.add(
                             new HeadCircumference(cursor.getLong(cursor.getColumnIndex(ID_COLUMN)),
                                     cursor.getString(cursor.getColumnIndex(BASE_ENTITY_ID)),
                                     cursor.getString(cursor.getColumnIndex(PROGRAM_CLIENT_ID)),
@@ -375,27 +375,27 @@ public class HeadCircumferenceRepository extends BaseRepository {
                 cursor.close();
             }
         }
-        return headcircumferences;
+        return headCircumferences;
 
     }
 
 
-    private ContentValues createValuesFor(HeadCircumference headcircumference) {
+    private ContentValues createValuesFor(HeadCircumference headCircumference) {
         ContentValues values = new ContentValues();
-        values.put(ID_COLUMN, headcircumference.getId());
-        values.put(BASE_ENTITY_ID, headcircumference.getBaseEntityId());
-        values.put(PROGRAM_CLIENT_ID, headcircumference.getProgramClientId());
-        values.put(INCH, headcircumference.getInch());
-        values.put(DATE, headcircumference.getDate() != null ? headcircumference.getDate().getTime() : null);
-        values.put(ANMID, headcircumference.getAnmId());
-        values.put(LOCATIONID, headcircumference.getLocationId());
-        values.put(SYNC_STATUS, headcircumference.getSyncStatus());
-        values.put(UPDATED_AT_COLUMN, headcircumference.getUpdatedAt() != null ? headcircumference.getUpdatedAt() : null);
-        values.put(EVENT_ID, headcircumference.getEventId() != null ? headcircumference.getEventId() : null);
-        values.put(FORMSUBMISSION_ID, headcircumference.getFormSubmissionId() != null ? headcircumference.getFormSubmissionId() : null);
-        values.put(OUT_OF_AREA, headcircumference.getOutOfCatchment() != null ? headcircumference.getOutOfCatchment() : null);
-        values.put(Z_SCORE, headcircumference.getZScore() == null ? DEFAULT_Z_SCORE : headcircumference.getZScore());
-        values.put(CREATED_AT, headcircumference.getCreatedAt() != null ? EventClientRepository.dateFormat.format(headcircumference.getCreatedAt()) : null);
+        values.put(ID_COLUMN, headCircumference.getId());
+        values.put(BASE_ENTITY_ID, headCircumference.getBaseEntityId());
+        values.put(PROGRAM_CLIENT_ID, headCircumference.getProgramClientId());
+        values.put(INCH, headCircumference.getInch());
+        values.put(DATE, headCircumference.getDate() != null ? headCircumference.getDate().getTime() : null);
+        values.put(ANMID, headCircumference.getAnmId());
+        values.put(LOCATIONID, headCircumference.getLocationId());
+        values.put(SYNC_STATUS, headCircumference.getSyncStatus());
+        values.put(UPDATED_AT_COLUMN, headCircumference.getUpdatedAt() != null ? headCircumference.getUpdatedAt() : null);
+        values.put(EVENT_ID, headCircumference.getEventId() != null ? headCircumference.getEventId() : null);
+        values.put(FORMSUBMISSION_ID, headCircumference.getFormSubmissionId() != null ? headCircumference.getFormSubmissionId() : null);
+        values.put(OUT_OF_AREA, headCircumference.getOutOfCatchment() != null ? headCircumference.getOutOfCatchment() : null);
+        values.put(Z_SCORE, headCircumference.getZScore() == null ? DEFAULT_Z_SCORE : headCircumference.getZScore());
+        values.put(CREATED_AT, headCircumference.getCreatedAt() != null ? EventClientRepository.dateFormat.format(headCircumference.getCreatedAt()) : null);
         return values;
     }
 }

@@ -21,6 +21,9 @@ import org.smartregister.domain.jsonmapping.Table;
 import org.smartregister.growthmonitoring.domain.Weight;
 import org.smartregister.growthmonitoring.repository.WeightRepository;
 import org.smartregister.growthmonitoring.service.intent.WeightIntentService;
+import org.smartregister.growthmonitoring.domain.HeadCircumference;
+import org.smartregister.growthmonitoring.repository.HeadCircumferenceRepository;
+import org.smartregister.growthmonitoring.service.intent.HeadCIntentService;
 import org.smartregister.immunization.domain.ServiceRecord;
 import org.smartregister.immunization.domain.ServiceSchedule;
 import org.smartregister.immunization.domain.ServiceType;
@@ -72,6 +75,7 @@ public class PathClientProcessorForJava extends ClientProcessorForJava {
         ClientClassification clientClassification = assetJsonToJava("ec_client_classification.json", ClientClassification.class);
         Table vaccineTable = assetJsonToJava("ec_client_vaccine.json", Table.class);
         Table weightTable = assetJsonToJava("ec_client_weight.json", Table.class);
+        Table hcTable = assetJsonToJava("ec_client_head.json", Table.class);
         Table serviceTable = assetJsonToJava("ec_client_service.json", Table.class);
 
         if (!eventClients.isEmpty()) {
@@ -99,6 +103,12 @@ public class PathClientProcessorForJava extends ClientProcessorForJava {
                     }
 
                     processWeight(eventClient, weightTable, eventType.equals(WeightIntentService.EVENT_TYPE_OUT_OF_CATCHMENT));
+                } else if (eventType.equals(HeadCIntentService.EVENT_TYPE) || eventType.equals(HeadCIntentService.EVENT_TYPE_OUT_OF_CATCHMENT)) {
+                    if (hcTable == null) {
+                        continue;
+                    }
+
+                    processHeadCircumference(eventClient, hcTable, eventType.equals(HeadCIntentService.EVENT_TYPE_OUT_OF_CATCHMENT));
                 } else if (eventType.equals(RecurringIntentService.EVENT_TYPE)) {
                     if (serviceTable == null) {
                         continue;
@@ -182,6 +192,64 @@ public class PathClientProcessorForJava extends ClientProcessorForJava {
         }
     }
 
+    private Boolean processHeadCircumference(EventClient headCircumference, Table hcTable, boolean outOfCatchment) throws Exception {
+
+        try {
+
+            if (headCircumference == null || headCircumference.getEvent() == null) {
+                return false;
+            }
+
+            if (hcTable == null) {
+                return false;
+            }
+
+            Log.d(TAG, "Starting processHeadCircumference table: " + hcTable.name);
+
+            ContentValues contentValues = processCaseModel(headCircumference, hcTable);
+
+            // save the values to db
+            if (contentValues != null && contentValues.size() > 0) {
+                String eventDateStr = contentValues.getAsString(HeadCircumferenceRepository.DATE);
+                Date date = getDate(eventDateStr);
+
+                HeadCircumferenceRepository headCircumferenceRepository = VaccinatorApplication.getInstance().headCircumferenceRepository();
+                HeadCircumference headCircumferenceObj = new HeadCircumference();
+                headCircumferenceObj.setBaseEntityId(contentValues.getAsString(HeadCircumferenceRepository.BASE_ENTITY_ID));
+                if (contentValues.containsKey(HeadCircumferenceRepository.INCH)) {
+                    headCircumferenceObj.setInch(parseFloat(contentValues.getAsString(HeadCircumferenceRepository.INCH)));
+                }
+                headCircumferenceObj.setDate(date);
+                headCircumferenceObj.setAnmId(contentValues.getAsString(HeadCircumferenceRepository.ANMID));
+                headCircumferenceObj.setLocationId(contentValues.getAsString(HeadCircumferenceRepository.LOCATIONID));
+                headCircumferenceObj.setSyncStatus(HeadCircumferenceRepository.TYPE_Synced);
+                headCircumferenceObj.setFormSubmissionId(headCircumference.getEvent().getFormSubmissionId());
+                headCircumferenceObj.setEventId(headCircumference.getEvent().getEventId());
+                headCircumferenceObj.setOutOfCatchment(outOfCatchment ? 1 : 0);
+
+                if (contentValues.containsKey(HeadCircumferenceRepository.Z_SCORE)) {
+                    String zscoreString = contentValues.getAsString(HeadCircumferenceRepository.Z_SCORE);
+                    if (NumberUtils.isNumber(zscoreString)) {
+                        headCircumferenceObj.setZScore(Double.valueOf(zscoreString));
+                    }
+                }
+
+                String createdAtString = contentValues.getAsString(HeadCircumferenceRepository.CREATED_AT);
+                Date createdAt = getDate(createdAtString);
+                headCircumferenceObj.setCreatedAt(createdAt);
+
+                headCircumferenceRepository.add(headCircumferenceObj);
+
+                Log.d(TAG, "Ending processHeadCircumference table: " + hcTable.name);
+            }
+            return true;
+
+        } catch (Exception e) {
+            Log.e(TAG, "Process Head Circumference Error", e);
+            return null;
+        }
+    }
+
     private Boolean processWeight(EventClient weight, Table weightTable, boolean outOfCatchment) throws Exception {
 
         try {
@@ -239,7 +307,6 @@ public class PathClientProcessorForJava extends ClientProcessorForJava {
             return null;
         }
     }
-
     private Boolean processService(EventClient service, Table serviceTable) throws Exception {
 
         try {

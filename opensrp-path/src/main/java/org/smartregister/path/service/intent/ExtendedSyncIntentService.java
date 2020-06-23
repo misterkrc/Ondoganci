@@ -8,6 +8,7 @@ import org.smartregister.path.application.VaccinatorApplication;
 import org.smartregister.path.receiver.VaccinatorAlarmReceiver;
 import org.smartregister.path.service.intent.path.PathStockSyncIntentService;
 import org.smartregister.path.service.intent.path.PathZScoreRefreshIntentService;
+import org.smartregister.path.service.intent.path.PathHCZScoreRefreshIntentService;
 import org.smartregister.service.ActionService;
 
 import util.NetworkUtils;
@@ -43,6 +44,7 @@ public class ExtendedSyncIntentService extends IntentService {
             startSyncValidation(wakeup);
         }
         startZscoreRefresh(wakeup);
+        startHCZscoreRefresh(wakeup);
 
         VaccinatorAlarmReceiver.completeWakefulIntent(workIntent);
     }
@@ -57,6 +59,10 @@ public class ExtendedSyncIntentService extends IntentService {
 
     private void startZscoreRefresh(boolean wakeup) {
         ServiceTools.startService(context, PathZScoreRefreshIntentService.class, wakeup);
+    }
+
+    private void startHCZscoreRefresh(boolean wakeup) {
+        ServiceTools.startService(context, PathHCZScoreRefreshIntentService.class, wakeup);
     }
 
 }

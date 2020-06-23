@@ -22,6 +22,11 @@ import org.smartregister.growthmonitoring.domain.WeightWrapper;
 import org.smartregister.growthmonitoring.fragment.EditWeightDialogFragment;
 import org.smartregister.growthmonitoring.repository.WeightRepository;
 import org.smartregister.growthmonitoring.util.WeightUtils;
+import org.smartregister.growthmonitoring.domain.HeadCircumference;
+import org.smartregister.growthmonitoring.domain.HCWrapper;
+import org.smartregister.growthmonitoring.fragment.EditHCDialogFragment;
+import org.smartregister.growthmonitoring.repository.HeadCircumferenceRepository;
+import org.smartregister.growthmonitoring.util.HeadCircumferenceUtils;
 import org.smartregister.immunization.domain.ServiceRecord;
 import org.smartregister.immunization.domain.ServiceType;
 import org.smartregister.immunization.domain.ServiceWrapper;
@@ -69,6 +74,7 @@ public class ChildUnderFiveFragment extends Fragment {
     private Boolean curVaccineMode;
     private Boolean curServiceMode;
     private Boolean curWeightMode;
+    private Boolean curHCMode;
 
     public static ChildUnderFiveFragment newInstance(Bundle bundle) {
         Bundle args = bundle;
@@ -115,6 +121,14 @@ public class ChildUnderFiveFragment extends Fragment {
             createPTCMTVIEW(fragmentContainer, "PMTCT: ", getValue(childDetails.getColumnmaps(), "pmtct_status", true));
             createWeightLayout(weightList, fragmentContainer, editWeightMode);
             curWeightMode = editWeightMode;
+        }
+    }
+    public void loadHCView(List<HeadCircumference> headCircumferenceList, boolean editHCMode) {
+        boolean showHC = curHCMode == null || !curHCMode.equals(editHCMode);
+        if (fragmentContainer != null && showHC) {
+            createPTCMTVIEW(fragmentContainer, "PMTCT: ", getValue(childDetails.getColumnmaps(), "pmtct_status", true));
+            createHCLayout(headCircumferenceList, fragmentContainer, editHCMode);
+            curHCMode = editHCMode;
         }
     }
 
@@ -181,6 +195,72 @@ public class ChildUnderFiveFragment extends Fragment {
         WidgetFactory wd = new WidgetFactory();
         if (weightMap.size() > 0) {
             wd.createWeightWidget(inflater, fragmentContainer, weightMap, listeners, weightEditMode);
+        }
+    }
+
+    private void createHCLayout(List<HeadCircumference> headCircumferences, LinearLayout fragmentContainer, boolean editmode) {
+        LinkedHashMap<Long, Pair<String, String>> headCircumferenceMap = new LinkedHashMap<>();
+        ArrayList<Boolean> hcEditMode = new ArrayList<>();
+        ArrayList<View.OnClickListener> listeners = new ArrayList<>();
+
+        List<HeadCircumference> headCircumferenceList = new ArrayList<>();
+        if (headCircumferences != null && !headCircumferences.isEmpty()) {
+            if (headCircumferences.size() <= 5) {
+                headCircumferenceList = headCircumferences;
+            } else {
+                headCircumferenceList = headCircumferences.subList(0, 5);
+            }
+        }
+
+        for (int i = 0; i < headCircumferenceList.size(); i++) {
+            HeadCircumference headCircumference = headCircumferenceList.get(i);
+            String formattedAge = "";
+            if (headCircumference.getDate() != null) {
+                Date hctaken = headCircumference.getDate();
+                String birthdate = getValue(childDetails.getColumnmaps(), PathConstants.EC_CHILD_TABLE.DOB, false);
+                Date birth = util.Utils.dobStringToDate(birthdate);
+                if (birth != null) {
+                    long timeDiff = hctaken.getTime() - birth.getTime();
+                    Log.v("timeDiff is ", timeDiff + "");
+                    if (timeDiff >= 0) {
+                        formattedAge = DateUtil.getDuration(timeDiff);
+                        Log.v("age is ", formattedAge);
+                    }
+                }
+            }
+
+            if (!formattedAge.equalsIgnoreCase("0d")) {
+                headCircumferenceMap.put(headCircumference.getId(), Pair.create(formattedAge, Utils.kgStringSuffix(headCircumference.getInch())));
+
+                boolean lessThanThreeMonthsEventCreated = HeadCircumferenceUtils.lessThanThreeMonths(headCircumference);
+                if (lessThanThreeMonthsEventCreated) {
+                    hcEditMode.add(editmode);
+                } else {
+                    hcEditMode.add(false);
+                }
+
+                final int finalI = i;
+                View.OnClickListener onClickListener = new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        showHCDialog(finalI);
+                    }
+                };
+                listeners.add(onClickListener);
+            }
+
+        }
+
+        if (headCircumferenceMap.size() < 5) {
+            headCircumferenceMap.put(0l, Pair.create(DateUtil.getDuration(0), getValue(detailsMap, "Birth_Head_Circumference", true) + " inch"));
+            hcEditMode.add(false);
+            listeners.add(null);
+        }
+
+        WidgetFactory wd = new WidgetFactory();
+        if (headCircumferenceMap.size() > 0) {
+            wd.createHCWidget(inflater, fragmentContainer, headCircumferenceMap, listeners, hcEditMode);
         }
     }
 
@@ -374,6 +454,61 @@ public class ChildUnderFiveFragment extends Fragment {
 
         EditWeightDialogFragment editWeightDialogFragment = EditWeightDialogFragment.newInstance(getActivity(), dob, weightWrapper);
         editWeightDialogFragment.show(ft, DIALOG_TAG);
+
+    }
+
+    public void showHCDialog(int i) {
+        FragmentTransaction ft = getActivity().getFragmentManager().beginTransaction();
+        android.app.Fragment prev = getActivity().getFragmentManager().findFragmentByTag(DIALOG_TAG);
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+
+
+        String childName = constructChildName();
+        String gender = getValue(childDetails.getColumnmaps(), "gender", true);
+        String motherFirstName = getValue(childDetails.getColumnmaps(), "mother_first_name", true);
+        if (StringUtils.isBlank(childName) && StringUtils.isNotBlank(motherFirstName)) {
+            childName = "B/o " + motherFirstName.trim();
+        }
+        String zeirId = getValue(childDetails.getColumnmaps(), "zeir_id", false);
+        String duration = "";
+        String dobString = getValue(childDetails.getColumnmaps(), PathConstants.EC_CHILD_TABLE.DOB, false);
+        DateTime dateTime = util.Utils.dobStringToDateTime(dobString);
+
+        Date dob = null;
+        if (dateTime != null) {
+            duration = DateUtil.getDuration(dateTime);
+            dob = dateTime.toDate();
+        }
+
+        if (dob == null) {
+            dob = Calendar.getInstance().getTime();
+        }
+
+        Photo photo = getProfilePhotoByClient();
+
+        HCWrapper hcWrapper = new HCWrapper();
+        hcWrapper.setId(childDetails.entityId());
+
+        HeadCircumferenceRepository headCircumferenceRepository = VaccinatorApplication.getInstance().headCircumferenceRepository();
+        List<HeadCircumference> headCircumferenceList = headCircumferenceRepository.findByEntityId(childDetails.entityId());
+        if (!headCircumferenceList.isEmpty()) {
+            hcWrapper.setHeadCircumference(headCircumferenceList.get(i).getInch());
+            hcWrapper.setUpdatedHCDate(new DateTime(headCircumferenceList.get(i).getDate()), false);
+            hcWrapper.setDbKey(headCircumferenceList.get(i).getId());
+        }
+
+        hcWrapper.setGender(gender);
+        hcWrapper.setPatientName(childName);
+        hcWrapper.setPatientNumber(zeirId);
+        hcWrapper.setPatientAge(duration);
+        hcWrapper.setPhoto(photo);
+        hcWrapper.setPmtctStatus(getValue(childDetails.getColumnmaps(), ChildDetailTabbedActivity.PMTCT_STATUS_LOWER_CASE, false));
+
+        EditHCDialogFragment editHCDialogFragment = EditHCDialogFragment.newInstance(getActivity(), dob, hcWrapper);
+        editHCDialogFragment.show(ft, DIALOG_TAG);
 
     }
 
